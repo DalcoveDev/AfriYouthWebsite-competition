@@ -5,6 +5,7 @@ import SiteFooter from "@/components/SiteFooter";
 import SiteScripts from "@/components/SiteScripts";
 import { SITE_URL } from "@/lib/metadata";
 import "../styles/styles.css";
+import "../styles/pages.css";
 
 const poppins = localFont({
   src: [
@@ -33,11 +34,11 @@ const jakarta = localFont({
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "AfriYouth Innovation Labs — Fueling Innovators for Sustainable Development",
+    default: "AfriYouth Innovation Labs — From Evidence to Impact",
     template: "%s — AfriYouth Innovation Labs",
   },
   description:
-    "AfriYouth Innovation Labs is a research, innovation and policy consultancy empowering Africa's youth to generate evidence, shape policy and build scalable solutions for the SDGs.",
+    "AfriYouth Innovation Labs is a research, innovation and policy consulting firm connecting evidence, policy, human-centred design, entrepreneurship and foresight to turn young people’s ideas into lasting systems change across Africa.",
   applicationName: "AfriYouth Innovation Labs",
   authors: [{ name: "AfriYouth Innovation Labs" }],
   alternates: { canonical: "/" },
@@ -52,13 +53,13 @@ export const metadata = {
     url: "/",
     title: "AfriYouth Innovation Labs",
     description:
-      "Fueling innovators for sustainable development. Research, policy, human-centred design and entrepreneurship for Africa's next generation.",
+      "Research. Design. Innovate. Transform. A lab connecting evidence, policy, design, enterprise and foresight for Africa’s next generation.",
     images: [
       {
         url: "/assets/img/og-afriyouth.png",
         width: 1200,
         height: 630,
-        alt: "AfriYouth Innovation Labs — Fueling Innovators for Sustainable Development",
+        alt: "AfriYouth Innovation Labs — From Evidence to Impact",
       },
     ],
   },
@@ -66,7 +67,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "AfriYouth Innovation Labs",
     description:
-      "Fueling innovators for sustainable development. Research, policy, human-centred design and entrepreneurship for Africa's next generation.",
+      "Research. Design. Innovate. Transform. A lab connecting evidence, policy, design, enterprise and foresight for Africa’s next generation.",
     images: ["/assets/img/og-afriyouth.png"],
   },
 };
@@ -77,10 +78,10 @@ const organizationSchema = {
   name: "AfriYouth Innovation Labs",
   url: SITE_URL,
   logo: `${SITE_URL}/brand/logo-mark.svg`,
-  slogan: "Fueling Innovators for Sustainable Development",
+  slogan: "From Evidence to Impact.",
   email: "hello@afriyouthlabs.org",
   description:
-    "A youth-centred research, innovation and policy consultancy turning community-driven ideas into practical, scalable solutions across Africa.",
+    "A research, innovation and policy consulting firm turning community-driven ideas into practical, scalable solutions across Africa.",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Kigali",
@@ -102,6 +103,7 @@ export default function RootLayout({ children }) {
        server HTML. The body also tolerates attributes injected by extensions. */
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={`no-js ${poppins.variable} ${jakarta.variable}`}
       suppressHydrationWarning
     >

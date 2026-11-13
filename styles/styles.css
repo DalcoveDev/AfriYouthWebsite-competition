@@ -66,14 +66,10 @@
 
 html {
   scroll-behavior: smooth;
-  /* Sticky header height + progress bar, so anchors and snapped sections sit
-     flush beneath the header instead of leaving a strip of the previous one. */
+  /* Sticky header height + progress bar, so anchors sit flush beneath the
+     header instead of leaving a strip of the previous section visible. */
   scroll-padding-top: 5.25rem;
   -webkit-text-size-adjust: 100%;
-  /* Sections come to rest on screen one at a time. Proximity (not mandatory)
-     means a section taller than the viewport still scrolls continuously — the
-     snap only pulls when a section boundary is already near. */
-  scroll-snap-type: y proximity;
 }
 
 body {
@@ -204,16 +200,9 @@ li {
   color: var(--white);
 }
 
-/* ---------- Section snapping ---------- */
+/* ---------- Section rhythm ---------- */
 main > section {
-  scroll-snap-align: start;
-}
-
-/* Snapping only helps when a section can fit on screen. */
-@media (max-height: 620px) {
-  html {
-    scroll-snap-type: none;
-  }
+  scroll-margin-top: 1rem;
 }
 
 .section-rule {
@@ -1397,11 +1386,11 @@ body.menu-open .nav-toggle span:nth-child(3) {
 }
 
 .page-hero .h1 em {
-  color: transparent;
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--ink);
+  background-image: linear-gradient(var(--pink), var(--pink));
+  background-repeat: no-repeat;
+  background-position: 0 92%;
+  background-size: 100% 0.13em;
   font-style: normal;
   font-weight: 600;
 }

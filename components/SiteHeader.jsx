@@ -24,16 +24,16 @@ export default function SiteHeader() {
               <i />
               <i />
             </span>
-            Fueling Innovators for Sustainable Development
+            From Evidence to Impact
           </span>
           <span className="announce__rule" aria-hidden="true" />
           <span className="announce__news">
-            Applications open <span className="announce__word">for the</span> AfriYouth
-            Innovation Accelerator, Cohort 01
+            Policy Innovation Challenge{" "}
+            <span className="announce__word">· Cohort 01</span> applications open
           </span>
           <Link
-            href="/programs#innovation-accelerator"
-            aria-label="Explore the AfriYouth Innovation Accelerator"
+            href="/programs#policy-challenge"
+            aria-label="Explore the Policy Innovation Challenge"
           >
             Explore <span aria-hidden="true">↗</span>
           </Link>
@@ -72,17 +72,17 @@ export default function SiteHeader() {
               href="/contact"
               aria-current={isCurrent("/contact") ? "page" : undefined}
             >
-              Start a conversation <span aria-hidden="true">↗</span>
+              Get in touch <span aria-hidden="true">↗</span>
             </Link>
           </nav>
 
           <div className="header__actions">
             <Link
-              className="btn btn--gradient btn--sm header-cta"
+              className="btn btn--primary btn--sm header-cta"
               href="/contact"
               aria-current={isCurrent("/contact") ? "page" : undefined}
             >
-              Let&rsquo;s collaborate <span className="btn__icon" aria-hidden="true">↗</span>
+              Let's collaborate <span className="btn__icon" aria-hidden="true">↗</span>
             </Link>
             <button
               className="nav-toggle"

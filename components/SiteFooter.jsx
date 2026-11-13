@@ -14,7 +14,7 @@ const focusLinks = [
   { href: "/work#policy", label: "Policy & Governance" },
   { href: "/work#innovation", label: "Innovation & Entrepreneurship" },
   { href: "/work#foresight", label: "Strategic Foresight" },
-  { href: "/work#leadership", label: "Leadership & Capacity Development" },
+  { href: "/work#academy", label: "Career & Professional Development" },
 ];
 
 const connectLinks = [
@@ -44,11 +44,11 @@ export default function SiteFooter() {
                 <span className="brand__sub brand__sub--light">Innovation Labs</span>
               </span>
             </Link>
-            <p className="footer__tagline">Fueling Innovators for Sustainable Development.</p>
+            <p className="footer__tagline">From Evidence to Impact.</p>
             <p>
-              A research, innovation, and policy consulting firm advancing young
-              people&rsquo;s ideas and evidence-based solutions for Africa&rsquo;s
-              socio-economic transformation.
+              A research, innovation and policy consulting firm connecting evidence,
+              design, entrepreneurship and foresight to turn young people&rsquo;s
+              ideas into lasting systems change.
             </p>
             <a className="footer__email" href="mailto:hello@afriyouthlabs.org">
               hello@afriyouthlabs.org
@@ -99,7 +99,8 @@ export default function SiteFooter() {
           <p>
             © AfriYouth Innovation Labs. All rights reserved.
             <br />
-            Privacy Policy <span aria-hidden="true">|</span> Terms of Use
+            <Link href="/privacy">Privacy Policy</Link>{" "}
+            <span aria-hidden="true">|</span> <Link href="/terms">Terms of Use</Link>
           </p>
           <a className="footer__top-link" href="#main">
             Back to top <span aria-hidden="true">↑</span>
