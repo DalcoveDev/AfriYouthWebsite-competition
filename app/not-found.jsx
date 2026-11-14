@@ -29,7 +29,7 @@ export default function NotFound() {
                 </p>
                 <div className="page-hero__meta">
                   <span className="chip">Wrong turn</span>
-                  <span className="chip">Kigali · Rwanda</span>
+                  <span className="chip">Africa and beyond</span>
                 </div>
                 <nav className="page-hero__actions" aria-label="Ways back into the site">
                   <Link className="btn btn--gradient" href="/">
@@ -86,14 +86,14 @@ export default function NotFound() {
             </div>
           </div>
           <div className="cta-band__ring" aria-hidden="true" />
-          <svg
-            className="cta-band__star"
-            viewBox="0 0 64 64"
+          <img
+            className="cta-band__mark"
+            src="/brand/logo-mark-white.svg"
+            width={64}
+            height={91}
+            alt=""
             aria-hidden="true"
-            fill="currentColor"
-          >
-            <path d="M32 0l4.8 24.1L64 32l-27.2 7.9L32 64l-4.8-24.1L0 32l27.2-7.9L32 0Z" />
-          </svg>
+          />
         </section>
       </main>
     </>

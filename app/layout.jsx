@@ -34,17 +34,18 @@ const jakarta = localFont({
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "AfriYouth Innovation Labs — From Evidence to Impact",
+    default: "AfriYouth Innovation Labs — Fueling Innovators for Sustainable Development",
     template: "%s — AfriYouth Innovation Labs",
   },
   description:
-    "AfriYouth Innovation Labs is a research, innovation and policy consulting firm connecting evidence, policy, human-centred design, entrepreneurship and foresight to turn young people’s ideas into lasting systems change across Africa.",
+    "AfriYouth Innovation Labs is a research, innovation and policy consulting firm that identifies, nurtures and advances promising ideas from Africa’s young innovators to address the Sustainable Development Goals.",
   applicationName: "AfriYouth Innovation Labs",
   authors: [{ name: "AfriYouth Innovation Labs" }],
   alternates: { canonical: "/" },
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
     shortcut: ["/favicon.svg"],
+    apple: [{ url: "/brand/logo-badge.svg", type: "image/svg+xml" }],
   },
   openGraph: {
     type: "website",
@@ -59,7 +60,7 @@ export const metadata = {
         url: "/assets/img/og-afriyouth.png",
         width: 1200,
         height: 630,
-        alt: "AfriYouth Innovation Labs — From Evidence to Impact",
+        alt: "AfriYouth Innovation Labs — Fueling Innovators for Sustainable Development",
       },
     ],
   },
@@ -78,15 +79,10 @@ const organizationSchema = {
   name: "AfriYouth Innovation Labs",
   url: SITE_URL,
   logo: `${SITE_URL}/brand/logo-mark.svg`,
-  slogan: "From Evidence to Impact.",
+  slogan: "Fueling Innovators for Sustainable Development",
   email: "hello@afriyouthlabs.org",
   description:
-    "A research, innovation and policy consulting firm turning community-driven ideas into practical, scalable solutions across Africa.",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Kigali",
-    addressCountry: "RW",
-  },
+    "A research, innovation and policy consulting firm turning community-driven ideas into practical and scalable solutions across Africa and beyond.",
   areaServed: "Africa",
 };
 

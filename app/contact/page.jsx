@@ -23,24 +23,24 @@ const paths = [
 
 const faqs = [
   {
-    q: "How quickly will I hear back?",
-    a: "We aim to respond within 3–5 working days. If your enquiry is time-sensitive, say so in the subject line or in your message and we’ll do our best to prioritise it.",
-  },
-  {
     q: "I’m interested in a programme. What should I include?",
-    a: "Tell us which programme you’re interested in, where you are in your journey and any access needs. If you’re unsure which programme fits, describe what you want to learn and change — we’ll help you find the right one.",
+    a: "Tell us which programme or lab you’re asking about — the Innovation Accelerator, the Policy Innovation Challenge, the Employability Bootcamp, the University Employability Programme or the Professional Skills Academy — and what you want to learn or change.",
   },
   {
-    q: "Can we co-design a programme or research project?",
-    a: "Yes. We work with development partners, public institutions, foundations, universities and businesses on tailored research, labs and learning experiences. Select “Research & advisory” and tell us about your mandate.",
+    q: "Can we commission research or partner on a project?",
+    a: "Yes. Our Research & Evidence Lab produces applied research, surveys and evidence reports; the Policy & Governance Lab translates research into policy options; and our supportive services cover impact and learning, funding and investment readiness. Select “Research & advisory” and tell us about your mandate.",
   },
   {
-    q: "Do you accept proposals from young researchers?",
-    a: "We welcome them. Send a short note with your research question, why it matters and the experience you bring. We read every one and will point you toward useful openings where we can.",
+    q: "Which services run across all your work?",
+    a: "Impact & Learning Services and Funding & Investment Readiness. Resource mobilisation and partnerships act as a cross-cutting commercial service across all five divisions.",
   },
   {
-    q: "Where are you based?",
-    a: "Our home base is Kigali, Rwanda, and our work reaches across the continent. Many of our programmes and partnerships are hybrid or remote, with in-person moments where they add value.",
+    q: "Who does the Career & Professional Development Academy serve?",
+    a: "Graduates through the Employability Bootcamp, university students through the University Employability Programme, and young professionals through the Professional Skills Academy.",
+  },
+  {
+    q: "Where does AfriYouth work?",
+    a: "Across Africa and beyond. We identify, nurture and advance promising ideas from Africa’s young innovators to address the Sustainable Development Goals.",
   },
 ];
 
@@ -200,9 +200,9 @@ export default function ContactPage() {
                 </a>
                 <div className="contact-panel__row">
                   <p>
-                    {brand.location}
-                    <br />
                     Working across Africa
+                    <br />
+                    and beyond
                   </p>
                   <button
                     className="copy-btn"
@@ -230,9 +230,9 @@ export default function ContactPage() {
 
             <div className="contact-side-note reveal">
               <p>
-                <strong>We read every message.</strong>
-                We aim to respond within 3–5 working days. For programme-specific
-                questions, include the programme name so we can help you faster.
+                <strong>A little context goes a long way.</strong>
+                Name the programme, lab or service you’re asking about, and the question
+                or decision behind it.
               </p>
             </div>
           </div>

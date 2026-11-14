@@ -35,18 +35,22 @@ export default function ChapterRail() {
   }, []);
 
   return (
-    <nav className="trail-rail" aria-label="Homepage chapters">
-      <ol className="trail-rail__list">
+    <nav className="fixed top-1/2 -translate-y-1/2 right-0 z-50 w-16 h-full border-l border-border/50 backdrop-blur-lg p-4 md:hidden">
+      <ol className="trail-rail__list space-y-1">
         {chapters.map((chapter) => (
           <li key={chapter.id}>
             <a
-              className="trail-rail__link"
+              className={`
+                trail-rail__link block rounded-md p-2 text-sm font-medium text-indigo-600 hover:text-indigo-800 transition-colors
+                ${active === chapter.id ? "bg-indigo-50" : ""}
+                ${active === chapter.id ? "text-indigo-600" : ""}
+              `}
               href={`#${chapter.id}`}
               aria-current={active === chapter.id ? "true" : undefined}
             >
-              <span className="trail-rail__num">{chapter.n}</span>
-              <span className="trail-rail__dot" aria-hidden="true" />
-              <span className="trail-rail__label">{chapter.label}</span>
+              <span className="trail-rail__num block mb-0.5">{chapter.n}</span>
+              <span className="trail-rail__dot w-1.5 h-1.5 rounded-full bg-indigo-500" aria-hidden="true" />
+              <span className="trail-rail__label text-indigo-500/60 text-xs uppercase tracking-wider">{chapter.label}</span>
             </a>
           </li>
         ))}

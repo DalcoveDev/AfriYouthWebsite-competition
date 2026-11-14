@@ -13,31 +13,37 @@ export const metadata = createMetadata({
   path: "/work",
 });
 
+// The core AfriYouth philosophy, as set out in the About document.
 const workingSteps = [
   {
     n: "01",
-    title: "Listen",
-    copy: "We begin with people, context and the evidence that already exists. No assumptions smuggled in as facts.",
+    title: "Think",
+    copy: "We start with the question and the assumptions behind it.",
   },
   {
     n: "02",
-    title: "Frame",
-    copy: "We agree on the real question, the decision it needs to inform and the measures of progress.",
+    title: "Research",
+    copy: "We generate and analyse evidence with the people closest to the problem.",
   },
   {
     n: "03",
-    title: "Prototype",
-    copy: "We test policy, services and ventures in small, honest ways before committing to scale.",
+    title: "Design",
+    copy: "We translate evidence into solutions people can use, afford and trust.",
   },
   {
     n: "04",
-    title: "Influence",
-    copy: "We translate findings into tools, relationships and moments that can move a decision.",
+    title: "Build",
+    copy: "We prototype, test and strengthen the model, policy or venture.",
   },
   {
     n: "05",
-    title: "Learn",
-    copy: "We build feedback loops and capability so the work keeps improving after the engagement ends.",
+    title: "Influence",
+    copy: "We connect evidence and people to the decisions, institutions and resources that matter.",
+  },
+  {
+    n: "06",
+    title: "Scale",
+    copy: "We scale what works and build the capability to sustain it.",
   },
 ];
 
@@ -92,8 +98,8 @@ export default function WorkPage() {
             </div>
             <div className="section-head__side reveal">
               <p>
-                Every engagement is designed around the question, the context and the
-                people who need to act on it. Expand a lab to see how we can help.
+                Every piece of work starts with your question, your context and the
+                people who need to act on it. Open a lab to see how we can help.
               </p>
               <Link className="text-link" href="/contact?topic=research">
                 Commission our expertise
@@ -168,8 +174,8 @@ export default function WorkPage() {
             </div>
             <div className="section-head__side reveal">
               <p>
-                Two cross-cutting services help partners prove what changed and fund
-                what comes next.
+                Two services run across all our work, helping partners show what
+                changed and fund what comes next.
               </p>
             </div>
           </div>
@@ -213,8 +219,8 @@ export default function WorkPage() {
               </h2>
             </div>
             <p className="lede reveal">
-              No mystery process. We define the question, work in the open and leave
-              behind capability, not dependency.
+              Our core philosophy is Think → Research → Design → Build → Influence →
+              Scale. We move between disciplines as the question demands.
             </p>
           </div>
 
@@ -242,9 +248,9 @@ export default function WorkPage() {
             </div>
             <div className="section-head__side reveal">
               <p>
-                Every engagement produces something a partner can use: evidence, a
-                policy option, a tested prototype, a funding case or a measurement
-                system.
+                Every project leaves you with something you can use: solid evidence, a
+                policy option, a tested prototype, a funding case or a way to measure
+                what matters.
               </p>
             </div>
           </div>
@@ -255,7 +261,7 @@ export default function WorkPage() {
               ["AfriYouth Policy Solutions Series", "Our most important intellectual product — practical policy options for live public problems."],
               ["AfriYouth Innovation Accelerator", "Incubation → Acceleration → Demo Day for youth-led ventures."],
               ["Africa 2050 Futures Series", "Scenarios and foresight studies, including Africa’s youth workforce in 2050."],
-              ["AfriYouth Impact Dashboard", "A practical learning system for tracking outcomes, not just outputs."],
+              ["AfriYouth Impact Dashboard", "Our impact and learning product: Theory of Change, M&E systems, outcome measurement and learning reports."],
               ["Policy Innovation Demo Day", "The public culmination of the Policy Innovation Challenge."],
             ].map(([title, copy], index) => (
               <article className="cap-card" key={title}>

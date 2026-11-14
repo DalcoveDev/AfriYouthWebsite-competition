@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { createMetadata } from "@/lib/metadata";
-import CtaBand from "@/components/CtaBand";
+import SectionTimeline from "@/components/home/SectionTimeline";
 import { acceleratorStages, brand, divisions, labs } from "@/lib/content";
 import "@/styles/home.css";
+import "@/styles/inner.css";
 
 export const metadata = createMetadata({
-  title: "AfriYouth Innovation Labs — From Evidence to Impact",
+  title: "AfriYouth Innovation Labs — Fueling Innovators for Sustainable Development",
   description:
-    "AfriYouth Innovation Labs is a research, innovation and policy consulting firm connecting evidence, policy, human-centred design, entrepreneurship and foresight to turn young people’s ideas into lasting systems change across Africa.",
+    "AfriYouth Innovation Labs is a research, innovation and policy lab broadening young people’s critical thinking and turning their ideas into progress on the Sustainable Development Goals across Africa.",
   openGraphDescription:
     "Research. Design. Innovate. Transform. A lab for Africa’s next generation of researchers, policy actors, designers and founders.",
   path: "/",
@@ -19,7 +20,7 @@ const routes = [
     who: "For young changemakers",
     title: "Build your practice. Take an idea further.",
     copy:
-      "Join the Innovation Accelerator, the Policy Innovation Challenge, the Futures Academy or the Employability Bootcamp.",
+      "Join the Innovation Accelerator, the Policy Innovation Challenge or the Employability Bootcamp.",
     href: "/programs",
     link: "Explore programs",
   },
@@ -43,38 +44,38 @@ const routes = [
   },
 ];
 
+const homeSections = [
+  { id: "home-start", n: "01", label: "Start" },
+  { id: "home-who", n: "02", label: "Who we are" },
+  { id: "home-labs", n: "03", label: "Six labs" },
+  { id: "home-philosophy", n: "04", label: "Philosophy" },
+  { id: "home-accelerator", n: "05", label: "Accelerator" },
+  { id: "home-divisions", n: "06", label: "Divisions" },
+  { id: "home-challenge", n: "07", label: "Challenge" },
+  { id: "home-ways-in", n: "08", label: "Ways in" },
+  { id: "home-contact", n: "09", label: "Let’s talk" },
+];
+
 export default function HomePage() {
   return (
-    <main id="main">
-      <section className="hero" aria-labelledby="home-title">
+    <main id="main" className="home-main">
+      <SectionTimeline sections={homeSections} />
+
+      <section id="home-start" className="hero home-section" aria-labelledby="home-title">
         <div className="hero__wash" aria-hidden="true" />
         <div className="wrap">
-          <div className="hero__topline">
-            <p className="hero__meta">
-              <span>AfriYouth Innovation Labs</span>
-              <span>Kigali, Rwanda</span>
-              <span>Pan-African</span>
-            </p>
-            <p className="hero__meta hero__meta--right">
-              <span>Field note 001</span>
-              <span>Est. 2026</span>
-            </p>
-          </div>
-
           <div className="hero__grid">
             <div className="hero__copy">
               <p className="hero__kicker">
-                <span className="hero__kicker-rule" aria-hidden="true" />
                 Research · Policy · Design · Enterprise · Foresight
               </p>
               <h1 className="hero__title" id="home-title">
                 Africa’s future is <span className="mark">youth-written.</span>
               </h1>
               <p className="hero__lede">
-                We are a research, innovation and policy consulting firm. We connect
-                evidence, policy, human-centred design, entrepreneurship and foresight
-                to turn young people’s ideas into{" "}
-                <strong>lasting systems change.</strong>
+                We’re a research, innovation and policy lab. We help Africa’s young
+                people think critically, sharpen their ideas and turn them into{" "}
+                <strong>real progress on the SDGs.</strong>
               </p>
               <div className="btn-row hero__actions">
                 <Link className="btn btn--gradient" href="/programs">
@@ -109,95 +110,41 @@ export default function HomePage() {
               </div>
               <figure className="hero__image">
                 <figcaption className="hero__caption">
-                  <span>Kigali, Rwanda</span>
+                  <span>Young innovators, Africa</span>
                   <span>Field note 001</span>
                 </figcaption>
                 <img
-                  src="/assets/img/hero-community.webp"
-                  width={900}
-                  height={1125}
-                  alt="Young African innovators laughing together outdoors"
+                  src="/assets/img/brand/venture-startup.webp"
+                  width={1333}
+                  height={2000}
+                  alt="A young innovator holding a hand-made “Start Up” sign"
                 />
               </figure>
-              <figure className="hero__portrait">
-                <img
-                  src="/assets/img/portrait.webp"
-                  width={700}
-                  height={740}
-                  alt="A young African woman smiling in a bright workspace"
-                />
-              </figure>
-              <div className="hero__seal" aria-hidden="true">
-                <svg viewBox="0 0 120 120">
-                  <defs>
-                    <path
-                      id="seal-path"
-                      d="M60,60 m-41,0 a41,41 0 1,1 82,0 a41,41 0 1,1 -82,0"
-                    />
-                  </defs>
-                  <circle
-                    cx="60"
-                    cy="60"
-                    r="56"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeOpacity="0.24"
-                  />
-                  <text
-                    fill="currentColor"
-                    fontSize="8"
-                    fontWeight="600"
-                    letterSpacing="2.1"
-                  >
-                    <textPath href="#seal-path">
-                      EVIDENCE · POLICY · DESIGN · ENTERPRISE · FORESIGHT ·
-                    </textPath>
-                  </text>
-                  <path
-                    d="M60 40l5.2 14.8L80 60l-14.8 5.2L60 80l-5.2-14.8L40 60l14.8-5.2z"
-                    fill="var(--pink)"
-                  />
-                </svg>
-              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <div className="marquee" aria-label="Our practice">
-        <div className="marquee__track">
-          {[0, 1].map((group) => (
-            <div className="marquee__group" key={group} aria-hidden={group === 1}>
-              {[
-                "Research & evidence",
-                "Policy & governance",
-                "Human-centred design",
-                "Entrepreneurship",
-                "Strategic foresight",
-                "Impact & learning",
-                "From Evidence to Impact",
-              ].map((item) => (
-                <span className="marquee__item" key={`${group}-${item}`}>
-                  {item}
-                  <span className="marquee__dot" aria-hidden="true" />
-                </span>
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <section className="chapter chapter--challenge" aria-labelledby="who-title">
+      <section id="home-who" className="chapter chapter--challenge home-section" aria-labelledby="who-title">
         <div className="wrap chapter__grid">
-          <p className="chapter__label reveal">
-            <span>01</span>
-            Who we are
-            <br />
-            Kigali · Pan-African
-          </p>
+          <div className="chapter__label-col">
+            <p className="chapter__label reveal">
+              Who we are
+              <br />
+              Africa and beyond
+            </p>
+            <figure className="chapter__photo reveal">
+              <img
+                src="/assets/img/brand/immersive-work.webp"
+                width={1335}
+                height={2000}
+                alt="A young professional working with a virtual-reality headset"
+              />
+            </figure>
+          </div>
           <div>
             <h2 className="chapter__title reveal" id="who-title">
-              Africa’s largest workforce needs more than training.
+              The world’s largest workforce needs more than training.
             </h2>
             <p className="chapter__lede reveal">
               By 2030, Africa will have the largest workforce in the world. The
@@ -248,7 +195,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="chapter chapter--response" aria-labelledby="labs-title">
+      <section id="home-labs" className="chapter chapter--response home-section" aria-labelledby="labs-title">
         <div className="wrap">
           <div className="response__head">
             <div>
@@ -278,7 +225,7 @@ export default function HomePage() {
               </Link>
             ))}
             <figure className="service-preview" aria-hidden="true">
-              <img src="/assets/img/research.webp" alt="" data-preview-image />
+              <img src="/assets/img/brand/field-energy.webp" alt="" data-preview-image />
             </figure>
           </div>
 
@@ -290,10 +237,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="chapter chapter--belief" aria-labelledby="philosophy-title">
+      <section id="home-philosophy" className="chapter chapter--belief home-section" aria-labelledby="philosophy-title">
         <div className="wrap">
           <p className="chapter__label chapter__label--light reveal">
-            <span>02</span>
             Our philosophy
           </p>
           <div className="belief__quote">
@@ -327,7 +273,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="chapter" aria-labelledby="accelerator-title">
+      <section id="home-accelerator" className="chapter home-section" aria-labelledby="accelerator-title">
         <div className="wrap">
           <div className="section-head">
             <div className="section-head__copy">
@@ -360,7 +306,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="chapter labs-index" aria-labelledby="portfolio-title">
+      <section id="home-divisions" className="chapter labs-index home-section" aria-labelledby="portfolio-title">
         <div className="wrap">
           <div className="section-head">
             <div className="section-head__copy">
@@ -393,7 +339,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="chapter" aria-labelledby="challenge-title">
+      <section id="home-challenge" className="chapter home-section" aria-labelledby="challenge-title">
         <div className="wrap">
           <div className="response__head">
             <div>
@@ -423,6 +369,15 @@ export default function HomePage() {
             </footer>
           </blockquote>
 
+          <figure className="challenge__media reveal">
+            <img
+              src="/assets/img/brand/prototyping.webp"
+              width={1400}
+              height={934}
+              alt="A young innovator assembling an electronics prototype"
+            />
+          </figure>
+
           <div className="theme-pills reveal" aria-label="Challenge themes">
             {labs[3].services.map((theme) => (
               <span key={theme}>{theme}</span>
@@ -431,7 +386,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="chapter chapter--possibilities" aria-labelledby="routes-title">
+      <section id="home-ways-in" className="chapter chapter--possibilities home-section" aria-labelledby="routes-title">
         <div className="wrap">
           <div className="possibilities__head">
             <div>
@@ -462,7 +417,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="chapter chapter--action" aria-labelledby="action-title">
+      <section id="home-contact" className="chapter chapter--action home-section" aria-labelledby="action-title">
         <div className="action__line" aria-hidden="true">
           <span />
           <span />
@@ -472,7 +427,6 @@ export default function HomePage() {
         </div>
         <div className="wrap action__inner">
           <p className="chapter__label chapter__label--light">
-            <span>03</span>
             Let’s make it move
           </p>
           <h2 className="action__title" id="action-title">
@@ -495,14 +449,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      <CtaBand
-        eyebrow="From Evidence to Impact"
-        title="Research. Design. Innovate. Transform."
-        copy="Evidence. Innovation. Impact. Work with a lab that connects all five capabilities around the change you want to make."
-        primary={{ href: "/contact", label: "Start a conversation" }}
-        secondary={{ href: "/about", label: "About AfriYouth" }}
-      />
     </main>
   );
 }

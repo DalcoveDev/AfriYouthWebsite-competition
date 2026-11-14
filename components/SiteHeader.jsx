@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Logo from "@/components/brand/Logo";
 
 const links = [
   { href: "/about", label: "About" },
@@ -24,16 +25,16 @@ export default function SiteHeader() {
               <i />
               <i />
             </span>
-            From Evidence to Impact
+            Fueling Innovators for Sustainable Development
           </span>
           <span className="announce__rule" aria-hidden="true" />
           <span className="announce__news">
-            Policy Innovation Challenge{" "}
-            <span className="announce__word">· Cohort 01</span> applications open
+            The Evidence-to-Impact Accelerator{" "}
+            <span className="announce__word">· </span> our flagship product
           </span>
           <Link
-            href="/programs#policy-challenge"
-            aria-label="Explore the Policy Innovation Challenge"
+            href="/programs#evidence-to-impact"
+            aria-label="Explore the Evidence-to-Impact Accelerator"
           >
             Explore <span aria-hidden="true">↗</span>
           </Link>
@@ -42,19 +43,7 @@ export default function SiteHeader() {
 
       <header className="site-header" data-header>
         <div className="wrap header__inner">
-          <Link
-            className="brand"
-            href="/"
-            aria-label="AfriYouth Innovation Labs home"
-          >
-            <span className="brand__mark">
-              <img src="/brand/logo-mark.svg" alt="" width="46" height="66" />
-            </span>
-            <span className="brand__text">
-              <span className="brand__name">Afri Youth</span>
-              <span className="brand__sub">Innovation Labs</span>
-            </span>
-          </Link>
+          <Logo variant="horizontal" tone="dark" />
 
           <nav className="site-nav" id="site-nav" aria-label="Primary navigation">
             {links.map((link) => (
@@ -82,7 +71,7 @@ export default function SiteHeader() {
               href="/contact"
               aria-current={isCurrent("/contact") ? "page" : undefined}
             >
-              Let's collaborate <span className="btn__icon" aria-hidden="true">↗</span>
+              Let&rsquo;s collaborate <span className="btn__icon" aria-hidden="true">↗</span>
             </Link>
             <button
               className="nav-toggle"

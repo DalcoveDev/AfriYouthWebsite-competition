@@ -1,16 +1,18 @@
 import Link from "next/link";
 import { createMetadata } from "@/lib/metadata";
 import CtaBand from "@/components/CtaBand";
-import { publications } from "@/lib/content";
+import InsightCharts from "@/components/insights/InsightCharts";
+import InsightFinder from "@/components/insights/InsightFinder";
+import { labs, publications } from "@/lib/content";
 import "@/styles/hub.css";
 import "@/styles/inner.css";
 
 export const metadata = createMetadata({
   title: "Insights & resources",
   description:
-    "Evidence reports, policy briefs, futures scenarios and practical toolkits on youth innovation, public policy, human-centred design and impact in Africa.",
+    "AfriYouth Evidence Reports, the Policy Solutions Series, the Africa 2050 Futures Series and the products our labs are built around.",
   openGraphDescription:
-    "Research, field notes and practical resources for the work ahead.",
+    "The series and products our research, policy and foresight work is organised around.",
   path: "/insights",
 });
 
@@ -19,21 +21,64 @@ const series = [
     n: "01",
     name: "AfriYouth Evidence Reports",
     copy:
-      "Commissioned and field-led research on the socio-economic challenges shaping young people’s lives — with clear implications for decision-makers.",
+      "Field-led research on the issues shaping young people’s lives — with clear takeaways for decision-makers.",
   },
   {
     n: "02",
     name: "AfriYouth Policy Solutions Series",
     copy:
-      "Our most important intellectual product: practical policy options, implementation pathways and the coalitions needed to carry them.",
+      "Our most important body of work: practical policy options and the coalitions needed to carry them.",
   },
   {
     n: "03",
     name: "Africa 2050 Futures Series",
     copy:
-      "Scenarios, horizon scans and futures studies that help young people and institutions think beyond the next electoral cycle.",
+      "Scenarios and futures studies that help young people and institutions think beyond the next election.",
   },
 ];
+
+// The Policy Innovation Challenge themes, as listed in the brand documents.
+const fields = labs.find((lab) => lab.id === "challenge").services;
+
+// Everything on this page that a visitor might search for, all drawn from the
+// three series, the six labs and the ten challenge themes.
+const searchItems = [
+  ...publications.map((publication) => ({
+    id: `publication-${publication.n}`,
+    type: "Publication",
+    title: publication.title,
+    snippet: publication.copy,
+    tags: `${publication.category} ${publication.meta} ${publication.copy}`,
+    href: `/contact?topic=research&subject=${encodeURIComponent(publication.title)}`,
+  })),
+  ...labs.map((lab) => ({
+    id: `lab-${lab.id}`,
+    type: "Lab",
+    title: lab.name,
+    snippet: lab.short,
+    tags: `${lab.name} ${lab.tagline} ${lab.services.join(" ")}`,
+    href: `/work#${lab.id}`,
+  })),
+  ...fields.map((field) => ({
+    id: `field-${field}`,
+    type: "Challenge theme",
+    title: field,
+    snippet:
+      "One of the ten public challenges teams can take on in the Policy Innovation Challenge.",
+    tags: `${field} policy innovation challenge`,
+    href: "/programs#policy-challenge",
+  })),
+  ...series.map((item) => ({
+    id: `series-${item.n}`,
+    type: "Series",
+    title: item.name,
+    snippet: item.copy,
+    tags: `${item.name} ${item.copy}`,
+    href: "#library",
+  })),
+];
+
+const startHere = searchItems.filter((item) => item.type === "Publication").slice(0, 3);
 
 export default function InsightsPage() {
   return (
@@ -64,53 +109,60 @@ export default function InsightsPage() {
       <section className="section" aria-labelledby="featured-title">
         <div className="wrap">
           <div className="library-feature reveal">
-            <div className="report-cover">
-              <div className="report-cover__top">
-                <p className="report-cover__label">
-                  AfriYouth futures series
-                  <br />
-                  Field report · 01
+            <div className="library-feature__head">
+              <div className="report-cover">
+                <div className="report-cover__top">
+                  <p className="report-cover__label">
+                    Africa 2050 Futures Series
+                    <br />
+                    Foresight
+                  </p>
+                  <img
+                    className="report-cover__mark"
+                    src="/brand/logo-mark-white.svg"
+                    alt=""
+                  />
+                </div>
+                <p className="report-cover__title">
+                  Africa’s youth workforce
+                  <em>2050: four futures</em>
                 </p>
-                <img
-                  className="report-cover__mark"
-                  src="/brand/logo-mark-white.svg"
-                  alt=""
-                />
+                <div className="report-cover__foot">
+                  <span>Evidence · Futures</span>
+                  <span>№ 01</span>
+                </div>
               </div>
-              <p className="report-cover__title">
-                Africa’s youth workforce
-                <em>2050: four futures</em>
-              </p>
-              <div className="report-cover__foot">
-                <span>Evidence · Futures</span>
-                <span>№ 01</span>
+              <div className="library-feature__copy">
+                <p className="eyebrow">Research spotlight</p>
+                <h2 id="featured-title">
+                  Africa’s Youth Workforce in 2050: Four Possible Futures.
+                </h2>
+                <p>
+                  By 2030, Africa will have the largest workforce in the world. Our
+                  Africa 2050 Futures Series practises the long view — Four Possible
+                  Futures for Africa’s youth workforce in 2050.
+                </p>
+                <div className="btn-row">
+                  <Link
+                    className="btn btn--light"
+                    href="/contact?topic=research&subject=Africa%202050%20Futures%20Series"
+                  >
+                    Request the briefing
+                    <span className="btn__icon" aria-hidden="true">↗</span>
+                  </Link>
+                  <Link className="btn btn--outline-light" href="#library">
+                    Browse the portfolio
+                  </Link>
+                </div>
+                <p className="library-feature__note">
+                  Africa 2050 Futures Series · Strategic Foresight & Futures Lab
+                </p>
               </div>
             </div>
-            <div className="library-feature__copy">
-              <p className="eyebrow">Featured report</p>
-              <h2 id="featured-title">
-                Africa’s Youth Workforce in 2050: Four Possible Futures.
-              </h2>
-              <p>
-                By 2050, Africa will be home to the world’s largest workforce. This
-                futures study sets out four plausible scenarios — and what each one
-                demands of educators, employers, policymakers and young people today.
-              </p>
-              <div className="btn-row">
-                <Link
-                  className="btn btn--light"
-                  href="/contact?topic=research&subject=Africa%202050%20Futures%20Series"
-                >
-                  Request the briefing
-                  <span className="btn__icon" aria-hidden="true">↗</span>
-                </Link>
-                <Link className="btn btn--outline-light" href="#library">
-                  Browse the library
-                </Link>
-              </div>
-              <p className="library-feature__note">
-                Foresight series · Published 2026
-              </p>
+
+            <div className="spotlight-tools">
+              <InsightFinder items={searchItems} fields={fields} featured={startHere} />
+              <InsightCharts labs={labs} />
             </div>
           </div>
         </div>
@@ -120,15 +172,15 @@ export default function InsightsPage() {
         <div className="wrap">
           <div className="library__head">
             <div>
-              <p className="eyebrow reveal">The library</p>
+              <p className="eyebrow reveal">The portfolio</p>
               <h2 className="h2 reveal" id="library-title">
                 Useful, not just impressive.
               </h2>
             </div>
             <div className="reveal" style={{ maxWidth: "24rem" }}>
               <p className="note" style={{ marginBottom: "0.6rem" }}>
-                Read, borrow, challenge. If something here is useful to your work,
-                we’d love to know.
+                The series and products our labs are built around. If one of them fits
+                a question you’re working on, ask us about it.
               </p>
             </div>
           </div>
@@ -156,8 +208,8 @@ export default function InsightsPage() {
           </div>
 
           <p className="chapter__footnote reveal">
-            Our publications are working documents. Read them, test them, push back —
-            and tell us what they miss.
+            Series, not one-off reports: each product is designed to be used by a
+            programme team, a policymaker, a founder or a young researcher.
           </p>
         </div>
       </section>
@@ -166,7 +218,7 @@ export default function InsightsPage() {
         <div className="wrap">
           <div className="section-head">
             <div className="section-head__copy">
-              <p className="eyebrow reveal">How we publish</p>
+              <p className="eyebrow reveal">How our work is organised</p>
               <h2 className="h2 reveal" id="series-title">
                 Three series. One evidence agenda.
               </h2>

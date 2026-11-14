@@ -95,119 +95,124 @@ export default function EvidenceTrail() {
   };
 
   return (
-    <section
-      className="chapter chapter--process"
-      id="chapter-process"
-      aria-labelledby="process-title"
-    >
-      <div className="wrap">
-        <div className="chapter__label-row reveal">
-          <p className="chapter__label">
-            <span>Note 04</span> The process
-          </p>
-          <p className="chapter__meta">Our method · Not a programme</p>
-        </div>
+    <section className="bg-white py-12">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="mb-12">
+          <div className="process__label-row mb-6">
+            <p className="chapter__label text-indigo-600">
+              <span>Note 04</span> The process
+            </p>
+            <p className="text-indigo-500/60 text-sm">Our method · Not a programme</p>
+          </div>
 
-        <div className="process__intro">
-          <h2 className="chapter__title reveal" id="process-title">
+          <h2 className="text-2xl md:text-3xl font-display font-bold tracking-[-0.052em] mb-4" id="process-title">
             One trail.
             <br />
             Ten moves.
           </h2>
-          <p className="chapter__lede reveal">
+          <p className="text-indigo-600/80 leading-relaxed mb-8">
             Research, design, policy and enterprise are usually taught and
             practised apart. We run them as one connected trail — so a question
             can travel all the way to public impact.
           </p>
         </div>
 
-        <div className="process__layout reveal">
-          <div
-            className="process__steps"
-            role="tablist"
-            aria-orientation="vertical"
-            aria-label="The Evidence Trail"
-          >
-            {steps.map((item, index) => (
-              <button
-                type="button"
-                key={item.name}
-                id={`trail-tab-${index}`}
-                className="process__step"
-                role="tab"
-                aria-selected={active === index}
-                aria-controls={`trail-panel-${index}`}
-                tabIndex={active === index ? 0 : -1}
-                onClick={() => setActive(index)}
-                onKeyDown={(event) => handleKeyDown(event, index)}
-                ref={(element) => {
-                  tabRefs.current[index] = element;
-                }}
-              >
-                <span className="process__step-num">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <span className="process__step-name">{item.name}</span>
-                <span className="process__step-group">{item.group}</span>
-              </button>
-            ))}
-          </div>
+        <div className="space-y-8">
+          <div className="process__layout">
+            <div
+              className="process__steps space-y-2"
+              role="tablist"
+              aria-orientation="vertical"
+              aria-label="The Evidence Trail"
+            >
+              {steps.map((item, index) => (
+                <button
+                  type="button"
+                  key={item.name}
+                  id={`trail-tab-${index}`}
+                  className={`
+                    process__step flex items-center gap-4 rounded-lg border p-4
+                    transition-colors
+                    ${active === index ? "bg-indigo-50 border-indigo-500" : "border-border/50 text-indigo-600"}
+                    ${active === index ? "text-indigo-600" : "text-indigo-500/60"}
+                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2
+                  `}
+                  role="tab"
+                  aria-selected={active === index}
+                  aria-controls={`trail-panel-${index}`}
+                  tabIndex={active === index ? 0 : -1}
+                  onClick={() => setActive(index)}
+                  onKeyDown={(event) => handleKeyDown(event, index)}
+                  ref={(element) => {
+                    tabRefs.current[index] = element;
+                  }}
+                >
+                  <span className="w-8 h-8 rounded-lg flex items-center justify-center font-medium text-indigo-600">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="flex-1 flex min-w-0 process__step-name">{item.name}</span>
+                  <span className="w-6 h-6 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-500 text-xs font-medium">
+                    {item.group}
+                  </span>
+                </button>
+              ))}
+            </div>
 
-          <div className="process__panels">
-            {steps.map((item, index) => (
-              <div
-                className="process__panel"
-                id={`trail-panel-${index}`}
-                role="tabpanel"
-                aria-labelledby={`trail-tab-${index}`}
-                tabIndex={0}
-                hidden={active !== index}
-                key={item.name}
-              >
-                <div className="process__panel-inner">
-                  <div className="process__panel-top">
-                    <span className="process__panel-group">{item.group}</span>
-                    <span className="process__panel-count">
+            <div className="process__panels mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {steps.map((item, index) => (
+                <div
+                  key={item.name}
+                  id={`trail-panel-${index}`}
+                  className={`
+                    process__panel rounded-lg border p-6
+                    ${active !== index ? "opacity-0 pointer-events-none" : ""}
+                  `}
+                  role="tabpanel"
+                  aria-labelledby={`trail-tab-${index}`}
+                  tabIndex={0}
+                  hidden={active !== index}
+                >
+                  <div className="process__panel-top mb-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                    <span className="text-indigo-500/60 text-sm font-medium uppercase tracking-wider">{item.group}</span>
+                    <span className="text-indigo-600 font-medium">
                       Step {String(index + 1).padStart(2, "0")} / 10
                     </span>
                   </div>
 
-                  <p className="process__panel-num" aria-hidden="true">
-                    {String(index + 1).padStart(2, "0")}
-                  </p>
-                  <h3 className="process__panel-title">{item.name}</h3>
-                  <dl className="process__panel-list">
+                  <h3 className="text-lg font-display font-medium text-indigo-600 mb-3">{item.name}</h3>
+
+                  <dl className="space-y-2 text-indigo-600/80">
                     <div>
-                      <dt>What we do</dt>
+                      <dt className="font-display font-medium">What we do</dt>
                       <dd>{item.does}</dd>
                     </div>
                     <div>
-                      <dt>What it produces</dt>
+                      <dt className="font-display font-medium">What it produces</dt>
                       <dd>{item.produces}</dd>
                     </div>
                   </dl>
 
-                  <div className="process__panel-foot">
+                  <div className="mt-4 pt-4 border-t border-indigo-100/30">
                     <button
                       type="button"
-                      className="process__nav"
+                      className="process__nav inline-flex items-center gap-2 rounded-md px-3 py-1 text-sm font-medium text-indigo-600 hover:text-indigo-800 transition-colors"
                       onClick={() => focusStep(index - 1)}
                       aria-label="Previous step"
                     >
                       <span aria-hidden="true">←</span> Previous
                     </button>
-                    <div
-                      className="process__progress"
-                      aria-hidden="true"
-                      style={{
-                        "--trail-progress": `${((index + 1) / steps.length) * 100}%`,
-                      }}
-                    >
-                      <span />
+
+                    <div className="mt-3 flex h-2 w-full rounded-full bg-indigo-100 overflow-hidden">
+                      <span
+                        className="h-full bg-indigo-600 rounded-full transition-width ease-linear"
+                        style={{ width: `${((index + 1) / steps.length) * 100}%` }}
+                        aria-hidden="true"
+                      /></span>
                     </div>
+
                     <button
                       type="button"
-                      className="process__nav"
+                      className="process__nav inline-flex items-center gap-2 rounded-md px-3 py-1 text-sm font-medium text-indigo-600 hover:text-indigo-800 transition-colors"
                       onClick={() => focusStep(index + 1)}
                       aria-label="Next step"
                     >
@@ -215,15 +220,15 @@ export default function EvidenceTrail() {
                     </button>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
 
-        <p className="process__note">
-          This is how we work, not a claim of ten separate services. Not every
-          question needs every step — the method is shaped around the problem.
-        </p>
+          <p className="mt-8 text-indigo-600/80">
+            This is how we work, not a claim of ten separate services. Not every
+            question needs every step — the method is shaped around the problem.
+          </p>
+        </div>
       </div>
     </section>
   );

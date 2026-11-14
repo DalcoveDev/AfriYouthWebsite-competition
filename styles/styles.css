@@ -1,16 +1,29 @@
 /* =========================================================
    AfriYouth Innovation Labs
-   Brand system — Dark Purple · Duke Blue · Blue Steel · Steel Pink
-   Display: Poppins · Body: Plus Jakarta Sans (Gilroy substitute)
+   Brand system — Dark Purple · Steel Pink · Duke Blue · Blue · White
+   Titles: Poppins · Body: Gilroy (Plus Jakarta Sans substitute)
+   Source: "Afri Youth Innovation Lab Branding — Logo & Guidelines"
+   Tailwind CSS integration
    ========================================================= */
+
+/* ---------- Tailwind (v4) ---------- */
+@import "tailwindcss";
+@config "../tailwind.config.js";
 
 /* ---------- Tokens ---------- */
 :root {
-  /* Brand */
+  /* Official brand palette (AfriYouth Brand Guidelines) */
+  --brand-dark-purple: #0d0624; /* RGB 13,6,36 · HSL 254,71%,8% · CMYK 64,83,0,86 */
+  --brand-steel-pink: #c723df;  /* RGB 199,35,223 · HSL 292,75%,51% · CMYK 11,84,0,13 */
+  --brand-duke-blue: #0200a7;   /* RGB 2,0,167 · HSL 241,100%,33% · CMYK 99,100,0,35 */
+  --brand-blue: #0301ff;        /* RGB 3,1,255 · HSL 240,100%,50% · CMYK 99,100,0,0 */
+  --brand-white: #ffffff;
+
+  /* Brand (semantic aliases used across the page styles) */
   --ink: #0d0624;            /* Dark Purple */
   --deep: #070212;
   --duke: #0200a7;           /* Duke Blue */
-  --blue: #0301ff;           /* Blue Steel */
+  --blue: #0301ff;           /* Blue */
   --pink: #c723df;           /* Steel Pink */
   --violet: #7407f5;
   --purple: #3a0a86;
@@ -46,12 +59,12 @@
 
   /* Type */
   --font-display: var(--font-poppins), "Poppins", "Segoe UI", sans-serif;
-  --font-body: var(--font-jakarta), "Plus Jakarta Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Gilroy", var(--font-jakarta), "Plus Jakarta Sans", "Helvetica Neue", Arial, sans-serif;
   --font-gilroy: "Gilroy", var(--font-body);
 
   /* Layout */
   --gutter: clamp(1.25rem, 4.6vw, 4.75rem);
-  --section: clamp(5rem, 9vw, 9.5rem);
+  --section: clamp(3.5rem, 6.5vw, 7rem);
   --radius: 1.25rem;
   --radius-lg: 2rem;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -188,12 +201,13 @@ li {
 }
 
 .section--tight {
-  padding-block: clamp(3.5rem, 6vw, 6rem);
+  padding-block: clamp(2.75rem, 4.5vw, 4.5rem);
 }
 
 .section--cream {
-  background: var(--cream);
+  background-color: var(--cream);
 }
+
 
 .section--ink {
   background: var(--ink);
@@ -304,15 +318,6 @@ em {
   letter-spacing: 0.15em;
   line-height: 1.3;
   text-transform: uppercase;
-}
-
-.eyebrow::before {
-  content: "";
-  flex: 0 0 auto;
-  width: 1.65rem;
-  height: 2px;
-  border-radius: 999px;
-  background: var(--gradient);
 }
 
 .eyebrow--light {
@@ -564,14 +569,15 @@ em {
 }
 
 .btn--outline {
-  background: transparent;
+  background: var(--gradient-soft);
   color: var(--ink);
-  border-color: var(--line-strong);
+  border-color: transparent;
 }
 
 .btn--outline:hover {
-  background: rgba(13, 6, 36, 0.04);
-  border-color: var(--ink);
+  background: var(--gradient);
+  color: #fff;
+  border-color: transparent;
 }
 
 .btn--outline-light {
@@ -650,12 +656,75 @@ em {
   line-height: 1;
 }
 
+.brand__word-last {
+  color: var(--ink);
+}
+
 .brand__sub--light {
   color: #fff;
 }
 
 .brand--light {
   color: #fff;
+}
+
+.brand--light .brand__sub {
+  color: #fff;
+}
+
+.brand--light .brand__word-last {
+  color: #fff;
+}
+
+/* Vertical logo lockup — mark above the wordmark + tagline */
+.brand--vertical {
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  text-align: center;
+}
+
+.brand--vertical .brand__mark {
+  width: 3.4rem;
+  height: 4.8rem;
+}
+
+.brand--vertical .brand__text {
+  align-items: center;
+  text-align: center;
+}
+
+.brand--vertical .brand__name {
+  font-size: 1.32rem;
+}
+
+.brand--vertical .brand__sub {
+  font-size: 1.02rem;
+}
+
+.brand__tagline {
+  max-width: 16rem;
+  margin-top: 0.5rem;
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+}
+
+.brand--light .brand__tagline {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+/* Mark-only logo */
+.brand--mark-only {
+  gap: 0;
+}
+
+.brand--mark-only .brand__mark {
+  width: 2.4rem;
+  height: 3.4rem;
 }
 
 /* ---------- Announcement ---------- */
@@ -1270,6 +1339,7 @@ body.menu-open .nav-toggle span:nth-child(3) {
 }
 
 .cta-band .btn--outline {
+  background: transparent;
   border-color: rgba(255, 255, 255, 0.5);
   color: #fff;
 }
@@ -1305,14 +1375,13 @@ body.menu-open .nav-toggle span:nth-child(3) {
   inset: 7.5rem;
 }
 
-.cta-band__star {
+.cta-band__mark {
   position: absolute;
   top: 2.4rem;
   right: 5vw;
-  width: 4rem;
-  height: 4rem;
-  color: #fff;
-  opacity: 0.26;
+  width: 2.8rem;
+  height: auto;
+  opacity: 0.4;
   animation: floatSpark 9s ease-in-out infinite;
 }
 
@@ -1668,13 +1737,61 @@ body.menu-open .nav-toggle span:nth-child(3) {
     gap: 1rem;
   }
 
-  .cta-band__star {
+  .cta-band__mark {
     right: 1.4rem;
-    width: 2.75rem;
-    height: 2.75rem;
+    width: 2.2rem;
   }
 
   .site-nav {
     padding-top: 8.4rem;
   }
+}
+
+/* =========================================================
+   Simplified brand presentation
+   Calmer, cleaner, closer to the brand guidelines.
+   Decorative "noise" is reduced while brand colour,
+   typography and layout are preserved.
+   ========================================================= */
+
+/* Remove purely ornamental background layers and shapes */
+.orb,
+.hero__wash,
+.hero__seal,
+.hero__annotation-dot,
+.page-hero::before,
+.page-hero::after,
+.cta-band::before,
+.cta-band__ring,
+.cta-band__star,
+.footer__glow,
+.action__line,
+.belief__mark,
+.belief__quote::before,
+.chapter--belief::before,
+.chapter--action::after {
+  display: none !important;
+}
+
+/* Softer, more restrained shadows and glows */
+:root {
+  --shadow: 0 12px 32px rgba(13, 6, 36, 0.08);
+  --shadow-soft: 0 8px 22px rgba(13, 6, 36, 0.05);
+  --glow: 0 10px 26px rgba(104, 8, 245, 0.16);
+}
+
+/* Keep the accent gradient, but remove the offset "sticker" shadow */
+.process__panel {
+  box-shadow: var(--shadow-soft) !important;
+}
+
+/* Reduce glassy heaviness on the sticky header */
+.site-header,
+.site-header.is-scrolled {
+  backdrop-filter: blur(10px);
+}
+
+/* Calmer decorative text strokes */
+.footer__wordmark span {
+  opacity: 0.6;
 }

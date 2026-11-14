@@ -29,14 +29,14 @@ export default function CtaBand({
         </div>
       </div>
       <div className="cta-band__ring" aria-hidden="true" />
-      <svg
-        className="cta-band__star"
-        viewBox="0 0 64 64"
+      <img
+        className="cta-band__mark"
+        src="/brand/logo-mark-white.svg"
+        width={64}
+        height={91}
+        alt=""
         aria-hidden="true"
-        fill="currentColor"
-      >
-        <path d="M32 0l4.8 24.1L64 32l-27.2 7.9L32 64l-4.8-24.1L0 32l27.2-7.9L32 0Z" />
-      </svg>
+      />
     </section>
   );
 }

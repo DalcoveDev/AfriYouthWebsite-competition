@@ -44,7 +44,7 @@
 
 .stage-card__num {
   display: block;
-  margin-bottom: 2.1rem;
+  margin-bottom: 1.4rem;
   color: var(--pink);
   font-family: var(--font-display);
   font-size: 0.82rem;
@@ -222,7 +222,7 @@
 .academy-card {
   padding: clamp(1.5rem, 3vw, 2.4rem);
   border: 1px solid var(--line);
-  border-radius: var(--radius);
+  border-radius: 0;
   background: var(--cream);
 }
 

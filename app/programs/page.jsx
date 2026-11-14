@@ -14,36 +14,36 @@ import "@/styles/inner.css";
 export const metadata = createMetadata({
   title: "Programs & opportunities",
   description:
-    "Explore the AfriYouth Innovation Accelerator, the Policy Innovation Challenge, the Employability Bootcamp, the Professional Skills Academy and the Africa 2050 Futures Academy.",
+    "Explore the AfriYouth Innovation Accelerator, the Policy Innovation Challenge, the Employability Bootcamp, the University Employability Programme and the Professional Skills Academy.",
   openGraphDescription:
-    "Fellowships, labs and learning spaces for young people ready to turn curiosity into capability.",
+    "Venture building, policy innovation and career development for Africa’s young people.",
   path: "/programs",
 });
 
 const faqs = [
   {
-    q: "Do I need a university degree to apply?",
-    a: "For most programmes, no. We care more about how you think, what you have done and the question you want to explore than the certificate you hold. Specific requirements are listed for each programme.",
+    q: "What makes the Policy Innovation Challenge different?",
+    a: "Instead of asking young people what business they would like to start, we ask what one of Africa’s most pressing problems is — and what evidence-based solution they can design. Teams produce research, a diagnosis, a policy proposal, a prototype and a policy pitch.",
   },
   {
-    q: "Is there a participation fee?",
-    a: "Our open programmes for young people are free to participate in. Where a programme includes a stipend, travel support or a fee for organisations, this is stated clearly in the programme details.",
-  },
-  {
-    q: "Can I apply if I live outside Rwanda?",
-    a: "Yes. We work across Africa. Most of our programmes are hybrid or online, with in-person residencies where travel support is provided. Check the format on each programme.",
+    q: "Who are the Academy programmes for?",
+    a: "The Employability Bootcamp is for graduates, the University Employability Programme is for university students, and the Professional Skills Academy is for young professionals. All three sit within the Career & Professional Development Academy.",
   },
   {
     q: "What does experiential learning mean here?",
-    a: "Instead of training → certificate, we work through learn → practice → apply → receive feedback → improve → demonstrate. For employability, that includes a full simulation with a fictional vacancy, an application, a psychometric test, an interview, a case study and salary negotiation.",
+    a: "Instead of training → certificate, we work through learn → practice → apply → receive feedback → improve → demonstrate. For employability, that includes a full simulation: a fictional vacancy, an application, a psychometric test, an interview, a case study and salary negotiation.",
   },
   {
-    q: "Can our organisation co-design a programme?",
-    a: "Yes. We design custom labs, clinics and learning experiences with universities, employers, foundations and public institutions. Tell us about your mandate and the people you serve.",
+    q: "What is the Evidence-to-Impact Accelerator?",
+    a: "It is our flagship product. Instead of disconnected research, incubation and training programmes, it combines them in one ten-stage pathway: discover, diagnose, research, design, prototype, policy, finance, implement, measure and scale.",
   },
   {
-    q: "How are participants selected?",
-    a: "Our process is human. We look for potential, lived experience and a real question. Shortlisted applicants have a conversation with our team — a two-way exchange, not an interrogation.",
+    q: "Can our organisation commission AfriYouth?",
+    a: "Yes. We provide evidence reports, policy analysis, impact and learning services, and funding and investment readiness support to companies, organisations and public institutions. Tell us about your mandate and the question you need answered.",
+  },
+  {
+    q: "Where does AfriYouth work?",
+    a: "Across Africa and beyond. Our labs are built around African challenges and the Sustainable Development Goals, and our programmes are open to young people from across the continent.",
   },
 ];
 
@@ -66,12 +66,20 @@ export default function ProgramsPage() {
                 capability into change.
               </p>
               <div className="programmes-hero__note">
-                <p>Three flagship pathways are open or rolling for 2027.</p>
+                <p>Practice-led programmes, built around real briefs and real feedback.</p>
                 <span>
-                  Innovation Accelerator · Policy Innovation Challenge · Employability
-                  Bootcamp
+                  Innovation Accelerator · Policy Innovation Challenge · Career &
+                  Professional Development Academy
                 </span>
               </div>
+              <figure className="programmes-hero__media">
+                <img
+                  src="/assets/img/brand/prototyping.webp"
+                  width={1400}
+                  height={934}
+                  alt="A young innovator assembling an electronics prototype"
+                />
+              </figure>
             </div>
           </div>
         </div>
@@ -88,8 +96,9 @@ export default function ProgramsPage() {
             </div>
             <div className="section-head__side reveal">
               <p>
-                Our selection process is human. We look for potential, lived experience
-                and a real question — not perfect credentials.
+                Every programme is practical and outcome-oriented: you work on real
+                briefs, receive structured feedback and leave with something you can
+                demonstrate.
               </p>
               <Link className="text-link" href="/contact?topic=programme">
                 Ask which programme fits
@@ -110,19 +119,6 @@ export default function ProgramsPage() {
                     {String(programmes.indexOf(programme) + 1).padStart(2, "0")}
                   </span>
                 </div>
-                <svg
-                  className="programme-card__symbol"
-                  viewBox="0 0 120 120"
-                  aria-hidden="true"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.2"
-                >
-                  <circle cx="60" cy="60" r="46" />
-                  <circle cx="60" cy="60" r="30" strokeDasharray="3 5" />
-                  <path d="M60 6v22M60 92v22M6 60h22M92 60h22" />
-                  <circle cx="60" cy="60" r="5" fill="currentColor" stroke="none" />
-                </svg>
                 <p className="programme-card__type">{programme.type}</p>
                 <h2>{programme.name}</h2>
                 <p className="programme-card__desc">{programme.description}</p>
@@ -136,8 +132,7 @@ export default function ProgramsPage() {
                 </ul>
                 <div className="programme-card__footer">
                   <p className="programme-card__deadline">
-                    <strong>{programme.deadline.split(" · ")[0]}</strong>
-                    {programme.deadline.split(" · ")[1] || "Applications reviewed on a rolling basis"}
+                    <strong>{programme.note}</strong>
                   </p>
                   <Link
                     className="programme-card__btn"
@@ -163,9 +158,9 @@ export default function ProgramsPage() {
             </div>
             <div className="section-head__side reveal">
               <p>
-                Research, incubation and training are usually disconnected. Our
-                flagship product combines them into a single ten-stage pathway that
-                follows a problem from community research to scale.
+                Research, incubation and training usually live apart. Our flagship
+                brings them together into one ten-stage path that follows a problem
+                from community research all the way to scale.
               </p>
             </div>
           </div>
@@ -194,7 +189,7 @@ export default function ProgramsPage() {
             <div className="section-head__side reveal">
               <p>
                 Instead of asking young people what business they would start, we ask
-                what problem they can solve with evidence.
+                what problem they could solve — and back it with evidence.
               </p>
               <Link className="text-link" href="/contact?topic=programme&programme=challenge">
                 Apply to the challenge
@@ -279,15 +274,15 @@ export default function ProgramsPage() {
         <div className="wrap">
           <div className="section-head">
             <div className="section-head__copy">
-              <p className="eyebrow reveal">Our potential product portfolio</p>
+              <p className="eyebrow reveal">What we offer</p>
               <h2 className="h2 reveal" id="divisions-title">
-                Five strategic divisions.
+                Five divisions, one team.
               </h2>
             </div>
             <div className="section-head__side reveal">
               <p>
-                Everything we offer sits inside five divisions. Resource mobilisation
-                and partnerships run across all of them as a commercial service.
+                All our work sits within five divisions, with resource mobilisation and
+                partnerships running across every one of them.
               </p>
             </div>
           </div>
@@ -323,9 +318,9 @@ export default function ProgramsPage() {
             </div>
             <div className="section-head__side reveal">
               <p>
-                We make experiential learning mandatory. Instead of training →
-                certificate, every participant moves through real briefs, honest
-                feedback and a professional portfolio.
+                Learning here is hands-on from day one. Instead of training then a
+                certificate, every participant works through real briefs, honest
+                feedback and a portfolio they can actually show.
               </p>
             </div>
           </div>
@@ -344,10 +339,10 @@ export default function ProgramsPage() {
           <div className="academy-grid">
             <article className="academy-card reveal">
               <p className="eyebrow">Employability</p>
-              <h3 className="h3">A full employability simulation.</h3>
+              <h3 className="h3">Practice the whole job hunt.</h3>
               <p>
-                Participants receive a fictional job vacancy and complete the entire
-                process — with structured feedback at every stage.
+                Participants take on a realistic job vacancy and complete the entire
+                process — with honest feedback at every stage.
               </p>
               <ol className="editorial__list editorial__list--numbered">
                 {employabilitySteps.map((step) => (
@@ -401,6 +396,14 @@ export default function ProgramsPage() {
             <Link className="text-link" href="/contact?topic=programme">
               Ask us anything
             </Link>
+            <figure className="faq__photo">
+              <img
+                src="/assets/img/brand/digital-learning.webp"
+                width={1333}
+                height={2000}
+                alt="A young person exploring a virtual-reality headset beside electronics"
+              />
+            </figure>
           </div>
           <div className="faq reveal">
             {faqs.map((faq) => (

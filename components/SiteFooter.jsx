@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Logo from "@/components/brand/Logo";
 
 const exploreLinks = [
   { href: "/", label: "Home" },
@@ -31,24 +32,11 @@ export default function SiteFooter() {
       <div className="wrap">
         <div className="footer__top">
           <div className="footer__pitch">
-            <Link
-              className="brand brand--light"
-              href="/"
-              aria-label="AfriYouth Innovation Labs home"
-            >
-              <span className="brand__mark">
-                <img src="/brand/logo-mark-white.svg" alt="" width="46" height="66" />
-              </span>
-              <span className="brand__text">
-                <span className="brand__name">Afri Youth</span>
-                <span className="brand__sub brand__sub--light">Innovation Labs</span>
-              </span>
-            </Link>
-            <p className="footer__tagline">From Evidence to Impact.</p>
+            <Logo variant="vertical" tone="light" withTagline />
             <p>
-              A research, innovation and policy consulting firm connecting evidence,
-              design, entrepreneurship and foresight to turn young people&rsquo;s
-              ideas into lasting systems change.
+              A research, innovation and policy consulting firm turning
+              community-driven ideas into practical, scalable solutions across Africa
+              and beyond.
             </p>
             <a className="footer__email" href="mailto:hello@afriyouthlabs.org">
               hello@afriyouthlabs.org
@@ -89,7 +77,7 @@ export default function SiteFooter() {
             </div>
             <address className="footer__address">
               <strong>AfriYouth Innovation Labs</strong>
-              Kigali, Rwanda
+              Research · Innovation · Policy
               <br />
               Working across Africa and beyond
             </address>

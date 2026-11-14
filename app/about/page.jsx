@@ -1,15 +1,15 @@
 import Link from "next/link";
 import { createMetadata } from "@/lib/metadata";
 import CtaBand from "@/components/CtaBand";
-import { brand, capabilities, values } from "@/lib/content";
+import { brand, capabilities, divisions, voice } from "@/lib/content";
 import "@/styles/inner.css";
 
 export const metadata = createMetadata({
   title: "About",
   description:
-    "AfriYouth Innovation Labs is a research, innovation and policy consulting firm that identifies, nurtures and advances promising ideas from Africa’s young innovators.",
+    "AfriYouth Innovation Labs is a research, innovation and policy consulting firm that identifies, nurtures and advances promising ideas from Africa’s young innovators to address the Sustainable Development Goals.",
   openGraphDescription:
-    "A research, innovation and policy lab for Africa’s next generation.",
+    "Research, human-centered design and entrepreneurship for Africa’s young innovators.",
   path: "/about",
 });
 
@@ -46,14 +46,7 @@ const approach = [
   },
 ];
 
-const roles = [
-  ["Researchers & data storytellers", "Evidence"],
-  ["Policy & systems thinkers", "Influence"],
-  ["Designers & facilitators", "Experience"],
-  ["Entrepreneurs & venture builders", "Enterprise"],
-  ["Foresight & learning specialists", "Anticipation"],
-  ["Youth leaders & community organisers", "Leadership"],
-];
+const roles = divisions.map((division) => [division.name, division.n]);
 
 export default function AboutPage() {
   return (
@@ -68,15 +61,11 @@ export default function AboutPage() {
               </h1>
             </div>
             <div className="page-hero__aside reveal">
-              <p className="lede">
-                A research, innovation and policy consulting firm working to make
-                evidence useful, institutions more responsive and young people
-                impossible to ignore.
-              </p>
+              <p className="lede">{brand.intro}</p>
               <div className="page-hero__meta">
-                <span className="chip">Kigali · Rwanda</span>
-                <span className="chip">Pan-African outlook</span>
-                <span className="chip">Youth-led</span>
+                <span className="chip">Research · Innovation · Policy</span>
+                <span className="chip">Human-centered design</span>
+                <span className="chip">Africa and beyond</span>
               </div>
             </div>
           </div>
@@ -84,26 +73,26 @@ export default function AboutPage() {
           <div className="about-hero__media reveal">
             <figure>
               <img
-                src="/assets/img/collaboration.webp"
+                src="/assets/img/brand/electronics.webp"
                 width={1400}
-                height={934}
-                alt="Three colleagues in conversation around a table with laptops"
+                height={800}
+                alt="Close-up of a young innovator working on a circuit board"
               />
               <figcaption className="about-hero__caption">
-                <span>The work is collective</span>
-                <span>Field note / 02</span>
+                <span>Learning by making</span>
+                <span>01 / Prototyping</span>
               </figcaption>
             </figure>
             <figure>
               <img
-                src="/assets/img/design.webp"
-                width={1400}
-                height={900}
-                alt="A hands-on creative workshop with young people making together"
+                src="/assets/img/brand/immersive-work.webp"
+                width={1335}
+                height={2000}
+                alt="A young professional working at a desk with a virtual-reality headset"
               />
               <figcaption className="about-hero__caption">
                 <span>Make room for the new</span>
-                <span>Kigali</span>
+                <span>02 / Foresight</span>
               </figcaption>
             </figure>
           </div>
@@ -157,7 +146,7 @@ export default function AboutPage() {
           <div className="purpose__grid">
             <article className="purpose-card reveal">
               <span className="purpose-card__num">01 / Mission</span>
-              <h3 className="h3">Empower Africa’s youth to generate evidence, shape policy and build solutions that matter.</h3>
+              <h3 className="h3">Evidence. Policy. Innovation. Led by Africa’s youth.</h3>
               <p>{brand.mission}</p>
               <svg
                 className="purpose-card__mark"
@@ -175,7 +164,7 @@ export default function AboutPage() {
 
             <article className="purpose-card purpose-card--dark reveal">
               <span className="purpose-card__num">02 / Vision</span>
-              <h3 className="h3">An Africa where young people shape the systems they live in.</h3>
+              <h3 className="h3">An Africa where young people drive inclusive transformation by 2050.</h3>
               <p>{brand.vision}</p>
               <svg
                 className="purpose-card__mark"
@@ -191,6 +180,32 @@ export default function AboutPage() {
                 <circle cx="32" cy="32" r="3.4" fill="currentColor" stroke="none" />
               </svg>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="section section--tight" aria-labelledby="keywords-title">
+        <div className="wrap">
+          <div className="section-head">
+            <div className="section-head__copy">
+              <p className="eyebrow reveal">Our brand keywords</p>
+              <h2 className="h2 reveal" id="keywords-title">
+                Six ideas that shape everything we do.
+              </h2>
+            </div>
+            <div className="section-head__side reveal">
+              <p>
+                They are the building blocks of our identity — the values behind every
+                lab, programme and partnership.
+              </p>
+            </div>
+          </div>
+          <div className="brand-keywords reveal">
+            {brand.keywords.map((keyword) => (
+              <span className="chip" key={keyword}>
+                {keyword}
+              </span>
+            ))}
           </div>
         </div>
       </section>
@@ -258,32 +273,32 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="values section" aria-labelledby="values-title">
+      <section className="values section" aria-labelledby="voice-title">
         <div className="wrap">
           <div className="section-head">
             <div className="section-head__copy">
-              <p className="eyebrow reveal">What we hold close</p>
-              <h2 className="h2 reveal" id="values-title">
-                Principles before polish.
+              <p className="eyebrow reveal">Our voice</p>
+              <h2 className="h2 reveal" id="voice-title">
+                How AfriYouth sounds.
               </h2>
             </div>
             <div className="section-head__side reveal">
               <p>
-                These are not wall posters. They are the tests we use when the work
-                gets difficult.
+                Five attributes shape how we write and speak — in reports, on social
+                media and in youth-led campaigns.
               </p>
             </div>
           </div>
 
           <div className="values__grid reveal">
-            {values.map((value) => (
-              <article className="value-card" key={value.n}>
+            {voice.map((attribute) => (
+              <article className="value-card" key={attribute.n}>
                 <div className="value-card__top">
-                  <span className="value-card__num">{value.n}</span>
+                  <span className="value-card__num">{attribute.n}</span>
                   <span className="value-card__dot" aria-hidden="true" />
                 </div>
-                <h3>{value.title}</h3>
-                <p>{value.copy}</p>
+                <h3>{attribute.title}</h3>
+                <p>{attribute.copy}</p>
               </article>
             ))}
           </div>
@@ -294,10 +309,10 @@ export default function AboutPage() {
         <div className="wrap collective__grid">
           <div className="collective__media reveal">
             <img
-              src="/assets/img/programme.webp"
-              width={1400}
-              height={900}
-              alt="Young professionals collaborating during an AfriYouth workshop"
+              src="/assets/img/brand/digital-learning.webp"
+              width={1333}
+              height={2000}
+              alt="A young person exploring a virtual-reality headset beside electronics"
             />
             <span className="collective__stamp">
               Made of
@@ -308,12 +323,11 @@ export default function AboutPage() {
           <div className="collective__copy reveal">
             <p className="eyebrow">How we’re built</p>
             <h2 className="h2" id="collective-title">
-              Small core. Wide network.
+              Five divisions. One team.
             </h2>
             <p className="lede">
-              AfriYouth brings together researchers, policy actors, designers,
-              entrepreneurs and foresight practitioners. Some sit in the core team;
-              many join through projects, fellowships and partnerships.
+              All our work sits within five strategic divisions, with resource
+              mobilisation and partnerships running across every one of them.
             </p>
             <ul className="role-list">
               {roles.map(([role, discipline]) => (
@@ -323,8 +337,8 @@ export default function AboutPage() {
                 </li>
               ))}
             </ul>
-            <Link className="text-link" href="/contact?topic=partner">
-              Join our network
+            <Link className="text-link" href="/programs#divisions">
+              Explore the divisions
             </Link>
           </div>
         </div>

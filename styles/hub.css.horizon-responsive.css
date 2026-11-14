@@ -1,0 +1,7 @@
+@media (max-width: 900px) {
+  .horizon__sub {
+    max-width: none;
+    font-size: 0.6rem;
+    line-height: 1.35;
+  }
+}

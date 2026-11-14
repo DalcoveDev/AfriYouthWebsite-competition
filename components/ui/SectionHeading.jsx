@@ -1,14 +1,11 @@
 import React from "react";
-import "./variables.css";
-
-// ============================================
-// UI — SectionHeading component
-// ============================================
 
 /**
  * SectionHeading — styled section header
+ * using Tailwind CSS
  * Renders an h2 or h3 based on level prop
  */
+
 export const SectionHeading = ({
   children,
   className,
@@ -18,7 +15,7 @@ export const SectionHeading = ({
   const Tag = `h${level}`;
   return (
     <Tag
-      className={[ "section-head__copy", className ].filter(Boolean).join(" ")}
+      className={[ "mb-4", "font-display", "font-medium", "tracking-[-0.04em]", className ].filter(Boolean).join(" ")}
       {...props}
     >
       {children}
