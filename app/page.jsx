@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { createMetadata } from "@/lib/metadata";
 import SectionTimeline from "@/components/home/SectionTimeline";
-import { acceleratorStages, brand, divisions, labs } from "@/lib/content";
+import AcceleratorJourney from "@/components/accelerator/AcceleratorJourney";
+import { divisions, labs } from "@/lib/content";
 import "@/styles/home.css";
 import "@/styles/inner.css";
 
@@ -273,38 +274,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="home-accelerator" className="chapter home-section" aria-labelledby="accelerator-title">
-        <div className="wrap">
-          <div className="section-head">
-            <div className="section-head__copy">
-              <p className="eyebrow reveal">Our flagship product</p>
-              <h2 className="h2 reveal" id="accelerator-title">
-                The Evidence-to-Impact Accelerator.
-              </h2>
-            </div>
-            <div className="section-head__side reveal">
-              <p>
-                Instead of disconnected research, incubation and training programmes,
-                we combine them into one pathway that follows a problem all the way to
-                scale.
-              </p>
-              <Link className="text-link" href="/programs#evidence-to-impact">
-                See the full pathway
-              </Link>
-            </div>
-          </div>
-
-          <div className="stage-grid reveal">
-            {acceleratorStages.map((stage) => (
-              <article className="stage-card" key={stage.n}>
-                <span className="stage-card__num">{stage.n}</span>
-                <h3>{stage.name}</h3>
-                <p>{stage.copy}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <AcceleratorJourney id="home-accelerator" headingId="accelerator-title" compact />
 
       <section id="home-divisions" className="chapter labs-index home-section" aria-labelledby="portfolio-title">
         <div className="wrap">
@@ -320,7 +290,7 @@ export default function HomePage() {
                 Resource mobilisation and partnerships act as a cross-cutting
                 commercial service across every division.
               </p>
-              <Link className="text-link" href="/programs#divisions">
+              <Link className="text-link" href="/about#divisions">
                 Explore the divisions
               </Link>
             </div>
@@ -328,7 +298,7 @@ export default function HomePage() {
 
           <div className="labs-index__list reveal">
             {divisions.map((division) => (
-              <Link className="labs-index__row" href="/programs#divisions" key={division.name}>
+              <Link className="labs-index__row" href="/about#divisions" key={division.name}>
                 <span className="labs-index__num">{division.n}</span>
                 <span className="labs-index__name">{division.name}</span>
                 <span className="labs-index__product">{division.products}</span>
@@ -350,24 +320,13 @@ export default function HomePage() {
             </div>
             <div className="response__head-side reveal">
               <p>
-                Instead of asking young people what business they would like to start,
-                we ask a harder question.
+                A live public problem, a policy proposal and a Demo Day pitch.
               </p>
               <Link className="text-link" href="/programs#policy-challenge">
                 Enter the challenge
               </Link>
             </div>
           </div>
-
-          <blockquote className="pull-quote reveal">
-            <p>
-              “What is one of Africa’s most pressing problems, and what evidence-based
-              solution can you design?”
-            </p>
-            <footer>
-              Research → Diagnosis → Policy proposal → Prototype → Policy pitch
-            </footer>
-          </blockquote>
 
           <figure className="challenge__media reveal">
             <img
@@ -377,12 +336,6 @@ export default function HomePage() {
               alt="A young innovator assembling an electronics prototype"
             />
           </figure>
-
-          <div className="theme-pills reveal" aria-label="Challenge themes">
-            {labs[3].services.map((theme) => (
-              <span key={theme}>{theme}</span>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -434,8 +387,8 @@ export default function HomePage() {
           </h2>
           <div className="action__foot">
             <p>
-              {brand.mission} Tell us what you’re working on and we’ll come with
-              questions, a multidisciplinary lens and a practical way forward.
+              Tell us what you’re working on and we’ll come with questions, a
+              multidisciplinary lens and a practical way forward.
             </p>
             <div className="btn-row">
               <Link className="btn btn--light" href="/contact">
