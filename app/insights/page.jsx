@@ -10,32 +10,11 @@ import "@/styles/inner.css";
 export const metadata = createMetadata({
   title: "Insights & resources",
   description:
-    "AfriYouth Evidence Reports, the Policy Solutions Series, the Africa 2050 Futures Series and the products our labs are built around.",
+    "The three AfriYouth publication series: Evidence Reports, the Policy Solutions Series and the Africa 2050 Futures Series.",
   openGraphDescription:
-    "The series and products our research, policy and foresight work is organised around.",
+    "Research, policy options and futures scenarios from AfriYouth Innovation Labs.",
   path: "/insights",
 });
-
-const series = [
-  {
-    n: "01",
-    name: "AfriYouth Evidence Reports",
-    copy:
-      "Field-led research on the issues shaping young people’s lives — with clear takeaways for decision-makers.",
-  },
-  {
-    n: "02",
-    name: "AfriYouth Policy Solutions Series",
-    copy:
-      "Our most important body of work: practical policy options and the coalitions needed to carry them.",
-  },
-  {
-    n: "03",
-    name: "Africa 2050 Futures Series",
-    copy:
-      "Scenarios and futures studies that help young people and institutions think beyond the next election.",
-  },
-];
 
 // The Policy Innovation Challenge themes, as listed in the brand documents.
 const fields = labs.find((lab) => lab.id === "challenge").services;
@@ -67,14 +46,6 @@ const searchItems = [
       "One of the ten public challenges teams can take on in the Policy Innovation Challenge.",
     tags: `${field} policy innovation challenge`,
     href: "/programs#policy-challenge",
-  })),
-  ...series.map((item) => ({
-    id: `series-${item.n}`,
-    type: "Series",
-    title: item.name,
-    snippet: item.copy,
-    tags: `${item.name} ${item.copy}`,
-    href: "#library",
   })),
 ];
 
@@ -138,9 +109,9 @@ export default function InsightsPage() {
                   Africa’s Youth Workforce in 2050: Four Possible Futures.
                 </h2>
                 <p>
-                  By 2030, Africa will have the largest workforce in the world. Our
-                  Africa 2050 Futures Series practises the long view — Four Possible
-                  Futures for Africa’s youth workforce in 2050.
+                  Our Africa 2050 Futures Series practises the long view: four
+                  possible futures for the continent’s largest generation, and what
+                  each one asks of decision-makers today.
                 </p>
                 <div className="btn-row">
                   <Link
@@ -172,15 +143,15 @@ export default function InsightsPage() {
         <div className="wrap">
           <div className="library__head">
             <div>
-              <p className="eyebrow reveal">The portfolio</p>
+              <p className="eyebrow reveal">The publication library</p>
               <h2 className="h2 reveal" id="library-title">
                 Useful, not just impressive.
               </h2>
             </div>
             <div className="reveal" style={{ maxWidth: "24rem" }}>
               <p className="note" style={{ marginBottom: "0.6rem" }}>
-                The series and products our labs are built around. If one of them fits
-                a question you’re working on, ask us about it.
+                Three series our labs publish. If one of them fits a question
+                you’re working on, ask us for the briefing.
               </p>
             </div>
           </div>
@@ -200,53 +171,16 @@ export default function InsightsPage() {
                 <h3>{publication.title}</h3>
                 <p>{publication.copy}</p>
                 <div className="resource-card__foot">
-                  <span>{publication.meta}</span>
-                  <span aria-hidden="true">↗</span>
+                  <span className="resource-card__meta">{publication.meta}</span>
+                  <span className="resource-card__cta">
+                    Request the briefing
+                    <span aria-hidden="true">›</span>
+                  </span>
                 </div>
               </Link>
             ))}
           </div>
 
-          <p className="chapter__footnote reveal">
-            Series, not one-off reports: each product is designed to be used by a
-            programme team, a policymaker, a founder or a young researcher.
-          </p>
-        </div>
-      </section>
-
-      <section className="section" aria-labelledby="series-title">
-        <div className="wrap">
-          <div className="section-head">
-            <div className="section-head__copy">
-              <p className="eyebrow reveal">How our work is organised</p>
-              <h2 className="h2 reveal" id="series-title">
-                Three series. One evidence agenda.
-              </h2>
-            </div>
-            <div className="section-head__side reveal">
-              <p>
-                Every publication is designed to be used — by a programme team, a
-                policymaker, a founder or a young researcher.
-              </p>
-            </div>
-          </div>
-
-          <div className="editorial reveal">
-            {series.map((item) => (
-              <div className="editorial__item" key={item.n}>
-                <div>
-                  <span className="editorial__num">{item.n}</span>
-                  <p className="editorial__title">{item.name}</p>
-                </div>
-                <div className="editorial__body">
-                  <p>{item.copy}</p>
-                  <Link className="text-link" href="/contact?topic=research">
-                    Commission or request a briefing
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
