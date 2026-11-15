@@ -46,8 +46,6 @@ const approach = [
   },
 ];
 
-const roles = divisions.map((division) => [division.name, division.n]);
-
 export default function AboutPage() {
   return (
     <main id="main">
@@ -137,8 +135,8 @@ export default function AboutPage() {
             </div>
             <div className="section-head__side reveal">
               <p>
-                By 2030, Africa will have the largest workforce in the world. Our
-                measure of success is what that generation is able to do.
+                Our measure of success is what Africa’s young people are able to do
+                with what they learn.
               </p>
             </div>
           </div>
@@ -238,11 +236,6 @@ export default function AboutPage() {
             ))}
           </div>
 
-          <p className="chapter__footnote reveal">
-            Most youth organisations focus on training. Most incubators focus on
-            startups. Most think tanks focus on research and policy. Most consulting
-            firms focus on clients. <strong>AfriYouth connects all of them.</strong>
-          </p>
         </div>
       </section>
 
@@ -305,7 +298,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="collective section" aria-labelledby="collective-title">
+      <section className="collective section" id="divisions" aria-labelledby="collective-title">
         <div className="wrap collective__grid">
           <div className="collective__media reveal">
             <img
@@ -330,15 +323,19 @@ export default function AboutPage() {
               mobilisation and partnerships running across every one of them.
             </p>
             <ul className="role-list">
-              {roles.map(([role, discipline]) => (
-                <li key={role}>
-                  <span>{role}</span>
-                  <span>{discipline}</span>
+              {divisions.map((division) => (
+                <li key={division.n}>
+                  <span>{division.name}</span>
+                  <span>{division.products}</span>
                 </li>
               ))}
             </ul>
-            <Link className="text-link" href="/programs#divisions">
-              Explore the divisions
+            <p className="editorial__note" style={{ marginTop: "1.2rem" }}>
+              <span>Cross-cutting commercial service</span>
+              Resource Mobilization & Partnerships
+            </p>
+            <Link className="text-link" href="/programs">
+              See the programmes inside them
             </Link>
           </div>
         </div>
