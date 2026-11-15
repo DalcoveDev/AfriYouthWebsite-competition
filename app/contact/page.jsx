@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { createMetadata } from "@/lib/metadata";
-import CtaBand from "@/components/CtaBand";
 import { brand } from "@/lib/content";
 import "@/styles/hub.css";
 import "@/styles/inner.css";
@@ -23,24 +22,24 @@ const paths = [
 
 const faqs = [
   {
-    q: "I’m interested in a programme. What should I include?",
-    a: "Tell us which programme or lab you’re asking about — the Innovation Accelerator, the Policy Innovation Challenge, the Employability Bootcamp, the University Employability Programme or the Professional Skills Academy — and what you want to learn or change.",
+    q: "Which pathway should I choose?",
+    a: "Choose “Join a programme” for the Innovation Accelerator, the Policy Innovation Challenge or the Academy programmes; “Partner on a project” for collaboration; “Commission research or advisory” for evidence, policy, impact or funding work; or “Something else” if none of those fit.",
+  },
+  {
+    q: "What should I include in my message?",
+    a: "Name the programme, lab or service you are asking about, and the question or decision behind it. A few sentences is enough — we will ask for more detail if we need it.",
   },
   {
     q: "Can we commission research or partner on a project?",
-    a: "Yes. Our Research & Evidence Lab produces applied research, surveys and evidence reports; the Policy & Governance Lab translates research into policy options; and our supportive services cover impact and learning, funding and investment readiness. Select “Research & advisory” and tell us about your mandate.",
+    a: "Yes. Select “Research & advisory” for evidence, policy, impact and funding work, or “Partnerships” for collaboration. Tell us about your mandate and the question you need answered.",
   },
   {
-    q: "Which services run across all your work?",
-    a: "Impact & Learning Services and Funding & Investment Readiness. Resource mobilisation and partnerships act as a cross-cutting commercial service across all five divisions.",
+    q: "Can I send a brief or an attachment?",
+    a: "The form opens your email app with the message ready to send, so you can add attachments there before pressing send.",
   },
   {
-    q: "Who does the Career & Professional Development Academy serve?",
-    a: "Graduates through the Employability Bootcamp, university students through the University Employability Programme, and young professionals through the Professional Skills Academy.",
-  },
-  {
-    q: "Where does AfriYouth work?",
-    a: "Across Africa and beyond. We identify, nurture and advance promising ideas from Africa’s young innovators to address the Sustainable Development Goals.",
+    q: "What happens after I write?",
+    a: "Your email app opens with the message ready to send. Once you press send, we route the enquiry to the person closest to the work.",
   },
 ];
 
@@ -53,7 +52,7 @@ export default function ContactPage() {
             <div className="page-hero__copy">
               <p className="eyebrow reveal">Contact</p>
               <h1 className="h1 reveal" id="contact-title">
-                Bring us the question. <em>We’ll bring the lab.</em>
+                Let’s start with <em>your question.</em>
               </h1>
             </div>
             <div className="page-hero__aside reveal">
@@ -266,14 +265,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-
-      <CtaBand
-        eyebrow="Still exploring?"
-        title="Find the right next step."
-        copy="Browse open opportunities or see how our six labs connect to the change you want to make."
-        primary={{ href: "/programs", label: "Explore programs" }}
-        secondary={{ href: "/work", label: "See our work" }}
-      />
     </main>
   );
 }
