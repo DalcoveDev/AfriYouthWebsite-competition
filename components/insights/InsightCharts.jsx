@@ -7,12 +7,6 @@ const LAB_LABELS = {
   academy: "Academy",
 };
 
-const HORIZONS = [
-  { year: "2030", note: "Africa's largest workforce" },
-  { year: "2040", note: "Scenario horizon" },
-  { year: "2050", note: "Vision 2050" },
-];
-
 export default function InsightCharts({ labs }) {
   const depthRows = labs.map((lab) => ({
     label: LAB_LABELS[lab.id] ?? lab.name,
@@ -76,7 +70,7 @@ export default function InsightCharts({ labs }) {
           {horizonData.map((item) => (
             <li className="horizon__point" key={item.year}>
               <a 
-                href="/work#${item.year.toLowerCase()}"
+                href="#library"
                 className="horizon__point-link"
                 aria-label={`${item.year} ${item.note}`}
               >
