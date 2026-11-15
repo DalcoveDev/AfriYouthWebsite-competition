@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { createMetadata } from "@/lib/metadata";
 import CtaBand from "@/components/CtaBand";
+import AcceleratorJourney from "@/components/accelerator/AcceleratorJourney";
 import {
-  acceleratorStages,
   academyTracks,
-  divisions,
   employabilitySteps,
+  labs,
   programmes,
 } from "@/lib/content";
 import "@/styles/hub.css";
@@ -20,10 +20,13 @@ export const metadata = createMetadata({
   path: "/programs",
 });
 
+// The challenge themes live on the Policy Innovation Challenge lab record.
+const challengeThemes = labs.find((lab) => lab.id === "challenge").services;
+
 const faqs = [
   {
     q: "What makes the Policy Innovation Challenge different?",
-    a: "Instead of asking young people what business they would like to start, we ask what one of Africa’s most pressing problems is — and what evidence-based solution they can design. Teams produce research, a diagnosis, a policy proposal, a prototype and a policy pitch.",
+    a: "Teams work on a live public problem with real stakeholders, not a hypothetical case study. They leave with research, a diagnosis, a policy proposal, a prototype and a Demo Day pitch.",
   },
   {
     q: "Who are the Academy programmes for?",
@@ -34,16 +37,8 @@ const faqs = [
     a: "Instead of training → certificate, we work through learn → practice → apply → receive feedback → improve → demonstrate. For employability, that includes a full simulation: a fictional vacancy, an application, a psychometric test, an interview, a case study and salary negotiation.",
   },
   {
-    q: "What is the Evidence-to-Impact Accelerator?",
-    a: "It is our flagship product. Instead of disconnected research, incubation and training programmes, it combines them in one ten-stage pathway: discover, diagnose, research, design, prototype, policy, finance, implement, measure and scale.",
-  },
-  {
-    q: "Can our organisation commission AfriYouth?",
-    a: "Yes. We provide evidence reports, policy analysis, impact and learning services, and funding and investment readiness support to companies, organisations and public institutions. Tell us about your mandate and the question you need answered.",
-  },
-  {
-    q: "Where does AfriYouth work?",
-    a: "Across Africa and beyond. Our labs are built around African challenges and the Sustainable Development Goals, and our programmes are open to young people from across the continent.",
+    q: "How do I register interest?",
+    a: "Use the register-interest link on any programme card, or write to us through the contact form. Tell us which programme you are asking about and what you want to learn or change.",
   },
 ];
 
@@ -67,10 +62,6 @@ export default function ProgramsPage() {
               </p>
               <div className="programmes-hero__note">
                 <p>Practice-led programmes, built around real briefs and real feedback.</p>
-                <span>
-                  Innovation Accelerator · Policy Innovation Challenge · Career &
-                  Professional Development Academy
-                </span>
               </div>
               <figure className="programmes-hero__media">
                 <img
@@ -108,88 +99,40 @@ export default function ProgramsPage() {
 
           <div className="programmes-grid">
             {programmes.map((programme) => (
-              <article
-                className={`programme-card programme-card--${programme.tone} reveal`}
-                key={programme.id}
-                id={programme.id}
-              >
-                <div className="programme-card__top">
-                  <span className="status-pill status-pill--open">{programme.status}</span>
-                  <span className="programme-card__index">
-                    {String(programmes.indexOf(programme) + 1).padStart(2, "0")}
-                  </span>
-                </div>
-                <p className="programme-card__type">{programme.type}</p>
-                <h2>{programme.name}</h2>
+              <article className="programme-card reveal" key={programme.id} id={programme.id}>
+                <span className="programme-card__tag">{programme.status}</span>
+                <h3>{programme.name}</h3>
+                <p className="programme-card__meta">{programme.type}</p>
                 <p className="programme-card__desc">{programme.description}</p>
-                <ul className="programme-card__meta">
-                  {programme.meta.map(([label, value]) => (
-                    <li key={label}>
-                      <span>{label}</span>
-                      <strong>{value}</strong>
-                    </li>
-                  ))}
-                </ul>
-                <div className="programme-card__footer">
-                  <p className="programme-card__deadline">
-                    <strong>{programme.note}</strong>
-                  </p>
-                  <Link
-                    className="programme-card__btn"
-                    href={`/contact?topic=programme&programme=${programme.id}`}
-                  >
-                    Programme details
-                  </Link>
-                </div>
+                <Link
+                  className="programme-card__link"
+                  href={`/contact?topic=programme&programme=${programme.id}`}
+                  aria-label={`Register interest in the ${programme.name}`}
+                >
+                  Register interest
+                  <span aria-hidden="true">›</span>
+                </Link>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section section--cream" id="evidence-to-impact" aria-labelledby="eti-title">
-        <div className="wrap">
-          <div className="section-head">
-            <div className="section-head__copy">
-              <p className="eyebrow reveal">The flagship AfriYouth product</p>
-              <h2 className="h2 reveal" id="eti-title">
-                Evidence-to-Impact Accelerator.
-              </h2>
-            </div>
-            <div className="section-head__side reveal">
-              <p>
-                Research, incubation and training usually live apart. Our flagship
-                brings them together into one ten-stage path that follows a problem
-                from community research all the way to scale.
-              </p>
-            </div>
-          </div>
-
-          <div className="stage-grid reveal">
-            {acceleratorStages.map((stage) => (
-              <article className="stage-card" key={stage.n}>
-                <span className="stage-card__num">{stage.n}</span>
-                <h3>{stage.name}</h3>
-                <p>{stage.copy}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <AcceleratorJourney id="evidence-to-impact" headingId="eti-title" variant="light" />
 
       <section className="section" id="policy-challenge" aria-labelledby="challenge-title">
         <div className="wrap">
           <div className="section-head">
             <div className="section-head__copy">
-              <p className="eyebrow reveal">Our most unique product</p>
+              <p className="eyebrow reveal">Our signature programme</p>
               <h2 className="h2 reveal" id="challenge-title">
                 The Policy Innovation Challenge.
               </h2>
             </div>
             <div className="section-head__side reveal">
               <p>
-                Instead of asking young people what business they would start, we ask
-                what problem they could solve — and back it with evidence.
+                Ten themes, one live public problem per team, and a Demo Day pitch to
+                the people who can act on it.
               </p>
               <Link className="text-link" href="/contact?topic=programme&programme=challenge">
                 Apply to the challenge
@@ -245,18 +188,7 @@ export default function ProgramsPage() {
               </div>
               <div className="editorial__body">
                 <div className="theme-pills">
-                  {[
-                    "Youth employment",
-                    "Education",
-                    "Digital transformation",
-                    "Artificial intelligence",
-                    "Agriculture",
-                    "Climate",
-                    "Health",
-                    "Entrepreneurship",
-                    "Urban development",
-                    "Regional integration",
-                  ].map((theme) => (
+                  {challengeThemes.map((theme) => (
                     <span key={theme}>{theme}</span>
                   ))}
                 </div>
@@ -267,43 +199,6 @@ export default function ProgramsPage() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="section section--cream" id="divisions" aria-labelledby="divisions-title">
-        <div className="wrap">
-          <div className="section-head">
-            <div className="section-head__copy">
-              <p className="eyebrow reveal">What we offer</p>
-              <h2 className="h2 reveal" id="divisions-title">
-                Five divisions, one team.
-              </h2>
-            </div>
-            <div className="section-head__side reveal">
-              <p>
-                All our work sits within five divisions, with resource mobilisation and
-                partnerships running across every one of them.
-              </p>
-            </div>
-          </div>
-
-          <div className="editorial reveal">
-            {divisions.map((division) => (
-              <div className="editorial__item" key={division.n}>
-                <div>
-                  <span className="editorial__num">{division.n}</span>
-                  <p className="editorial__title">{division.name}</p>
-                </div>
-                <div className="editorial__body">
-                  <p>{division.products}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <p className="editorial__note reveal" style={{ marginTop: "1.5rem" }}>
-            <span>Cross-cutting commercial service</span>
-            Resource Mobilization & Partnerships
-          </p>
         </div>
       </section>
 
