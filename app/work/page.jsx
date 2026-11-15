@@ -13,39 +13,8 @@ export const metadata = createMetadata({
   path: "/work",
 });
 
-// The core AfriYouth philosophy, as set out in the About document.
-const workingSteps = [
-  {
-    n: "01",
-    title: "Think",
-    copy: "We start with the question and the assumptions behind it.",
-  },
-  {
-    n: "02",
-    title: "Research",
-    copy: "We generate and analyse evidence with the people closest to the problem.",
-  },
-  {
-    n: "03",
-    title: "Design",
-    copy: "We translate evidence into solutions people can use, afford and trust.",
-  },
-  {
-    n: "04",
-    title: "Build",
-    copy: "We prototype, test and strengthen the model, policy or venture.",
-  },
-  {
-    n: "05",
-    title: "Influence",
-    copy: "We connect evidence and people to the decisions, institutions and resources that matter.",
-  },
-  {
-    n: "06",
-    title: "Scale",
-    copy: "We scale what works and build the capability to sustain it.",
-  },
-];
+// Alternating photo and flat-colour tiles, so the lab mosaic reads like a gallery wall.
+const labTones = ["image", "mint", "image", "cream", "image", "yellow"];
 
 export default function WorkPage() {
   return (
@@ -99,7 +68,7 @@ export default function WorkPage() {
             <div className="section-head__side reveal">
               <p>
                 Every piece of work starts with your question, your context and the
-                people who need to act on it. Open a lab to see how we can help.
+                people who need to act on it. Here are the six labs that carry it.
               </p>
               <Link className="text-link" href="/contact?topic=research">
                 Commission our expertise
@@ -107,58 +76,37 @@ export default function WorkPage() {
             </div>
           </div>
 
-          <div className="service-details reveal">
-            {labs.map((lab) => (
-              <details className="service-detail" id={lab.id} key={lab.id} open={lab.id === "research"}>
-                <summary>
-                  <span className="service-row__num">{lab.n}</span>
-                  <span className="service-detail__titleblock">
-                    <span className="service-detail__title">{lab.name}</span>
-                    <span className="service-detail__tag">{lab.tagline}</span>
-                  </span>
-                  <span className="service-detail__short">{lab.short}</span>
-                  <span className="service-row__arrow" aria-hidden="true">↗</span>
-                </summary>
-                <div className="service-detail__content">
-                  <div className="service-detail__body">
-                    <div>
-                      <p>{lab.body}</p>
-                      <div className="service-detail__cta">
-                        <Link className="text-link" href="/contact?topic=research">
-                          Talk to us about this lab
-                        </Link>
-                      </div>
-                    </div>
-                    <div>
-                      <p className="service-detail__list-title">{lab.servicesLabel || "What we offer"}</p>
-                      <ul className="service-detail__list">
-                        {lab.services.map((service) => (
-                          <li key={service}>{service}</li>
-                        ))}
-                      </ul>
-                      <p className="service-detail__list-title" style={{ marginTop: "1.4rem" }}>
-                        {lab.productLabel}
-                      </p>
-                      <p className="service-detail__product">{lab.product}</p>
-                      <p className="editorial__note">
-                        <span>How it works</span>
-                        {lab.productNote}
-                      </p>
-                    </div>
-                  </div>
-                  <figure className="service-detail__media">
+          <div className="lab-mosaic reveal">
+            {labs.map((lab, index) => {
+              const tone = labTones[index % labTones.length];
+              return (
+                <article className={`lab-tile lab-tile--${tone}`} id={lab.id} key={lab.id}>
+                  {tone === "image" ? (
                     <img
+                      className="lab-tile__img"
                       src={lab.image}
                       width={1400}
                       height={900}
-                      sizes="(max-width: 960px) 88vw, 40vw"
+                      sizes="(max-width: 900px) 92vw, 33vw"
                       alt={lab.alt}
+                      loading="lazy"
                     />
-                    <figcaption>{lab.name}</figcaption>
-                  </figure>
-                </div>
-              </details>
-            ))}
+                  ) : null}
+                  <div className="lab-tile__inner">
+                    <span className="lab-tile__num">{lab.n}</span>
+                    <div className="lab-tile__copy">
+                      <p className="lab-tile__tag">{lab.tagline}</p>
+                      <h3>{lab.name}</h3>
+                      <p className="lab-tile__text">{lab.body}</p>
+                      <Link className="lab-tile__link" href="/contact?topic=research">
+                        Talk to us about this lab
+                        <span aria-hidden="true">›</span>
+                      </Link>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -203,34 +151,6 @@ export default function WorkPage() {
                     Work with this team
                   </Link>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="process section" aria-labelledby="process-title">
-        <div className="wrap">
-          <div className="process__head">
-            <div>
-              <p className="eyebrow eyebrow--light reveal">How we work</p>
-              <h2 className="h2 reveal" id="process-title">
-                A practical, participatory way forward.
-              </h2>
-            </div>
-            <p className="lede reveal">
-              Our core philosophy is Think → Research → Design → Build → Influence →
-              Scale. We move between disciplines as the question demands.
-            </p>
-          </div>
-
-          <div className="process__list reveal">
-            {workingSteps.map((step) => (
-              <div className="process__row" key={step.n}>
-                <span className="process__num">{step.n}</span>
-                <span className="process__title">{step.title}</span>
-                <span className="process__desc">{step.copy}</span>
-                <span aria-hidden="true">↗</span>
               </div>
             ))}
           </div>
