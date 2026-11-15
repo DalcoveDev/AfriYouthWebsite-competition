@@ -1769,9 +1769,7 @@
 
 .chapter-bar__link {
   position: relative;
-  display: inline-flex;
-  align-items: center;
-  padding: 0.55rem 0;
+  padding: 0.55rem 0.9rem;
   color: var(--ink);
   font-size: 0.85rem;
   font-weight: 550;
