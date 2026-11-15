@@ -1785,13 +1785,7 @@
   line-height: 1;
   white-space: nowrap;
   text-decoration: none;
-  transition: color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
-}
-
-.chapter-bar__link:hover,
-.chapter-bar__link:focus-visible {
-  color: var(--ink);
-  background: rgba(13, 6, 36, 0.05);
+  transition: color 0.25s ease;
 }
 
 .chapter-bar__link[aria-current='location'] {
