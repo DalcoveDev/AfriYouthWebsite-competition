@@ -21,11 +21,15 @@ const poppins = localFont({
   fallback: ["Segoe UI", "Helvetica Neue", "sans-serif"],
 });
 
-const jakarta = localFont({
+/* The brand permits exactly two typefaces: Poppins for titles and Gilroy for
+   body text. The licensed Gilroy pack supplies Light (300) and ExtraBold
+   (800), so any CSS weight between them resolves to one of those two. */
+const gilroy = localFont({
   src: [
-    { path: "./fonts/plus-jakarta-sans.woff2", weight: "200 800", style: "normal" },
+    { path: "./fonts/gilroy-light.otf", weight: "300", style: "normal" },
+    { path: "./fonts/gilroy-extrabold.otf", weight: "800", style: "normal" },
   ],
-  variable: "--font-jakarta",
+  variable: "--font-gilroy",
   display: "swap",
   preload: true,
   fallback: ["Helvetica Neue", "Arial", "sans-serif"],
@@ -100,7 +104,7 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`no-js ${poppins.variable} ${jakarta.variable}`}
+      className={`no-js ${poppins.variable} ${gilroy.variable}`}
       suppressHydrationWarning
     >
       <body suppressHydrationWarning>

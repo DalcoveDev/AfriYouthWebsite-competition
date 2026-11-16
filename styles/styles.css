@@ -1,7 +1,7 @@
 /* =========================================================
    AfriYouth Innovation Labs
    Brand system — Dark Purple · Steel Pink · Duke Blue · Blue · White
-   Titles: Poppins · Body: Gilroy (Plus Jakarta Sans substitute)
+   Titles: Poppins · Body: Gilroy (the only two typefaces the brand permits)
    Source: "Afri Youth Innovation Lab Branding — Logo & Guidelines"
    Tailwind CSS integration
    ========================================================= */
@@ -59,8 +59,9 @@
 
   /* Type */
   --font-display: var(--font-poppins), "Poppins", "Segoe UI", sans-serif;
-  --font-body: "Gilroy", var(--font-jakarta), "Plus Jakarta Sans", "Helvetica Neue", Arial, sans-serif;
-  --font-gilroy: "Gilroy", var(--font-body);
+  /* Gilroy carries all body text. The licensed pack ships Light (300) and
+     ExtraBold (800) only, so weights above 500 resolve to ExtraBold. */
+  --font-body: var(--font-gilroy), "Gilroy", "Helvetica Neue", Arial, sans-serif;
 
   /* Layout */
   --gutter: clamp(1.25rem, 4.6vw, 4.75rem);
