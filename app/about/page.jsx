@@ -178,6 +178,11 @@ export default function AboutPage() {
                 <circle cx="32" cy="32" r="3.4" fill="currentColor" stroke="none" />
               </svg>
             </article>
+
+            <article className="purpose-card purpose-card--wide reveal">
+              <span className="purpose-card__num">03 / In the brand’s words</span>
+              <p className="purpose-card__statement">{brand.brandStatement}</p>
+            </article>
           </div>
         </div>
       </section>

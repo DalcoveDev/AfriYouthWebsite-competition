@@ -267,6 +267,27 @@
   color: rgba(255, 255, 255, 0.66);
 }
 
+/* Full-width band carrying the branding guidelines' own statement of the
+   mission, beneath the two mandate cards. */
+.purpose-card--wide {
+  grid-column: 1 / -1;
+  min-height: auto;
+}
+
+.purpose-card--wide .purpose-card__num {
+  margin-bottom: 1.1rem;
+}
+
+.purpose-card--wide .purpose-card__statement {
+  max-width: 46rem;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 1.75vw, 1.5rem);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
 .purpose-card__mark {
   position: absolute;
   right: 1.75rem;
