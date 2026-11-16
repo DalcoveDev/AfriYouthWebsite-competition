@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { createMetadata } from "@/lib/metadata";
-import SectionTimeline from "@/components/home/SectionTimeline";
 import AcceleratorJourney from "@/components/accelerator/AcceleratorJourney";
 import { divisions, labs } from "@/lib/content";
 import "@/styles/home.css";
@@ -45,23 +44,9 @@ const routes = [
   },
 ];
 
-const homeSections = [
-  { id: "home-start", n: "01", label: "Start" },
-  { id: "home-who", n: "02", label: "Who we are" },
-  { id: "home-labs", n: "03", label: "Six labs" },
-  { id: "home-philosophy", n: "04", label: "Philosophy" },
-  { id: "home-accelerator", n: "05", label: "Accelerator" },
-  { id: "home-divisions", n: "06", label: "Divisions" },
-  { id: "home-challenge", n: "07", label: "Challenge" },
-  { id: "home-ways-in", n: "08", label: "Ways in" },
-  { id: "home-contact", n: "09", label: "Let’s talk" },
-];
-
 export default function HomePage() {
   return (
     <main id="main" className="home-main">
-      <SectionTimeline sections={homeSections} />
-
       <section id="home-start" className="hero home-section" aria-labelledby="home-title">
         <div className="hero__wash" aria-hidden="true" />
         <div className="wrap">
@@ -88,20 +73,6 @@ export default function HomePage() {
                 </Link>
               </div>
 
-              <dl className="hero__ledger">
-                <div>
-                  <dt>06 labs</dt>
-                  <dd>One connected practice, from research to scale.</dd>
-                </div>
-                <div>
-                  <dt>10 stages</dt>
-                  <dd>The Evidence-to-Impact Accelerator.</dd>
-                </div>
-                <div>
-                  <dt>05 capabilities</dt>
-                  <dd>Research, policy, design, enterprise, foresight.</dd>
-                </div>
-              </dl>
             </div>
 
             <div className="hero__media">
@@ -129,11 +100,6 @@ export default function HomePage() {
       <section id="home-who" className="chapter chapter--challenge home-section" aria-labelledby="who-title">
         <div className="wrap chapter__grid">
           <div className="chapter__label-col">
-            <p className="chapter__label reveal">
-              Who we are
-              <br />
-              Africa and beyond
-            </p>
             <figure className="chapter__photo reveal">
               <img
                 src="/assets/img/brand/immersive-work.webp"
@@ -181,11 +147,6 @@ export default function HomePage() {
               </li>
             </ul>
 
-            <p className="chapter__footnote reveal">
-              AfriYouth connects all five capabilities in one lab — and keeps young
-              people in the room long enough for change to take root.
-            </p>
-
             <div className="btn-row" style={{ marginTop: "1.8rem" }}>
               <Link className="btn btn--outline" href="/about">
                 Meet AfriYouth
@@ -200,9 +161,8 @@ export default function HomePage() {
         <div className="wrap">
           <div className="response__head">
             <div>
-              <p className="eyebrow reveal">What we do</p>
               <h2 className="h2 reveal" id="labs-title">
-                Six labs. One connected practice.
+                What we do
               </h2>
             </div>
             <div className="response__head-side reveal">
@@ -230,19 +190,11 @@ export default function HomePage() {
             </figure>
           </div>
 
-          <p className="response__note reveal">
-            <span>Flagship product</span>
-            The Evidence-to-Impact Accelerator connects all six labs in one ten-stage
-            pathway — from community research to scale.
-          </p>
         </div>
       </section>
 
       <section id="home-philosophy" className="chapter chapter--belief home-section" aria-labelledby="philosophy-title">
         <div className="wrap">
-          <p className="chapter__label chapter__label--light reveal">
-            Our philosophy
-          </p>
           <div className="belief__quote">
             <p id="philosophy-title">
               Think. Research. Design. Build. <span>Influence. Scale.</span>
@@ -280,9 +232,8 @@ export default function HomePage() {
         <div className="wrap">
           <div className="section-head">
             <div className="section-head__copy">
-              <p className="eyebrow reveal">Our portfolio</p>
               <h2 className="h2 reveal" id="portfolio-title">
-                Five divisions. One institution.
+                Our divisions
               </h2>
             </div>
             <div className="section-head__side reveal">
@@ -313,7 +264,6 @@ export default function HomePage() {
         <div className="wrap">
           <div className="response__head">
             <div>
-              <p className="eyebrow reveal">Our most distinctive product</p>
               <h2 className="h2 reveal" id="challenge-title">
                 Policy Innovation Challenge.
               </h2>
@@ -343,9 +293,8 @@ export default function HomePage() {
         <div className="wrap">
           <div className="possibilities__head">
             <div>
-              <p className="eyebrow reveal">Ways in</p>
               <h2 className="h2 reveal" id="routes-title">
-                There’s more than one way in.
+                Ways in
               </h2>
             </div>
             <div className="reveal">
@@ -379,11 +328,8 @@ export default function HomePage() {
           <span />
         </div>
         <div className="wrap action__inner">
-          <p className="chapter__label chapter__label--light">
-            Let’s make it move
-          </p>
           <h2 className="action__title" id="action-title">
-            Bring us the question. <span className="mark mark--light">We’ll bring the lab.</span>
+            Bring us the question. <span className="mark">We’ll bring the lab.</span>
           </h2>
           <div className="action__foot">
             <p>

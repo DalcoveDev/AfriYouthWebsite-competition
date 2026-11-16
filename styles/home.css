@@ -91,22 +91,7 @@
 }
 
 .mark {
-  position: relative;
-  z-index: 0;
   white-space: nowrap;
-}
-
-.mark::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  right: -0.06em;
-  bottom: 0.02em;
-  left: -0.04em;
-  height: 0.12em;
-  background: var(--pink);
-  transform: rotate(-1.2deg) skewX(-12deg);
-  transform-origin: left center;
 }
 
 .hero__lede {
@@ -1195,10 +1180,6 @@
   text-wrap: balance;
 }
 
-.mark--light::after {
-  background: #ef8bff;
-}
-
 .action__foot {
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) auto;
@@ -1220,108 +1201,8 @@
   background: rgba(13, 6, 36, 0.1);
 }
 
-/* ---------- Chapter rail ---------- */
-.trail-rail {
-  position: fixed;
-  z-index: 60;
-  top: 50%;
-  right: max(0.9rem, calc((100vw - 90rem) / 2 + 0.9rem));
-  transform: translateY(-50%);
-}
-
-.trail-rail__list {
-  position: relative;
-  display: grid;
-  gap: 0.35rem;
-  margin: 0;
-  padding: 0.6rem 0;
-  list-style: none;
-}
-
-.trail-rail__list::before {
-  content: "";
-  position: absolute;
-  top: 0.9rem;
-  right: 0.345rem;
-  bottom: 0.9rem;
-  width: 1px;
-  background: var(--line);
-}
-
-.trail-rail__link {
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr 0.7rem;
-  align-items: center;
-  justify-items: end;
-  gap: 0.45rem;
-  height: 1.55rem;
-  color: var(--muted-soft);
-  text-decoration: none;
-  opacity: 0.55;
-  transition: opacity 0.2s ease, color 0.2s ease;
-}
-
-.trail-rail__link:hover,
-.trail-rail__link:focus-visible,
-.trail-rail__link[aria-current="true"] {
-  color: var(--ink);
-  opacity: 1;
-}
-
-.trail-rail__num {
-  font-size: 0.5rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-}
-
-.trail-rail__dot {
-  position: relative;
-  z-index: 1;
-  width: 0.34rem;
-  height: 0.34rem;
-  background: var(--paper);
-  border: 1px solid currentColor;
-}
-
-.trail-rail__link[aria-current="true"] .trail-rail__dot {
-  width: 0.55rem;
-  height: 0.55rem;
-  background: var(--pink);
-  border-color: var(--pink);
-}
-
-.trail-rail__label {
-  position: absolute;
-  right: 2rem;
-  padding: 0.28rem 0.5rem;
-  border: 1px solid var(--line);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 0.52rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  line-height: 1.4;
-  text-transform: uppercase;
-  white-space: nowrap;
-  opacity: 0;
-  transform: translateX(0.35rem);
-  transition: opacity 0.2s ease, transform 0.25s var(--ease);
-  pointer-events: none;
-}
-
-.trail-rail__link:hover .trail-rail__label,
-.trail-rail__link:focus-visible .trail-rail__label {
-  opacity: 1;
-  transform: none;
-}
-
 /* ---------- Responsive ---------- */
 @media (max-width: 1240px) {
-  .trail-rail {
-    display: none;
-  }
-
   .hero__grid {
     grid-template-columns: minmax(0, 1.05fr) minmax(17rem, 0.78fr);
     gap: 3rem;
@@ -1722,94 +1603,6 @@
 
 .hero.home-section {
   border-bottom: 1px solid var(--line);
-}
-
-/* ---------- Sticky chapter bar ---------- */
-.chapter-bar {
-  position: sticky;
-  top: 5.1rem;
-  z-index: 90;
-  border-bottom: 1px solid var(--line);
-  background: rgba(251, 250, 255, 0.9);
-  box-shadow: 0 8px 24px rgba(13, 6, 36, 0.04);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-}
-
-.chapter-bar__inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 3.2rem;
-}
-
-.chapter-bar__list {
-  display: flex;
-  flex: 0 1 auto;
-  align-items: center;
-  gap: 0.1rem;
-  min-width: 0;
-  max-width: 100%;
-  margin: 0;
-  padding: 0.26rem;
-  background: transparent;
-  overflow-x: auto;
-  list-style: none;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.chapter-bar__list::-webkit-scrollbar {
-  display: none;
-}
-
-.chapter-bar__item {
-  flex: 0 0 auto;
-}
-
-.chapter-bar__link {
-  position: relative;
-  padding: 0.55rem 0.9rem;
-  color: var(--ink);
-  font-size: 0.85rem;
-  font-weight: 550;
-  line-height: 1.2;
-  text-decoration: none;
-}
-
-.chapter-bar__link::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  bottom: 0.1rem;
-  left: 0;
-  height: 2px;
-  border-radius: 999px;
-  background: var(--gradient);
-  transform: scaleX(0);
-  transform-origin: right center;
-  transition: transform 0.3s var(--ease);
-}
-
-.chapter-bar__link:hover::after,
-.chapter-bar__link[aria-current="location"]::after {
-  transform: scaleX(1);
-  transform-origin: left center;
-}
-
-.chapter-bar__link[aria-current="location"] {
-  font-weight: 700;
-}
-
-.chapter-bar__link:focus-visible {
-  outline: 2px solid var(--pink);
-  outline-offset: 2px;
-}
-
-@media (max-width: 640px) {
-  .chapter-bar {
-    top: 4.5rem;
-  }
 }
 
 /* Gentle snapping only on larger screens */

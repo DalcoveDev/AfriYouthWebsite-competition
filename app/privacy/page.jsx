@@ -11,7 +11,6 @@ export const metadata = createMetadata({
 export default function PrivacyPage() {
   return (
     <LegalLayout
-      eyebrow="Legal"
       title="Privacy policy."
       meta="Effective date · November 2026"
       intro="AfriYouth Innovation Labs (“we”, “our”, “us”) respects the privacy of all visitors to our website afriyouthlabs.org. This policy explains what personal information we collect, why we collect it, how we use it, and your rights regarding your information."

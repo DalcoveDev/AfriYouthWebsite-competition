@@ -49,16 +49,15 @@ export default function ProgramsPage() {
         <div className="wrap">
           <div className="page-hero__grid">
             <div className="page-hero__copy">
-              <p className="eyebrow reveal">Programs & opportunities</p>
               <h1 className="h1 reveal" id="programs-title">
                 Your next move starts <em>here.</em>
               </h1>
             </div>
             <div className="page-hero__aside reveal">
               <p className="lede">
-                Practical programmes for young researchers, policy actors, founders
-                and professionals ready to turn curiosity into capability — and
-                capability into change.
+                Practical programmes for young researchers, policy actors, founders and
+                professionals who want to turn curiosity into skills, and skills into
+                change.
               </p>
               <div className="programmes-hero__note">
                 <p>Practice-led programmes, built around real briefs and real feedback.</p>
@@ -80,16 +79,14 @@ export default function ProgramsPage() {
         <div className="wrap">
           <div className="section-head">
             <div className="section-head__copy">
-              <p className="eyebrow reveal">Find your fit</p>
               <h2 className="h2 reveal" id="opportunities-title">
-                Open doors, not hoops.
+                Find your fit
               </h2>
             </div>
             <div className="section-head__side reveal">
               <p>
-                Every programme is practical and outcome-oriented: you work on real
-                briefs, receive structured feedback and leave with something you can
-                demonstrate.
+                Every programme is practical. You work on real briefs, get structured
+                feedback, and leave with something you can show.
               </p>
               <Link className="text-link" href="/contact?topic=programme">
                 Ask which programme fits
@@ -124,7 +121,6 @@ export default function ProgramsPage() {
         <div className="wrap">
           <div className="section-head">
             <div className="section-head__copy">
-              <p className="eyebrow reveal">Our signature programme</p>
               <h2 className="h2 reveal" id="challenge-title">
                 The Policy Innovation Challenge.
               </h2>
@@ -206,7 +202,6 @@ export default function ProgramsPage() {
         <div className="wrap">
           <div className="section-head">
             <div className="section-head__copy">
-              <p className="eyebrow reveal">Career & Professional Development Academy</p>
               <h2 className="h2 reveal" id="academy-title">
                 Learn. Practice. Apply. Demonstrate.
               </h2>
@@ -233,8 +228,7 @@ export default function ProgramsPage() {
 
           <div className="academy-grid">
             <article className="academy-card reveal">
-              <p className="eyebrow">Employability</p>
-              <h3 className="h3">Practice the whole job hunt.</h3>
+              <h3 className="h3">Employability</h3>
               <p>
                 Participants take on a realistic job vacancy and complete the entire
                 process — with honest feedback at every stage.
@@ -247,8 +241,7 @@ export default function ProgramsPage() {
             </article>
 
             <article className="academy-card reveal">
-              <p className="eyebrow">Professional development</p>
-              <h3 className="h3">Six capabilities. One portfolio.</h3>
+              <h3 className="h3">Professional development</h3>
               <p>
                 Professional competency assessment → practical training → real-world
                 challenge → feedback → professional portfolio.
@@ -280,7 +273,6 @@ export default function ProgramsPage() {
       <section className="section section--cream" aria-labelledby="faq-title">
         <div className="wrap faq__grid">
           <div className="faq__intro reveal">
-            <p className="eyebrow">Questions</p>
             <h2 className="h2" id="faq-title">
               Before you apply.
             </h2>
@@ -315,9 +307,8 @@ export default function ProgramsPage() {
       </section>
 
       <CtaBand
-        eyebrow="Not sure where you fit?"
         title="Start with a conversation."
-        copy="Tell us where you are and what you want to move. We’ll help you find the right programme, partner or next step."
+        copy="Tell us where you are and what you want to change. We’ll help you find the right programme, partner or next step."
         primary={{ href: "/contact?topic=programme", label: "Talk to our team" }}
         secondary={{ href: "/contact?topic=partner", label: "Explore partnership" }}
       />

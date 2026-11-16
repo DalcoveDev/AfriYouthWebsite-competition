@@ -17,9 +17,8 @@ export default function NotFound() {
           <div className="wrap">
             <div className="page-hero__grid">
               <div className="page-hero__copy">
-                <p className="eyebrow">404 · Page not found</p>
                 <h1 className="h1" id="notfound-title">
-                  This page is <em>still being written.</em>
+                  Page <em>not found.</em>
                 </h1>
               </div>
               <div className="page-hero__aside">
@@ -48,9 +47,8 @@ export default function NotFound() {
           <div className="wrap">
             <div className="section-head">
               <div className="section-head__copy">
-                <p className="eyebrow">Ways back in</p>
                 <h2 className="h2" id="notfound-routes-title">
-                  Pick up the thread.
+                  Ways back in
                 </h2>
               </div>
               <div className="section-head__side">
@@ -70,7 +68,6 @@ export default function NotFound() {
         <section className="cta-band" aria-labelledby="notfound-cta-title">
           <div className="wrap cta-band__inner">
             <div>
-              <p className="eyebrow">Still lost?</p>
               <h2 className="h2" id="notfound-cta-title">
                 Tell us what you were looking for.
               </h2>

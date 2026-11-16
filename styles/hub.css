@@ -678,14 +678,6 @@
   padding: clamp(1.6rem, 4vw, 3.5rem);
 }
 
-.library-feature__copy .eyebrow {
-  color: #f0a6ff;
-}
-
-.library-feature__copy .eyebrow::before {
-  background: #fff;
-}
-
 .library-feature__copy h2 {
   max-width: 12ch;
   margin-bottom: 1.1rem;
@@ -1359,14 +1351,6 @@
 .contact-panel__top {
   padding: clamp(1.4rem, 2.5vw, 2rem);
   border-bottom: 1px solid var(--line-light);
-}
-
-.contact-panel__top .eyebrow {
-  color: #f0a6ff;
-}
-
-.contact-panel__top .eyebrow::before {
-  background: #fff;
 }
 
 .contact-panel__email {

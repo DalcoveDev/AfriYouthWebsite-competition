@@ -58,7 +58,6 @@ export default function InsightsPage() {
         <div className="wrap">
           <div className="page-hero__grid">
             <div className="page-hero__copy">
-              <p className="eyebrow reveal">Insights & resources</p>
               <h1 className="h1 reveal" id="insights-title">
                 Ideas for the work <em>ahead.</em>
               </h1>
@@ -104,7 +103,6 @@ export default function InsightsPage() {
                 </div>
               </div>
               <div className="library-feature__copy">
-                <p className="eyebrow">Research spotlight</p>
                 <h2 id="featured-title">
                   Africa’s Youth Workforce in 2050: Four Possible Futures.
                 </h2>
@@ -143,9 +141,8 @@ export default function InsightsPage() {
         <div className="wrap">
           <div className="library__head">
             <div>
-              <p className="eyebrow reveal">The publication library</p>
               <h2 className="h2 reveal" id="library-title">
-                Useful, not just impressive.
+                The publication library
               </h2>
             </div>
             <div className="reveal" style={{ maxWidth: "24rem" }}>
@@ -185,7 +182,6 @@ export default function InsightsPage() {
       </section>
 
       <CtaBand
-        eyebrow="Have something worth sharing?"
         title="Let’s make the thinking useful."
         copy="If you’re working on a question that belongs in public, we’d like to hear about it. Research, tools and uncomfortable questions are all welcome."
         primary={{ href: "/contact?topic=research", label: "Talk to us" }}

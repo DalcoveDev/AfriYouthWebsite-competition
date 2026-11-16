@@ -23,16 +23,15 @@ export default function WorkPage() {
         <div className="wrap">
           <div className="page-hero__grid">
             <div className="page-hero__copy">
-              <p className="eyebrow reveal">Our areas of work</p>
               <h1 className="h1 reveal" id="work-title">
                 Six labs. <em>One connected practice.</em>
               </h1>
             </div>
             <div className="page-hero__aside reveal">
               <p className="lede">
-                Whether you have a question that needs evidence, a policy that needs
-                testing, a service that needs redesign or a venture that needs a market
-                — we bring the right mix of disciplines to the table.
+                Bring us a question that needs evidence, a policy that needs testing,
+                a service that needs redesign or a venture that needs a market. We
+                build the right team around it.
               </p>
               <div className="page-hero__meta">
                 <span className="chip">For partners</span>
@@ -60,15 +59,14 @@ export default function WorkPage() {
         <div className="wrap">
           <div className="section-head">
             <div className="section-head__copy">
-              <p className="eyebrow reveal">What we bring</p>
               <h2 className="h2 reveal" id="labs-title">
-                No off-the-shelf answers.
+                What we bring
               </h2>
             </div>
             <div className="section-head__side reveal">
               <p>
-                Every piece of work starts with your question, your context and the
-                people who need to act on it. Here are the six labs that carry it.
+                Every project starts with your question and the people who need to
+                act on it. These six labs do the work.
               </p>
               <Link className="text-link" href="/contact?topic=research">
                 Commission our expertise
@@ -115,15 +113,14 @@ export default function WorkPage() {
         <div className="wrap">
           <div className="section-head">
             <div className="section-head__copy">
-              <p className="eyebrow reveal">Supportive services</p>
               <h2 className="h2 reveal" id="support-title">
-                From strategy to demonstrated impact.
+                Supportive services
               </h2>
             </div>
             <div className="section-head__side reveal">
               <p>
-                Two services run across all our work, helping partners show what
-                changed and fund what comes next.
+                Two services run through all our work. They help you show what
+                changed and raise money for what comes next.
               </p>
             </div>
           </div>
@@ -161,16 +158,15 @@ export default function WorkPage() {
         <div className="wrap">
           <div className="section-head">
             <div className="section-head__copy">
-              <p className="eyebrow reveal">What we leave behind</p>
               <h2 className="h2 reveal" id="products-title">
-                Products, not just reports.
+                What you get
               </h2>
             </div>
             <div className="section-head__side reveal">
               <p>
-                Every project leaves you with something you can use: solid evidence, a
-                policy option, a tested prototype, a funding case or a way to measure
-                what matters.
+                Every project ends with something you can use: evidence, a policy
+                option, a tested prototype, a funding case or a way to measure what
+                matters.
               </p>
             </div>
           </div>
@@ -195,9 +191,8 @@ export default function WorkPage() {
       </section>
 
       <CtaBand
-        eyebrow="Bring us your hardest question"
         title="Good work starts with a better conversation."
-        copy="Tell us what you’re trying to change. We’ll help you find the right mix of evidence, design and action."
+        copy="Tell us what you want to change. We’ll help you find the right mix of evidence, design and action."
         primary={{ href: "/contact?topic=research", label: "Commission our work" }}
         secondary={{ href: "/contact?topic=partner", label: "Partner with us" }}
       />

@@ -9,6 +9,7 @@ const links = [
   { href: "/work", label: "Our work" },
   { href: "/programs", label: "Programs" },
   { href: "/insights", label: "Insights" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function SiteHeader() {
@@ -67,7 +68,7 @@ export default function SiteHeader() {
 
           <div className="header__actions">
             <Link
-              className="btn btn--primary btn--sm header-cta"
+              className="btn btn--gradient btn--sm header-cta"
               href="/contact"
               aria-current={isCurrent("/contact") ? "page" : undefined}
             >

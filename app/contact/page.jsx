@@ -50,7 +50,6 @@ export default function ContactPage() {
         <div className="wrap">
           <div className="page-hero__grid">
             <div className="page-hero__copy">
-              <p className="eyebrow reveal">Contact</p>
               <h1 className="h1 reveal" id="contact-title">
                 Let’s start with <em>your question.</em>
               </h1>
@@ -193,7 +192,6 @@ export default function ContactPage() {
           <div>
             <aside className="contact-panel reveal" aria-label="Direct contact">
               <div className="contact-panel__top">
-                <p className="eyebrow">Direct line</p>
                 <a className="contact-panel__email" href={`mailto:${brand.email}`}>
                   {brand.email}
                 </a>
@@ -241,7 +239,6 @@ export default function ContactPage() {
       <section className="section section--cream" aria-labelledby="contact-faq-title">
         <div className="wrap faq__grid">
           <div className="faq__intro reveal">
-            <p className="eyebrow">Before you write</p>
             <h2 className="h2" id="contact-faq-title">
               A few useful answers.
             </h2>

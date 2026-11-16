@@ -11,7 +11,6 @@ export const metadata = createMetadata({
 export default function TermsPage() {
   return (
     <LegalLayout
-      eyebrow="Legal"
       title="Terms of use."
       meta="Last revised · November 2026"
       intro="Welcome to the AfriYouth Innovation Labs website (“the Website”). These terms of use (“Terms”) govern your use of our Website and any associated services, features, or content (collectively, “Services”)."

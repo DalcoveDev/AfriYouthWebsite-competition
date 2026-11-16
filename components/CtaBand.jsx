@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 export default function CtaBand({
-  eyebrow = "Let’s make it move",
   title = "Have a problem worth solving?",
   copy = "Tell us what you’re working on. We’ll come with questions, a multidisciplinary lens and a practical way forward.",
   primary = { href: "/contact", label: "Start a conversation" },
@@ -11,7 +10,6 @@ export default function CtaBand({
     <section className="cta-band" aria-labelledby="cta-band-title">
       <div className="wrap cta-band__inner">
         <div className="reveal">
-          <p className="eyebrow">{eyebrow}</p>
           <h2 className="h2" id="cta-band-title">
             {title}
           </h2>

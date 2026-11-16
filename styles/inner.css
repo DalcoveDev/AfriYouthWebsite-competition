@@ -16,11 +16,6 @@
 .page-hero .h1 em {
   color: var(--ink);
   background: none;
-  background-image: linear-gradient(var(--pink), var(--pink));
-  background-repeat: no-repeat;
-  background-position: 0 92%;
-  background-size: 100% 0.13em;
-  -webkit-text-fill-color: currentColor;
   font-style: normal;
   font-weight: 700;
 }

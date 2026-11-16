@@ -86,7 +86,6 @@ export default function AcceleratorJourney({
       >
         <div className="wrap">
           <header className="journey__head">
-            <p className="journey__eyebrow">The flagship pathway</p>
             <div className="journey__head-grid">
               <h2 className="journey__title" id={headingId}>
                 One problem. <span>Ten stages.</span> One connected pathway.
@@ -127,7 +126,6 @@ export default function AcceleratorJourney({
     >
       <div className="wrap">
         <header className="journey__head">
-          <p className="journey__eyebrow">The Evidence-to-Impact pathway</p>
           <div className="journey__head-grid">
             <h2 className="journey__title" id={headingId}>
               One problem. <span>Ten stages.</span> A journey you can see.

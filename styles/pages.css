@@ -133,16 +133,6 @@
   margin-bottom: clamp(2.5rem, 4.5vw, 3.75rem);
 }
 
-.journey__eyebrow {
-  margin-bottom: 1rem;
-  color: var(--pink);
-  font-family: var(--font-display);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
 .journey__head-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.7fr);

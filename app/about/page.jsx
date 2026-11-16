@@ -53,7 +53,6 @@ export default function AboutPage() {
         <div className="wrap">
           <div className="page-hero__grid">
             <div className="page-hero__copy">
-              <p className="eyebrow reveal">About AfriYouth</p>
               <h1 className="h1 reveal" id="about-title">
                 We connect the dots that <em>change systems.</em>
               </h1>
@@ -100,7 +99,6 @@ export default function AboutPage() {
       <section className="manifesto" aria-labelledby="why-title">
         <div className="wrap manifesto__grid">
           <div className="manifesto__side reveal">
-            <p className="eyebrow">Why we exist</p>
             <p className="note">
               A different kind of institution for a different kind of challenge.
             </p>
@@ -128,7 +126,6 @@ export default function AboutPage() {
         <div className="wrap">
           <div className="section-head">
             <div className="section-head__copy">
-              <p className="eyebrow reveal">Our mandate</p>
               <h2 className="h2 reveal" id="mission-vision-title">
                 Mission and vision.
               </h2>
@@ -191,9 +188,8 @@ export default function AboutPage() {
         <div className="wrap">
           <div className="section-head">
             <div className="section-head__copy">
-              <p className="eyebrow reveal">Our brand keywords</p>
               <h2 className="h2 reveal" id="keywords-title">
-                Six ideas that shape everything we do.
+                Our brand keywords
               </h2>
             </div>
             <div className="section-head__side reveal">
@@ -217,9 +213,8 @@ export default function AboutPage() {
         <div className="wrap">
           <div className="section-head">
             <div className="section-head__copy">
-              <p className="eyebrow reveal">What makes us different</p>
               <h2 className="h2 reveal" id="unique-title">
-                Most organisations pick a lane. We connect them.
+                What makes us different
               </h2>
             </div>
             <div className="section-head__side reveal">
@@ -248,9 +243,8 @@ export default function AboutPage() {
         <div className="wrap">
           <div className="approach__head">
             <div>
-              <p className="eyebrow eyebrow--light reveal">Our approach</p>
               <h2 className="h2 reveal" id="approach-title">
-                Change is not a straight line. Neither are we.
+                Our approach
               </h2>
             </div>
             <p className="lede reveal">
@@ -275,9 +269,8 @@ export default function AboutPage() {
         <div className="wrap">
           <div className="section-head">
             <div className="section-head__copy">
-              <p className="eyebrow reveal">Our voice</p>
               <h2 className="h2 reveal" id="voice-title">
-                How AfriYouth sounds.
+                Our voice
               </h2>
             </div>
             <div className="section-head__side reveal">
@@ -319,7 +312,6 @@ export default function AboutPage() {
             </span>
           </div>
           <div className="collective__copy reveal">
-            <p className="eyebrow">How we’re built</p>
             <h2 className="h2" id="collective-title">
               Five divisions. One team.
             </h2>
@@ -347,7 +339,6 @@ export default function AboutPage() {
       </section>
 
       <CtaBand
-        eyebrow="Work with us"
         title="We’re looking for questions, partners and people who want to move."
         copy="If you share our belief that Africa’s next chapter will be shaped by its young people, let’s find the right way to work together."
         primary={{ href: "/contact", label: "Start a conversation" }}
