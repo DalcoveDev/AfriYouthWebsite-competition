@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { createMetadata } from "@/lib/metadata";
 import CtaBand from "@/components/CtaBand";
-import { brand, capabilities, divisions, voice } from "@/lib/content";
+import { brand, capabilities, divisions, toRoman, voice } from "@/lib/content";
 import "@/styles/inner.css";
 
 export const metadata = createMetadata({
@@ -15,34 +15,34 @@ export const metadata = createMetadata({
 
 const approach = [
   {
-    n: "01",
+    n: "I",
     name: "Think",
-    copy: "We interrogate the assumptions and agree on the question that actually matters.",
+    copy: "We question the assumptions and agree on the question that really matters.",
   },
   {
-    n: "02",
+    n: "II",
     name: "Research",
-    copy: "We generate evidence with the people closest to the problem, not about them.",
+    copy: "We gather evidence with the people closest to the problem, not about them.",
   },
   {
-    n: "03",
+    n: "III",
     name: "Design",
     copy: "We translate evidence into solutions people can use, afford and trust.",
   },
   {
-    n: "04",
+    n: "IV",
     name: "Build",
     copy: "We prototype, test and strengthen the model, policy or venture.",
   },
   {
-    n: "05",
+    n: "V",
     name: "Influence",
-    copy: "We connect evidence and people to the decisions, institutions and resources that matter.",
+    copy: "We connect evidence and people to the decisions, institutions and funding that matter.",
   },
   {
-    n: "06",
+    n: "VI",
     name: "Scale",
-    copy: "We measure what changed, adapt and build the capability to sustain it.",
+    copy: "We measure what changed, adapt, and build the skills to keep it going.",
   },
 ];
 
@@ -112,11 +112,11 @@ export default function AboutPage() {
             </h2>
             <div className="manifesto__foot reveal">
               <p>
-                Too often, research sits on shelves, young people are consulted but not
-                entrusted, and promising innovations never reach the systems they were
-                built to change. We exist to close those gaps.
+                Too often, research sits on a shelf, young people are asked for their
+                views but not given real responsibility, and good ideas never reach the
+                systems they were meant to change. We exist to close those gaps.
               </p>
-              <p>Our work begins where disciplines end.</p>
+              <p>Our work starts where single disciplines stop.</p>
             </div>
           </div>
         </div>
@@ -132,15 +132,14 @@ export default function AboutPage() {
             </div>
             <div className="section-head__side reveal">
               <p>
-                Our measure of success is what Africa’s young people are able to do
-                with what they learn.
+                We measure success by what young people can do with what they learn.
               </p>
             </div>
           </div>
 
           <div className="purpose__grid">
             <article className="purpose-card reveal">
-              <span className="purpose-card__num">01 / Mission</span>
+              <span className="purpose-card__num">I / Mission</span>
               <h3 className="h3">Evidence. Policy. Innovation. Led by Africa’s youth.</h3>
               <p>{brand.mission}</p>
               <svg
@@ -158,7 +157,7 @@ export default function AboutPage() {
             </article>
 
             <article className="purpose-card purpose-card--dark reveal">
-              <span className="purpose-card__num">02 / Vision</span>
+              <span className="purpose-card__num">II / Vision</span>
               <h3 className="h3">An Africa where young people drive inclusive transformation by 2050.</h3>
               <p>{brand.vision}</p>
               <svg
@@ -177,7 +176,7 @@ export default function AboutPage() {
             </article>
 
             <article className="purpose-card purpose-card--wide reveal">
-              <span className="purpose-card__num">03 / In the brand’s words</span>
+              <span className="purpose-card__num">III / In the brand’s words</span>
               <p className="purpose-card__statement">{brand.brandStatement}</p>
             </article>
           </div>
@@ -194,8 +193,7 @@ export default function AboutPage() {
             </div>
             <div className="section-head__side reveal">
               <p>
-                They are the building blocks of our identity — the values behind every
-                lab, programme and partnership.
+                Six values sit behind every lab, programme and partnership.
               </p>
             </div>
           </div>
@@ -219,9 +217,8 @@ export default function AboutPage() {
             </div>
             <div className="section-head__side reveal">
               <p>
-                Our competitive advantage is not one service. It is the ability to hold
-                research, policy, human-centred design, entrepreneurship and foresight
-                in the same room.
+                What sets us apart is not one service. It is the ability to bring
+                research, policy, design, entrepreneurship and foresight into one room.
               </p>
             </div>
           </div>
@@ -229,7 +226,7 @@ export default function AboutPage() {
           <div className="cap-grid reveal">
             {capabilities.map((capability, index) => (
               <article className="cap-card" key={capability.name}>
-                <span className="cap-card__num">0{index + 1}</span>
+                <span className="cap-card__num">{toRoman(index + 1)}</span>
                 <h3>{capability.name}</h3>
                 <p>{capability.copy}</p>
               </article>
@@ -249,7 +246,7 @@ export default function AboutPage() {
             </div>
             <p className="lede reveal">
               Think → Research → Design → Build → Influence → Scale. We move between
-              disciplines as the question demands, without losing rigour.
+              disciplines as the question needs, and keep the work rigorous.
             </p>
           </div>
 
@@ -275,7 +272,7 @@ export default function AboutPage() {
             </div>
             <div className="section-head__side reveal">
               <p>
-                Five attributes shape how we write and speak — in reports, on social
+                Five qualities shape how we write and speak: in reports, on social
                 media and in youth-led campaigns.
               </p>
             </div>
@@ -316,8 +313,8 @@ export default function AboutPage() {
               Five divisions. One team.
             </h2>
             <p className="lede">
-              All our work sits within five strategic divisions, with resource
-              mobilisation and partnerships running across every one of them.
+              All our work sits in five divisions. Resource mobilisation and
+              partnerships run across all of them.
             </p>
             <ul className="role-list">
               {divisions.map((division) => (
@@ -328,7 +325,7 @@ export default function AboutPage() {
               ))}
             </ul>
             <p className="editorial__note" style={{ marginTop: "1.2rem" }}>
-              <span>Cross-cutting commercial service</span>
+              <span>Works across all five divisions</span>
               Resource Mobilization & Partnerships
             </p>
             <Link className="text-link" href="/programs">
@@ -340,7 +337,7 @@ export default function AboutPage() {
 
       <CtaBand
         title="We’re looking for questions, partners and people who want to move."
-        copy="If you share our belief that Africa’s next chapter will be shaped by its young people, let’s find the right way to work together."
+        copy="If you believe, as we do, that Africa’s next chapter will be shaped by its young people, let’s find a way to work together."
         primary={{ href: "/contact", label: "Start a conversation" }}
         secondary={{ href: "/work", label: "Explore our work" }}
       />

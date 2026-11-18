@@ -64,8 +64,8 @@ export default function InsightsPage() {
             </div>
             <div className="page-hero__aside reveal">
               <p className="lede">
-                Evidence, policy options, scenarios and practical tools from the edge
-                of research, design, enterprise and foresight.
+                Evidence, policy options, scenarios and practical tools from our
+                research, design, enterprise and foresight work.
               </p>
               <div className="page-hero__meta">
                 <span className="chip">Read in the open</span>
@@ -99,7 +99,7 @@ export default function InsightsPage() {
                 </p>
                 <div className="report-cover__foot">
                   <span>Evidence · Futures</span>
-                  <span>№ 01</span>
+                  <span>№ I</span>
                 </div>
               </div>
               <div className="library-feature__copy">
@@ -107,9 +107,9 @@ export default function InsightsPage() {
                   Africa’s Youth Workforce in 2050: Four Possible Futures.
                 </h2>
                 <p>
-                  Our Africa 2050 Futures Series practises the long view: four
-                  possible futures for the continent’s largest generation, and what
-                  each one asks of decision-makers today.
+                  Our Africa 2050 Futures Series looks far ahead: four possible
+                  futures for the continent’s largest generation, and what each one
+                  asks of decision-makers today.
                 </p>
                 <div className="btn-row">
                   <Link
@@ -183,7 +183,7 @@ export default function InsightsPage() {
 
       <CtaBand
         title="Let’s make the thinking useful."
-        copy="If you’re working on a question that belongs in public, we’d like to hear about it. Research, tools and uncomfortable questions are all welcome."
+        copy="If you’re working on a question that should be public, tell us about it. Research, tools and hard questions are all welcome."
         primary={{ href: "/contact?topic=research", label: "Talk to us" }}
         secondary={{ href: "/contact?topic=partner", label: "Partner on research" }}
       />

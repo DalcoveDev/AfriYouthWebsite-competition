@@ -1,7 +1,13 @@
 import Link from "next/link";
 import { createMetadata } from "@/lib/metadata";
 import AcceleratorJourney from "@/components/accelerator/AcceleratorJourney";
-import { divisions, labs } from "@/lib/content";
+import {
+  acceleratorStages,
+  divisions,
+  labs,
+  publications,
+  stories,
+} from "@/lib/content";
 import "@/styles/home.css";
 import "@/styles/inner.css";
 
@@ -14,10 +20,19 @@ export const metadata = createMetadata({
   path: "/",
 });
 
+// Counts of what the practice runs, derived from the content above so they
+// cannot drift. The source documents carry no reach or partner figures, so
+// there are no outcome numbers to show yet — these are what is verifiable.
+const stats = [
+  { n: labs.length, label: "Labs across five divisions" },
+  { n: divisions.length, label: "Divisions, one connected practice" },
+  { n: acceleratorStages.length, label: "Stages from evidence to impact" },
+  { n: publications.length, label: "Publication series, open to all" },
+];
+
 const routes = [
   {
-    n: "01",
-    who: "For young changemakers",
+    n: "I",
     title: "Build your practice. Take an idea further.",
     copy:
       "Join the Innovation Accelerator, the Policy Innovation Challenge or the Employability Bootcamp.",
@@ -25,8 +40,7 @@ const routes = [
     link: "Explore programs",
   },
   {
-    n: "02",
-    who: "For partners",
+    n: "II",
     title: "Co-create the next system.",
     copy:
       "Bring a question, a mandate or a knotty challenge. We assemble research, policy, design, enterprise and foresight around it.",
@@ -34,8 +48,7 @@ const routes = [
     link: "Start a partnership",
   },
   {
-    n: "03",
-    who: "For institutions",
+    n: "III",
     title: "Commission evidence that gets used.",
     copy:
       "Evidence reports, policy analysis, impact evaluation and investment readiness built around your mandate and the people you serve.",
@@ -52,9 +65,6 @@ export default function HomePage() {
         <div className="wrap">
           <div className="hero__grid">
             <div className="hero__copy">
-              <p className="hero__kicker">
-                Research · Policy · Design · Enterprise · Foresight
-              </p>
               <h1 className="hero__title" id="home-title">
                 Africa’s future is <span className="mark">youth-written.</span>
               </h1>
@@ -76,20 +86,12 @@ export default function HomePage() {
             </div>
 
             <div className="hero__media">
-              <div className="hero__annotation">
-                <span className="hero__annotation-dot" aria-hidden="true" />
-                Open for collaboration
-              </div>
               <figure className="hero__image">
-                <figcaption className="hero__caption">
-                  <span>Young innovators, Africa</span>
-                  <span>Field note 001</span>
-                </figcaption>
                 <img
-                  src="/assets/img/brand/venture-startup.webp"
-                  width={1333}
-                  height={2000}
-                  alt="A young innovator holding a hand-made “Start Up” sign"
+                  src="/assets/img/afiyouthheroimagenobg.png"
+                  width={447}
+                  height={447}
+                  alt="A group of young Africans smiling and cheering together"
                 />
               </figure>
             </div>
@@ -174,20 +176,26 @@ export default function HomePage() {
                 Explore our work
               </Link>
             </div>
-          </div>
-
-          <div className="service-list reveal">
+          </div>          <div className="media-grid reveal">
             {labs.map((lab) => (
-              <Link className="service-row" href={`/work#${lab.id}`} key={lab.id}>
-                <span className="service-row__num">{lab.n}</span>
-                <span className="service-row__title">{lab.name}</span>
-                <span className="service-row__desc">{lab.short}</span>
-                <span className="service-row__arrow" aria-hidden="true">↗</span>
+              <Link className="media-card" href={`/work#${lab.id}`} key={lab.id}>
+                <figure className="media-card__photo">
+                  <img
+                    src={lab.image}
+                    alt={lab.alt}
+                    width={800}
+                    height={600}
+                    loading="lazy"
+                  />
+                </figure>
+                <h3>{lab.name}</h3>
+                <p className="media-card__desc">{lab.tagline}</p>
+                <span className="media-card__cta">
+                  See the lab
+                  <span aria-hidden="true">↗</span>
+                </span>
               </Link>
             ))}
-            <figure className="service-preview" aria-hidden="true">
-              <img src="/assets/img/brand/field-energy.webp" alt="" data-preview-image />
-            </figure>
           </div>
 
         </div>
@@ -245,18 +253,25 @@ export default function HomePage() {
                 Explore the divisions
               </Link>
             </div>
-          </div>
-
-          <div className="labs-index__list reveal">
+          </div>          <div className="division-grid reveal">
             {divisions.map((division) => (
-              <Link className="labs-index__row" href="/about#divisions" key={division.name}>
-                <span className="labs-index__num">{division.n}</span>
-                <span className="labs-index__name">{division.name}</span>
-                <span className="labs-index__product">{division.products}</span>
-                <span className="labs-index__arrow" aria-hidden="true">↗</span>
+              <Link className="division" href="/about#divisions" key={division.name}>
+                <h3 className="division__name">{division.name}</h3>
+                <p className="division__products">{division.products}</p>
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="stat-band home-section" aria-label="AfriYouth at a glance">
+        <div className="wrap stat-band__grid">
+          {stats.map((stat) => (
+            <div className="stat-band__item" key={stat.label}>
+              <span className="stat-band__num">{stat.n}</span>
+              <span className="stat-band__label">{stat.label}</span>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -309,10 +324,100 @@ export default function HomePage() {
             {routes.map((route) => (
               <Link className="route" href={route.href} key={route.n}>
                 <span className="route__num">{route.n}</span>
-                <span className="route__who">{route.who}</span>
                 <h3 className="route__title">{route.title}</h3>
                 <p className="route__copy">{route.copy}</p>
                 <span className="route__link">{route.link}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {stories.length > 0 && (
+        <section id="home-stories" className="chapter home-section" aria-labelledby="stories-title">
+          <div className="wrap">
+            <div className="section-head">
+              <div className="section-head__copy">
+                <h2 className="h2 reveal" id="stories-title">
+                  Young people
+                </h2>
+              </div>
+              <div className="section-head__side reveal">
+                <p>Participants and partners, in their own words.</p>
+                <Link className="text-link" href="/contact">
+                  Share your story
+                </Link>
+              </div>
+            </div>
+
+            <div className="stories reveal">
+              {stories.map((story) => (
+                <Link className="story-card" href={story.href} key={story.name}>
+                  <figure className="story-card__photo">
+                    <img
+                      src={story.image}
+                      alt={story.alt}
+                      width={800}
+                      height={1000}
+                    />
+                  </figure>
+                  <span className="story-card__tag">
+                    {story.theme} · {story.country}
+                  </span>
+                  <h3>{story.title}</h3>
+                  <p className="story-card__name">
+                    {story.name}, {story.role}
+                  </p>
+                  <span className="story-card__cta">
+                    Read the story
+                    <span aria-hidden="true">↗</span>
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      <section id="home-latest" className="chapter home-section" aria-labelledby="latest-title">
+        <div className="wrap">
+          <div className="section-head">
+            <div className="section-head__copy">
+              <h2 className="h2 reveal" id="latest-title">
+                Latest from the lab
+              </h2>
+            </div>
+            <div className="section-head__side reveal">
+              <p>
+                Research, policy options and futures scenarios from our three
+                publication series.
+              </p>
+              <Link className="text-link" href="/insights">
+                Browse the library
+              </Link>
+            </div>
+          </div>
+
+          <div className="latest-grid reveal">
+            {publications.map((publication) => (
+              <Link
+                className="latest-card"
+                href="/insights"
+                key={publication.n}
+              >
+                <span className="latest-card__top">
+                  <span className="latest-card__cat">{publication.category}</span>
+                  <span className="latest-card__num">№ {publication.n}</span>
+                </span>
+                <h3>{publication.title}</h3>
+                <p>{publication.copy}</p>
+                <span className="latest-card__foot">
+                  <span className="latest-card__meta">{publication.meta}</span>
+                  <span className="latest-card__cta">
+                    Read the series
+                    <span aria-hidden="true">↗</span>
+                  </span>
+                </span>
               </Link>
             ))}
           </div>

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Logo from "@/components/brand/Logo";
+import { divisions, labs } from "@/lib/content";
 
 const links = [
   { href: "/about", label: "About" },
@@ -47,6 +48,38 @@ export default function SiteHeader() {
           <Logo variant="horizontal" tone="dark" />
 
           <nav className="site-nav" id="site-nav" aria-label="Primary navigation">
+            <details className="nav-drop">
+              <summary className="site-nav__link nav-drop__toggle">
+                What we do
+              </summary>
+              <div className="nav-drop__panel">
+                <div className="nav-drop__col">
+                  <p className="nav-drop__label">The labs</p>
+                  <ul>
+                    {labs.map((lab) => (
+                      <li key={lab.id}>
+                        <Link href={`/work#${lab.id}`}>{lab.name}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="nav-drop__col">
+                  <p className="nav-drop__label">Divisions</p>
+                  <ul>
+                    {divisions.map((division) => (
+                      <li key={division.n}>
+                        <Link href="/about#divisions">
+                          {division.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <Link className="nav-drop__all" href="/work">
+                  See all our work <span aria-hidden="true">↗</span>
+                </Link>
+              </div>
+            </details>
             {links.map((link) => (
               <Link
                 key={link.href}

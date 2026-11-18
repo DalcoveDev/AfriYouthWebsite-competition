@@ -7,6 +7,7 @@ import {
   employabilitySteps,
   labs,
   programmes,
+  toRoman,
 } from "@/lib/content";
 import "@/styles/hub.css";
 import "@/styles/inner.css";
@@ -94,20 +95,28 @@ export default function ProgramsPage() {
             </div>
           </div>
 
-          <div className="programmes-grid">
+          <div className="media-grid">
             {programmes.map((programme) => (
-              <article className="programme-card reveal" key={programme.id} id={programme.id}>
-                <span className="programme-card__tag">{programme.status}</span>
+              <article className="media-card reveal" key={programme.id} id={programme.id}>
+                <figure className="media-card__photo">
+                  <img
+                    src={programme.image}
+                    alt={programme.alt}
+                    width={800}
+                    height={600}
+                    loading="lazy"
+                  />
+                </figure>
+                <p className="media-card__meta">{programme.type}</p>
                 <h3>{programme.name}</h3>
-                <p className="programme-card__meta">{programme.type}</p>
-                <p className="programme-card__desc">{programme.description}</p>
+                <p className="media-card__desc">{programme.description}</p>
                 <Link
-                  className="programme-card__link"
+                  className="media-card__cta"
                   href={`/contact?topic=programme&programme=${programme.id}`}
                   aria-label={`Register interest in the ${programme.name}`}
                 >
                   Register interest
-                  <span aria-hidden="true">›</span>
+                  <span aria-hidden="true">↗</span>
                 </Link>
               </article>
             ))}
@@ -149,7 +158,7 @@ export default function ProgramsPage() {
           <div className="editorial reveal">
             <div className="editorial__item">
               <div>
-                <span className="editorial__num">01</span>
+                <span className="editorial__num">I</span>
                 <p className="editorial__title">What participants produce</p>
               </div>
               <div className="editorial__body">
@@ -179,7 +188,7 @@ export default function ProgramsPage() {
             </div>
             <div className="editorial__item">
               <div>
-                <span className="editorial__num">02</span>
+                <span className="editorial__num">II</span>
                 <p className="editorial__title">Challenge themes</p>
               </div>
               <div className="editorial__body">
@@ -219,7 +228,7 @@ export default function ProgramsPage() {
             {["Learn", "Practice", "Apply", "Receive feedback", "Improve", "Demonstrate"].map(
               (step, index) => (
                 <span key={step}>
-                  <b>0{index + 1}</b>
+                  <b>{toRoman(index + 1)}</b>
                   {step}
                 </span>
               )

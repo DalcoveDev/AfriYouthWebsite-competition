@@ -14,7 +14,48 @@ export const metadata = createMetadata({
 });
 
 // Alternating photo and flat-colour tiles, so the lab mosaic reads like a gallery wall.
-const labTones = ["image", "mint", "image", "cream", "image", "yellow"];
+const labTones = ["image", "lavender", "image", "cream", "image", "blush"];
+
+// What a project can end in. Titles and copy as in the source documents; the
+// photographs are existing project images, used as context.
+const products = [
+  {
+    title: "AfriYouth Evidence Reports",
+    copy: "Commissioned research and evidence synthesis for companies, programmes and institutions.",
+    image: "/assets/img/research.webp",
+    alt: "Young people listening during a meeting in an open-plan office",
+  },
+  {
+    title: "AfriYouth Policy Solutions Series",
+    copy: "Our most important intellectual product — practical policy options for live public problems.",
+    image: "/assets/img/policy.webp",
+    alt: "A young woman speaking into a microphone at a podium",
+  },
+  {
+    title: "AfriYouth Innovation Accelerator",
+    copy: "Incubation → Acceleration → Demo Day for youth-led ventures.",
+    image: "/assets/img/brand/venture-startup.webp",
+    alt: "A young innovator holding a hand-made “Start Up” sign",
+  },
+  {
+    title: "Africa 2050 Futures Series",
+    copy: "Scenarios and foresight studies, including Africa’s youth workforce in 2050.",
+    image: "/assets/img/foresight.webp",
+    alt: "Young women listening attentively in an audience",
+  },
+  {
+    title: "AfriYouth Impact Dashboard",
+    copy: "Our impact and learning product: Theory of Change, M&E systems, outcome measurement and learning reports.",
+    image: "/assets/img/insight.webp",
+    alt: "A team meeting around a long table in a bright boardroom",
+  },
+  {
+    title: "Policy Innovation Demo Day",
+    copy: "The public culmination of the Policy Innovation Challenge.",
+    image: "/assets/img/collaboration.webp",
+    alt: "Colleagues discussing a challenge around a table with laptops",
+  },
+];
 
 export default function WorkPage() {
   return (
@@ -171,19 +212,20 @@ export default function WorkPage() {
             </div>
           </div>
 
-          <div className="cap-grid reveal">
-            {[
-              ["AfriYouth Evidence Reports", "Commissioned research and evidence synthesis for companies, programmes and institutions."],
-              ["AfriYouth Policy Solutions Series", "Our most important intellectual product — practical policy options for live public problems."],
-              ["AfriYouth Innovation Accelerator", "Incubation → Acceleration → Demo Day for youth-led ventures."],
-              ["Africa 2050 Futures Series", "Scenarios and foresight studies, including Africa’s youth workforce in 2050."],
-              ["AfriYouth Impact Dashboard", "Our impact and learning product: Theory of Change, M&E systems, outcome measurement and learning reports."],
-              ["Policy Innovation Demo Day", "The public culmination of the Policy Innovation Challenge."],
-            ].map(([title, copy], index) => (
-              <article className="cap-card" key={title}>
-                <span className="cap-card__num">0{index + 1}</span>
-                <h3>{title}</h3>
-                <p>{copy}</p>
+          <div className="media-grid reveal">
+            {products.map((product) => (
+              <article className="media-card" key={product.title}>
+                <figure className="media-card__photo">
+                  <img
+                    src={product.image}
+                    alt={product.alt}
+                    width={800}
+                    height={600}
+                    loading="lazy"
+                  />
+                </figure>
+                <h3>{product.title}</h3>
+                <p className="media-card__desc">{product.copy}</p>
               </article>
             ))}
           </div>

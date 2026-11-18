@@ -161,7 +161,6 @@ export default function AcceleratorJourney({
                 </div>
 
                 <div className="journey-step__copy">
-                  <p className="journey-step__tag">{act.tag}</p>
                   <h3>{act.title}</h3>
                   <p className="journey-step__moment">{act.moment}</p>
                   <p className="journey-step__body">{act.copy}</p>
@@ -190,7 +189,7 @@ export default function AcceleratorJourney({
                     />
                     <span className="journey-step__shade" aria-hidden="true" />
                     <figcaption>
-                      <span>{act.n} / 06</span>
+                      <span>{act.n} / VI</span>
                       {act.caption}
                     </figcaption>
                   </figure>
