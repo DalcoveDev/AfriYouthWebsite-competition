@@ -5,29 +5,32 @@
    Source: "Afri Youth Innovation Lab Branding — Logo & Guidelines"
    Tailwind CSS integration
    ========================================================= */
-
 /* ---------- Tailwind (v4) ---------- */
 @import "tailwindcss";
-@config "../tailwind.config.js";
-
-/* ---------- Tokens ---------- */
+@config "../tailwind.config.js"; /* ---------- Tokens ---------- */
 :root {
   /* Official brand palette (AfriYouth Brand Guidelines) */
-  --brand-dark-purple: #0d0624; /* RGB 13,6,36 · HSL 254,71%,8% · CMYK 64,83,0,86 */
-  --brand-steel-pink: #c723df;  /* RGB 199,35,223 · HSL 292,75%,51% · CMYK 11,84,0,13 */
-  --brand-duke-blue: #0200a7;   /* RGB 2,0,167 · HSL 241,100%,33% · CMYK 99,100,0,35 */
-  --brand-blue: #0301ff;        /* RGB 3,1,255 · HSL 240,100%,50% · CMYK 99,100,0,0 */
+  --brand-dark-purple: #0d0624;
+  /* RGB 13,6,36 · HSL 254,71%,8% · CMYK 64,83,0,86 */
+  --brand-steel-pink: #c723df;
+  /* RGB 199,35,223 · HSL 292,75%,51% · CMYK 11,84,0,13 */
+  --brand-duke-blue: #0200a7;
+  /* RGB 2,0,167 · HSL 241,100%,33% · CMYK 99,100,0,35 */
+  --brand-blue: #0301ff;
+  /* RGB 3,1,255 · HSL 240,100%,50% · CMYK 99,100,0,0 */
   --brand-white: #ffffff;
-
   /* Brand (semantic aliases used across the page styles) */
-  --ink: #0d0624;            /* Dark Purple */
+  --ink: #0d0624;
+  /* Dark Purple */
   --deep: #070212;
-  --duke: #0200a7;           /* Duke Blue */
-  --blue: #0301ff;           /* Blue */
-  --pink: #c723df;           /* Steel Pink */
+  --duke: #0200a7;
+  /* Duke Blue */
+  --blue: #0301ff;
+  /* Blue */
+  --pink: #c723df;
+  /* Steel Pink */
   --violet: #7407f5;
   --purple: #3a0a86;
-
   /* Surfaces */
   --paper: #f4f3f8;
   --cream: #fbfaff;
@@ -37,7 +40,6 @@
   --line: rgba(13, 6, 36, 0.13);
   --line-strong: rgba(13, 6, 36, 0.24);
   --line-light: rgba(255, 255, 255, 0.16);
-
   /* Legacy aliases kept for the page styles */
   --forest: #150a33;
   --coral: #c723df;
@@ -47,7 +49,6 @@
   --sky: #c9c5ff;
   --mint: #efeaff;
   --clay: #f3dbff;
-
   /* Effects — flat brand colour, no gradient */
   --gradient: #0301ff;
   --gradient-diagonal: #0d0624;
@@ -56,13 +57,11 @@
   --shadow: 0 16px 48px rgba(13, 6, 36, 0.1);
   --shadow-soft: 0 12px 32px rgba(13, 6, 36, 0.06);
   --glow: 0 10px 28px rgba(3, 1, 255, 0.2);
-
   /* Type */
   --font-display: var(--font-poppins), "Poppins", "Segoe UI", sans-serif;
   /* Gilroy carries all body text. The licensed pack ships Light (300) and
      ExtraBold (800) only, so weights above 500 resolve to ExtraBold. */
   --font-body: var(--font-gilroy), "Gilroy", "Helvetica Neue", Arial, sans-serif;
-
   /* Layout */
   --gutter: clamp(1.25rem, 4.6vw, 4.75rem);
   --section: clamp(3.5rem, 6.5vw, 7rem);
@@ -154,11 +153,18 @@ li {
 }
 
 .on-dark :focus-visible,
+.announce :focus-visible,
 .impact :focus-visible,
 .site-footer :focus-visible,
 .feature-card :focus-visible,
 .contact-panel :focus-visible,
-.cta-band :focus-visible {
+.cta-band :focus-visible,
+.chapter--belief :focus-visible,
+.chapter--action :focus-visible,
+.journey :focus-visible,
+.approach :focus-visible,
+.library-feature :focus-visible,
+.skip-link:focus-visible {
   outline-color: #fff;
 }
 
@@ -192,11 +198,6 @@ li {
   padding-inline: var(--gutter);
 }
 
-.wrap--wide {
-  width: 100%;
-  padding-inline: clamp(1rem, 2.6vw, 2.75rem);
-}
-
 .section {
   padding-block: var(--section);
 }
@@ -206,22 +207,12 @@ li {
 }
 
 .section--cream {
-  background-color: var(--cream);
-}
-
-
-.section--ink {
-  background: var(--ink);
-  color: var(--white);
+  background: var(--silk-light);
 }
 
 /* ---------- Section rhythm ---------- */
 main > section {
   scroll-margin-top: 1rem;
-}
-
-.section-rule {
-  border-top: 1px solid var(--line);
 }
 
 .sr-only {
@@ -273,31 +264,6 @@ main > section {
 
 em {
   font-style: normal;
-}
-
-.italic {
-  font-style: normal;
-  font-weight: 500;
-}
-
-.accent {
-  color: var(--pink);
-}
-
-.text-gradient {
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-}
-
-.highlight {
-  position: relative;
-  display: inline;
-  background-image: linear-gradient(transparent 66%, rgba(3, 1, 255, 0.16) 66%, rgba(199, 35, 223, 0.16) 94%, transparent 94%);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
 }
 
 .lede {
@@ -379,56 +345,9 @@ em {
   transform: rotate(38deg);
 }
 
-.tagline-strip {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.7rem;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-}
-
 .tagline-strip .spark {
   color: var(--pink);
   font-size: 1.1rem;
-}
-
-.keyword-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-}
-
-.keyword-pills span {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.5rem 0.8rem;
-  border: 1px solid var(--line);
-  border-radius: 0.625rem;
-  font-size: 0.66rem;
-  font-weight: 650;
-  letter-spacing: 0.05em;
-  line-height: 1.2;
-  text-transform: uppercase;
-}
-
-.keyword-pills span::before {
-  content: "";
-  width: 0.32rem;
-  height: 0.32rem;
-  border-radius: 50%;
-  background: var(--gradient);
-}
-
-.orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(70px);
-  opacity: 0.5;
-  pointer-events: none;
 }
 
 /* ---------- Links & buttons ---------- */
@@ -451,10 +370,6 @@ em {
   color: var(--blue);
 }
 
-.text-link--light:hover {
-  color: #fff;
-}
-
 .btn {
   display: inline-flex;
   align-items: center;
@@ -463,7 +378,7 @@ em {
   min-height: 3.25rem;
   padding: 0.72rem 1.35rem;
   border: 1px solid transparent;
-  border-radius: 0.625rem;
+  border-radius: 999px;
   font-size: 0.88rem;
   font-weight: 650;
   line-height: 1.2;
@@ -499,6 +414,29 @@ em {
   background: rgba(255, 255, 255, 0.26);
 }
 
+/* react-icons inside the circular button slot */
+.btn__icon svg {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+/* Inline react-icons arrows in card and pathway links */
+.media-card__cta > span,
+.story-card__cta > span,
+.latest-card__cta > span,
+.journey__cta > span {
+  display: inline-flex;
+  align-items: center;
+}
+
+.media-card__cta svg,
+.story-card__cta svg,
+.latest-card__cta svg,
+.journey__cta svg {
+  width: 1.05em;
+  height: 1.05em;
+}
+
 .btn--primary {
   background: var(--ink);
   color: #fff;
@@ -521,17 +459,6 @@ em {
 .btn--gradient:hover {
   background: var(--duke);
   border-color: var(--duke);
-}
-
-.btn--pink {
-  background: var(--pink);
-  color: #fff;
-  border-color: var(--pink);
-}
-
-.btn--pink:hover {
-  background: #dc39f2;
-  border-color: #dc39f2;
 }
 
 .btn--light {
@@ -594,8 +521,8 @@ em {
 .brand__mark {
   display: grid;
   flex: 0 0 auto;
-  width: 2.1rem;
-  height: 3rem;
+  width: 2.52rem;
+  height: 3.6rem;
   place-items: center;
   transition: transform 0.6s var(--ease);
 }
@@ -618,7 +545,7 @@ em {
 
 .brand__name {
   font-family: var(--font-display);
-  font-size: 1.08rem;
+  font-size: 0.98rem;
   font-weight: 800;
   letter-spacing: -0.035em;
   line-height: 0.95;
@@ -627,7 +554,7 @@ em {
 .brand__sub {
   color: var(--blue);
   font-family: var(--font-display);
-  font-size: 0.87rem;
+  font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1;
@@ -635,10 +562,6 @@ em {
 
 .brand__word-last {
   color: var(--ink);
-}
-
-.brand__sub--light {
-  color: #fff;
 }
 
 .brand--light {
@@ -708,7 +631,7 @@ em {
 .announce {
   position: relative;
   z-index: 101;
-  background: var(--ink);
+  background: var(--silk-dark);
   color: #fff;
   font-size: 0.73rem;
   line-height: 1.35;
@@ -788,6 +711,9 @@ em {
 }
 
 .announce a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
   color: #fff;
   font-weight: 700;
   text-underline-offset: 0.22em;
@@ -808,7 +734,6 @@ em {
   z-index: 100;
   border-bottom: 1px solid transparent;
   background: rgba(244, 243, 248, 0.86);
-  backdrop-filter: blur(18px);
   transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -986,6 +911,9 @@ em {
 }
 
 .nav-drop__all {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   grid-column: 1 / -1;
   justify-self: start;
   margin-top: 0.6rem;
@@ -1078,17 +1006,12 @@ body.menu-open .nav-toggle span:nth-child(3) {
 }
 
 @keyframes floatSpark {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-12px) rotate(4deg); }
-}
-
-@keyframes spinSlow {
-  to { transform: rotate(360deg); }
-}
-
-@keyframes pulseGlow {
-  0%, 100% { opacity: 0.5; transform: scale(1); }
-  50% { opacity: 0.75; transform: scale(1.06); }
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(4deg);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1096,7 +1019,6 @@ body.menu-open .nav-toggle span:nth-child(3) {
     scroll-behavior: auto;
     scroll-snap-type: none;
   }
-
   *,
   *::before,
   *::after {
@@ -1105,7 +1027,6 @@ body.menu-open .nav-toggle span:nth-child(3) {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }
-
   .js .reveal {
     opacity: 1;
     transform: none;
@@ -1116,7 +1037,7 @@ body.menu-open .nav-toggle span:nth-child(3) {
 .site-footer {
   position: relative;
   overflow: hidden;
-  background: var(--ink);
+  background: var(--silk-dark);
   color: #fff;
 }
 
@@ -1152,15 +1073,6 @@ body.menu-open .nav-toggle span:nth-child(3) {
   border-bottom: 1px solid var(--line-light);
 }
 
-.footer__tagline {
-  margin-top: 1.5rem;
-  color: rgba(255, 255, 255, 0.52);
-  font-size: 0.66rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
 .footer__pitch .h2 {
   max-width: 12ch;
   margin-top: 1.6rem;
@@ -1175,7 +1087,9 @@ body.menu-open .nav-toggle span:nth-child(3) {
 }
 
 .footer__email {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   color: #fff;
   font-family: var(--font-display);
   font-size: clamp(1.2rem, 2vw, 1.75rem);
@@ -1191,22 +1105,10 @@ body.menu-open .nav-toggle span:nth-child(3) {
   border-color: #f0a6ff;
 }
 
-.footer__keywords {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: 2rem;
-}
-
-.footer__keywords span {
-  padding: 0.4rem 0.7rem;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 0.625rem;
-  color: rgba(255, 255, 255, 0.68);
-  font-size: 0.58rem;
-  font-weight: 650;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+.footer__email svg {
+  width: 0.72em;
+  height: 0.72em;
+  flex: 0 0 auto;
 }
 
 .footer__nav {
@@ -1264,56 +1166,6 @@ body.menu-open .nav-toggle span:nth-child(3) {
   font-weight: 600;
 }
 
-.footer__socials {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  padding-top: 1.2rem;
-  border-top: 1px solid var(--line-light);
-}
-
-.footer__socials a {
-  padding: 0.45rem 0.8rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 0.625rem;
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 0.66rem;
-  font-weight: 650;
-  letter-spacing: 0.05em;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-}
-
-.footer__socials a:hover {
-  background: #fff;
-  border-color: #fff;
-  color: var(--ink);
-}
-
-.footer__wordmark {
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-  padding-top: clamp(1.5rem, 3vw, 2.5rem);
-  line-height: 0.72;
-  pointer-events: none;
-}
-
-.footer__wordmark span {
-  display: block;
-  font-family: var(--font-display);
-  font-size: clamp(4.5rem, 15.6vw, 15rem);
-  font-weight: 800;
-  letter-spacing: -0.06em;
-  white-space: nowrap;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.14);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), transparent 80%);
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-
 .footer__bottom {
   position: relative;
   z-index: 1;
@@ -1349,7 +1201,7 @@ body.menu-open .nav-toggle span:nth-child(3) {
 .cta-band {
   position: relative;
   overflow: hidden;
-  background: var(--gradient-diagonal);
+  background: var(--silk-dark);
   color: #fff;
 }
 
@@ -1576,42 +1428,20 @@ body.menu-open .nav-toggle span:nth-child(3) {
   background: var(--gradient);
 }
 
-.chip--dark {
-  border-color: var(--line-light);
-  background: rgba(255, 255, 255, 0.06);
-  color: rgba(255, 255, 255, 0.82);
-}
-
-.chip--lime {
-  background: var(--pink);
-  border-color: var(--pink);
-  color: #fff;
-}
-
-.chip--coral {
-  background: var(--blue);
-  border-color: var(--blue);
-  color: #fff;
-}
-
 /* ---------- Responsive shared ---------- */
 @media (max-width: 1120px) {
   .header__inner {
     gap: 1.25rem;
   }
-
   .site-nav {
     gap: 1.15rem;
   }
-
   .header-cta {
     display: none;
   }
-
   .nav-toggle {
     display: block;
   }
-
   .site-nav {
     position: fixed;
     inset: 0;
@@ -1623,18 +1453,16 @@ body.menu-open .nav-toggle span:nth-child(3) {
     gap: 0;
     margin: 0;
     padding: 9.2rem var(--gutter) 2.5rem;
-    background: var(--paper);
+    background: var(--silk-light);
     visibility: hidden;
     clip-path: inset(0 0 100% 0);
     transition: clip-path 0.45s var(--ease), visibility 0.45s;
     overflow-y: auto;
   }
-
   body.menu-open .site-nav {
     visibility: visible;
     clip-path: inset(0);
   }
-
   .site-nav__link {
     padding: 1.1rem 0;
     border-bottom: 1px solid var(--line);
@@ -1643,11 +1471,16 @@ body.menu-open .nav-toggle span:nth-child(3) {
     font-weight: 600;
     letter-spacing: -0.04em;
   }
-
+  .nav-drop {
+    width: 100%;
+  }
+  .nav-drop__toggle {
+    display: flex;
+    width: 100%;
+  }
   .site-nav__link::after {
     display: none;
   }
-
   .site-nav__link[aria-current="page"] {
     color: transparent;
     background: var(--gradient);
@@ -1655,13 +1488,11 @@ body.menu-open .nav-toggle span:nth-child(3) {
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-
   .site-nav__cta {
     display: flex;
     margin-top: 2rem;
     width: fit-content;
   }
-
   .nav-drop__panel {
     position: static;
     width: 100%;
@@ -1673,16 +1504,13 @@ body.menu-open .nav-toggle span:nth-child(3) {
     grid-template-columns: 1fr;
     gap: 1.4rem;
   }
-
   .nav-drop__col a {
     font-size: 1rem;
     padding: 0.45rem 0;
   }
-
   body.menu-open .header__actions .header-cta {
     display: none;
   }
-
   body.menu-open {
     overflow: hidden;
   }
@@ -1694,37 +1522,29 @@ body.menu-open .nav-toggle span:nth-child(3) {
     flex-direction: column;
     gap: 1.5rem;
   }
-
   .section-head__side {
     max-width: 34rem;
   }
-
   .page-hero__grid {
     grid-template-columns: 1fr;
     gap: 2.2rem;
   }
-
   .page-hero .h1 {
     max-width: 13ch;
   }
-
   .page-hero__aside {
     padding-bottom: 0;
   }
-
   .page-hero__aside .lede {
     max-width: 38rem;
   }
-
   .footer__top {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
-
   .footer__nav {
     max-width: 30rem;
   }
-
   .cta-band__inner {
     grid-template-columns: 1fr;
     align-items: start;
@@ -1737,7 +1557,6 @@ body.menu-open .nav-toggle span:nth-child(3) {
   .announce__rule {
     display: none;
   }
-
   .announce__news {
     font-size: 0.68rem;
   }
@@ -1747,82 +1566,78 @@ body.menu-open .nav-toggle span:nth-child(3) {
   :root {
     --section: 4.5rem;
   }
-
   body {
     font-size: 1rem;
   }
-
   .brand__mark {
-    width: 1.75rem;
-    height: 2.5rem;
+    width: 1.96rem;
+    height: 2.8rem;
   }
-
   .brand__name {
-    font-size: 0.98rem;
+    font-size: 0.9rem;
   }
-
   .brand__sub {
-    font-size: 0.78rem;
+    font-size: 0.7rem;
   }
-
   .header__inner {
     min-height: 4.5rem;
   }
-
   html {
     scroll-padding-top: 4.65rem;
   }
-
   .announce__inner {
     gap: 0.55rem;
     min-height: 2.5rem;
     font-size: 0.65rem;
   }
-
   .announce__word {
     display: none;
   }
-
   .h1 {
     font-size: clamp(2.8rem, 12.6vw, 4.6rem);
   }
-
   .page-hero .h1 {
     font-size: clamp(2.7rem, 11.6vw, 4.2rem);
   }
-
   .btn {
     min-height: 3rem;
     padding: 0.68rem 1.1rem;
     font-size: 0.82rem;
   }
-
   .btn-row {
     align-items: stretch;
   }
-
   .btn-row .btn {
     flex: 1 1 auto;
   }
-
+  /* Long CTA words must fit the narrowest phones */
+  .cta-band .h2 {
+    font-size: clamp(2.1rem, 9.5vw, 2.7rem);
+  }
+  .cta-band__inner {
+    grid-template-columns: 1fr;
+  }
   .footer__nav {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-
   .footer__bottom {
     align-items: flex-start;
     flex-direction: column;
     gap: 1rem;
   }
-
   .cta-band__mark {
     right: 1.4rem;
     width: 2.2rem;
   }
-
   .site-nav {
     padding-top: 8.4rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .page-hero .h1 {
+    font-size: clamp(2.2rem, 11.6vw, 2.7rem);
   }
 }
 
@@ -1832,7 +1647,6 @@ body.menu-open .nav-toggle span:nth-child(3) {
    Decorative "noise" is reduced while brand colour,
    typography and layout are preserved.
    ========================================================= */
-
 /* Remove purely ornamental background layers and shapes */
 .orb,
 .hero__wash,
@@ -1860,74 +1674,48 @@ body.menu-open .nav-toggle span:nth-child(3) {
 }
 
 /* Keep the accent gradient, but remove the offset "sticker" shadow */
-.process__panel {
-  box-shadow: var(--shadow-soft) !important;
-}
-
-/* Reduce glassy heaviness on the sticky header */
-.site-header,
-.site-header.is-scrolled {
+/* Reduce glassy heaviness on the sticky header. The blur lives on a
+   pseudo-element: a backdrop-filter on the header itself would make it the
+   containing block of the fixed mobile menu and collapse it to header height. */
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 /* Calmer decorative text strokes */
-.footer__wordmark span {
-  opacity: 0.6;
-}
-
 /* =========================================================
-   Fabric surface
-   The page no longer reads as flat white. The base is cloth
-   dyed in the brand palette (Dark Purple · Steel Pink · Blue)
-   and a single fixed weave sits above the page, so light cards,
-   cream panels and ink bands all carry the same textile grain.
+   Cloth surface
+   The page is cloth, not flat white — but kept quiet. This is
+   a research, innovation and policy practice, not a fashion
+   label, so the satin sits far behind the content: a woven
+   thread at low strength over a paper-like brand tint.
+   Textures: Pexels (kaboompics) and Unsplash (Susan Wilkinson),
+   both free-to-use licences.
    ========================================================= */
-
 :root {
-  /* Cloth dye and thread colours — a warm blush ivory, not a cool white */
-  --cloth-dye: #f8f0f1;
-  --cloth-thread-dark: rgba(13, 6, 36, 0.1);      /* reads on light surfaces */
-  --cloth-thread-light: rgba(255, 255, 255, 0.085); /* reads on ink surfaces */
-  --cloth-slub-pink: rgba(199, 35, 223, 0.075);
-  --cloth-slub-blue: rgba(3, 1, 255, 0.028);
-  --cloth-twill: rgba(13, 6, 36, 0.045);
-  --cloth-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23g)' opacity='0.13'/%3E%3C/svg%3E");
+  /* Light cloth — woven paper tinted with Steel Pink and Blue */
+  --silk-light:
+    repeating-linear-gradient(0deg, rgba(13, 6, 36, 0.03) 0 1px, transparent 1px 4px),
+    repeating-linear-gradient(90deg, rgba(13, 6, 36, 0.03) 0 1px, transparent 1px 4px),
+    linear-gradient(150deg, rgba(252, 250, 254, 0.88), rgba(248, 244, 252, 0.82)),
+    linear-gradient(150deg, rgba(199, 35, 223, 0.05), rgba(3, 1, 255, 0.035) 55%, rgba(13, 6, 36, 0.05)),
+    url("/assets/img/textures/silk-cream.webp") 50% 22% / cover no-repeat fixed,
+    #f9f6fb;
+  /* Dark cloth — ink with a faint navy sheen */
+  --silk-dark:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 4px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0 1px, transparent 1px 4px),
+    linear-gradient(150deg, rgba(13, 6, 36, 0.88), rgba(9, 4, 28, 0.82)),
+    url("/assets/img/textures/silk-navy.webp") 50% 30% / cover no-repeat fixed,
+    #0a0420;
 }
 
-/* Dyed cloth beneath the sections */
+/* Cloth beneath the sections */
 body {
-  background-color: var(--cloth-dye);
-  background-image:
-    radial-gradient(120% 90% at 12% 0%, rgba(199, 35, 223, 0.12), transparent 62%),
-    radial-gradient(110% 85% at 88% 100%, rgba(3, 1, 255, 0.05), transparent 66%),
-    linear-gradient(180deg, #fdf7f7 0%, #f3e9e9 100%);
-  background-attachment: fixed;
+  background: var(--silk-light);
 }
 
-/* The weave: warp, weft, two brand slubs and the cloth grain.
-   Dark threads read on the light surfaces and pale threads read on the
-   ink bands, so no blend mode is needed. */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 999;
-  pointer-events: none;
-  background-image:
-    repeating-linear-gradient(0deg, var(--cloth-thread-dark) 0 1px, transparent 1px 4px),
-    repeating-linear-gradient(90deg, var(--cloth-thread-dark) 0 1px, transparent 1px 4px),
-    repeating-linear-gradient(0deg, transparent 0 2px, var(--cloth-thread-light) 2px 3px, transparent 3px 4px),
-    repeating-linear-gradient(90deg, transparent 0 2px, var(--cloth-thread-light) 2px 3px, transparent 3px 4px),
-    repeating-linear-gradient(45deg, var(--cloth-slub-pink) 0 2px, transparent 2px 9px),
-    repeating-linear-gradient(-45deg, var(--cloth-slub-blue) 0 2px, transparent 2px 13px),
-    repeating-linear-gradient(45deg, transparent 0 4px, var(--cloth-twill) 4px 6px, transparent 6px 10px),
-    var(--cloth-grain);
-  background-size: 4px 4px, 4px 4px, 4px 4px, 4px 4px, 9px 9px, 13px 13px, 10px 10px, 160px 160px;
-}
-
-/* A printed page, not a woven one */
-@media print {
-  body::after {
-    display: none;
-  }
-}

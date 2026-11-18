@@ -4,14 +4,13 @@
    A field notebook for African innovation, told in six notes.
    Dark Purple · Duke Blue · Blue Steel · Steel Pink
    ========================================================= */
-
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
   overflow: hidden;
   padding-block: clamp(1.2rem, 2.4vw, 1.9rem) clamp(4rem, 7vw, 7rem);
   border-bottom: 1px solid var(--line);
-  background: var(--paper);
+  background: var(--silk-light);
 }
 
 .hero__wash {
@@ -23,18 +22,6 @@
   background-size: 64px 64px;
   mask-image: radial-gradient(75% 65% at 60% 35%, #000 10%, transparent 80%);
   pointer-events: none;
-}
-
-.hero__topline {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  padding-bottom: 0.85rem;
-  margin-bottom: clamp(2.2rem, 4.5vw, 4rem);
-  border-bottom: 1px solid var(--line);
 }
 
 .hero__meta {
@@ -55,10 +42,6 @@
   color: var(--ink);
 }
 
-.hero__meta--right {
-  color: var(--pink);
-}
-
 .hero__grid {
   position: relative;
   z-index: 2;
@@ -66,18 +49,6 @@
   grid-template-columns: minmax(0, 1.05fr) minmax(19rem, 0.82fr);
   align-items: center;
   gap: clamp(2.5rem, 5vw, 5.5rem);
-}
-
-.hero__kicker {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  margin-bottom: 1.5rem;
-  color: var(--muted);
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
 }
 
 .hero__title {
@@ -90,7 +61,9 @@
   text-wrap: balance;
 }
 
-.mark {
+/* "youth-written." reads as one mark, not a hyphen break; the clamp above
+   keeps it inside the gutters down to 280px. */
+.hero__title .mark {
   white-space: nowrap;
 }
 
@@ -125,122 +98,6 @@
   display: block;
   width: 100%;
   height: auto;
-}
-
-.hero__portrait {
-  position: absolute;
-  bottom: 0;
-  left: -2.6rem;
-  width: 38%;
-  margin: 0;
-  overflow: hidden;
-  border: 0.4rem solid var(--paper);
-  background: var(--clay);
-  box-shadow: 0 1.4rem 3rem rgba(13, 6, 36, 0.18);
-  transform: rotate(-3deg);
-}
-
-.hero__portrait img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1 / 1.08;
-  object-fit: cover;
-  object-position: 50% 35%;
-}
-
-.hero__annotation {
-  position: absolute;
-  top: -0.9rem;
-  right: 1rem;
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.5rem 0.7rem;
-  background: var(--ink);
-  color: #fff;
-  font-size: 0.55rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.hero__annotation-dot {
-  width: 0.35rem;
-  height: 0.35rem;
-  background: var(--pink);
-  box-shadow: 0 0 0 3px rgba(199, 35, 223, 0.26);
-}
-
-.hero__seal {
-  position: absolute;
-  z-index: 3;
-  right: -1.4rem;
-  bottom: -1rem;
-  left: auto;
-  top: auto;
-  width: 7.2rem;
-  height: 7.2rem;
-  color: rgba(255, 255, 255, 0.72);
-  background: var(--ink);
-  border-radius: 50%;
-  animation: spinSlow 60s linear infinite;
-}
-
-.hero__seal svg {
-  width: 100%;
-  height: 100%;
-}
-
-/* ---------- Discipline marquee ---------- */
-.marquee {
-  overflow: hidden;
-  border-bottom: 1px solid var(--line);
-  background: var(--cream);
-  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
-}
-
-.marquee__track {
-  display: flex;
-  width: max-content;
-  animation: marqueeScroll 44s linear infinite;
-}
-
-.marquee:hover .marquee__track {
-  animation-play-state: paused;
-}
-
-.marquee__group {
-  display: flex;
-  align-items: center;
-  flex: 0 0 auto;
-}
-
-.marquee__item {
-  display: inline-flex;
-  align-items: center;
-  gap: 2.1rem;
-  padding: 1rem 2.1rem 1rem 0;
-  color: var(--ink);
-  font-family: var(--font-display);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-.marquee__dot {
-  width: 0.38rem;
-  height: 0.38rem;
-  background: var(--pink);
-  transform: rotate(45deg);
-}
-
-@keyframes marqueeScroll {
-  to {
-    transform: translateX(-50%);
-  }
 }
 
 /* ---------- Chapter scaffolding ---------- */
@@ -309,35 +166,8 @@
   }
 }
 
-.chapter__label--light {
-  color: rgba(255, 255, 255, 0.72);
-}
-
-.chapter__label--light span {
-  color: #ef8bff;
-}
-
-.chapter__label-row {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 2rem;
-  padding-top: 0.9rem;
-  margin-bottom: clamp(2.4rem, 4.5vw, 4rem);
-  border-top: 1px solid var(--ink);
-}
-
 .chapter__label-row .chapter__label {
   position: static;
-}
-
-.chapter__meta {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
 }
 
 .chapter__title {
@@ -361,7 +191,7 @@
 
 /* ---------- 01 · The challenge ---------- */
 .chapter--challenge {
-  background: var(--paper);
+  background: var(--silk-light);
 }
 
 .tension-list {
@@ -413,7 +243,7 @@
 /* ---------- 02 · The belief ---------- */
 .chapter--belief {
   overflow: hidden;
-  background: var(--ink);
+  background: var(--silk-dark);
   color: #fff;
 }
 
@@ -503,7 +333,7 @@
 
 /* ---------- 03 · The response ---------- */
 .chapter--response {
-  background: var(--cream);
+  background: var(--silk-light);
   border-bottom: 1px solid var(--line);
 }
 
@@ -523,246 +353,13 @@
 }
 
 /* ---------- 04 · The process (Evidence Trail) ---------- */
-.chapter--process {
-  background: var(--paper);
-  border-bottom: 1px solid var(--line);
-}
-
-.process__intro {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(17rem, 0.7fr);
-  align-items: end;
-  gap: clamp(2rem, 5vw, 5rem);
-  margin-bottom: clamp(2.5rem, 4.5vw, 4rem);
-}
-
 .process__intro .chapter__lede {
   margin-top: 0;
 }
 
-.process__layout {
-  display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
-  align-items: start;
-  gap: clamp(2rem, 4vw, 4rem);
-}
-
-.process__steps {
-  border-top: 1px solid var(--ink);
-}
-
-.process__step {
-  display: grid;
-  grid-template-columns: 2rem minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 0.8rem;
-  width: 100%;
-  padding: 0.78rem 0;
-  border: 0;
-  border-bottom: 1px solid var(--line);
-  background: none;
-  color: var(--ink);
-  text-align: left;
-  cursor: pointer;
-  transition:
-    background 0.25s ease,
-    color 0.25s ease,
-    padding 0.3s var(--ease);
-}
-
-.process__step:hover {
-  padding-inline: 0.7rem;
-  color: var(--pink);
-}
-
-.process__step[aria-selected="true"] {
-  padding-inline: 0.9rem;
-  background: var(--ink);
-  color: #fff;
-}
-
-.process__step-num {
-  color: var(--pink);
-  font-family: var(--font-display);
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-}
-
-.process__step[aria-selected="true"] .process__step-num {
-  color: #ef8bff;
-}
-
-.process__step-name {
-  font-family: var(--font-display);
-  font-size: clamp(1rem, 1.4vw, 1.18rem);
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-}
-
-.process__step-group {
-  color: var(--muted-soft);
-  font-size: 0.52rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.process__step[aria-selected="true"] .process__step-group {
-  color: rgba(255, 255, 255, 0.48);
-}
-
-.process__panel {
-  position: relative;
-  min-height: 27rem;
-  padding: clamp(1.6rem, 3vw, 2.7rem);
-  border: 1px solid var(--ink);
-  background: var(--cream);
-  box-shadow: 0.7rem 0.7rem 0 rgba(199, 35, 223, 0.16);
-}
-
-.process__panels {
-  position: relative;
-  min-width: 0;
-}
-
-.process__panel-inner {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  min-height: 23rem;
-  animation: panelIn 0.45s var(--ease);
-}
-
-@keyframes panelIn {
-  from {
-    opacity: 0;
-    transform: translateY(0.6rem);
-  }
-}
-
-.process__panel-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding-bottom: 0.85rem;
-  border-bottom: 1px solid var(--line);
-  color: var(--muted);
-  font-size: 0.56rem;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-}
-
-.process__panel-group {
-  color: var(--pink);
-}
-
-.process__panel-num {
-  position: absolute;
-  top: 2.2rem;
-  right: 0;
-  margin: 0;
-  color: transparent;
-  font-family: var(--font-display);
-  font-size: clamp(4.5rem, 7vw, 6.5rem);
-  font-weight: 700;
-  letter-spacing: -0.06em;
-  line-height: 1;
-  -webkit-text-stroke: 1px rgba(13, 6, 36, 0.18);
-  pointer-events: none;
-}
-
-.process__panel-title {
-  margin-top: 1.4rem;
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 3.2vw, 3rem);
-  font-weight: 600;
-  letter-spacing: -0.045em;
-  line-height: 0.98;
-}
-
-.process__panel-list {
-  display: grid;
-  gap: 1.3rem;
-  margin: 2rem 0 0;
-}
-
-.process__panel-list dt {
-  margin-bottom: 0.4rem;
-  color: var(--pink);
-  font-size: 0.55rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.process__panel-list dd {
-  margin: 0;
-  max-width: 34rem;
-  color: var(--muted);
-  font-size: 0.93rem;
-  line-height: 1.6;
-}
-
-.process__panel-foot {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-top: auto;
-  padding-top: 1.6rem;
-  border-top: 1px solid var(--line);
-}
-
-.process__nav {
-  padding: 0;
-  border: 0;
-  background: none;
-  color: var(--ink);
-  font-size: 0.58rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
-
-.process__nav:hover {
-  color: var(--pink);
-}
-
-.process__progress {
-  position: relative;
-  flex: 1;
-  height: 1px;
-  background: var(--line);
-}
-
-.process__progress span {
-  display: block;
-  width: var(--trail-progress, 10%);
-  height: 2px;
-  margin-top: -0.5px;
-  background: var(--pink);
-  transition: width 0.4s var(--ease);
-}
-
-.process__note {
-  max-width: 42rem;
-  margin-top: clamp(1.8rem, 3vw, 2.6rem);
-  padding-top: 1rem;
-  border-top: 1px solid var(--line);
-  color: var(--muted);
-  font-size: 0.8rem;
-  line-height: 1.6;
-}
-
 /* ---------- 05 · The possibilities ---------- */
 .chapter--possibilities {
-  background: var(--cream);
+  background: var(--silk-light);
 }
 
 .possibilities__head {
@@ -815,16 +412,6 @@
   letter-spacing: 0.1em;
 }
 
-.route__who {
-  display: block;
-  margin: 0.35rem 0 0;
-  color: var(--muted);
-  font-size: 0.58rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
 .route__title {
   max-width: 14ch;
   margin-top: 2.4rem;
@@ -863,55 +450,11 @@
   border-color: var(--pink);
 }
 
-.programme-index {
-  display: grid;
-  grid-template-columns: 12.5rem minmax(0, 1fr);
-  gap: 2rem;
-  margin-top: clamp(2.5rem, 4vw, 3.5rem);
-  padding-top: 1.2rem;
-  border-top: 1px solid var(--line-strong);
-}
-
-.programme-index__label {
-  color: var(--muted);
-  font-size: 0.58rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.programme-index ul {
-  display: grid;
-  gap: 0.55rem;
-}
-
-.programme-index a {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  padding-bottom: 0.55rem;
-  border-bottom: 1px solid var(--line);
-  color: var(--ink);
-  font-family: var(--font-display);
-  font-size: clamp(1rem, 1.35vw, 1.16rem);
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  line-height: 1.3;
-  text-decoration: none;
-  transition: color 0.2s ease, padding 0.3s var(--ease);
-}
-
-.programme-index a:hover {
-  padding-left: 0.4rem;
-  color: var(--pink);
-}
-
 /* ---------- 06 · The action ---------- */
 .chapter--action {
   overflow: hidden;
   padding-block: clamp(5rem, 9vw, 9rem);
-  background: var(--ink);
+  background: var(--silk-dark);
   color: #fff;
 }
 
@@ -968,6 +511,7 @@
   position: static;
   margin-bottom: 0.4rem;
 }
+
 .action__title {
   max-width: 12ch;
   margin-top: clamp(2rem, 4vw, 3rem);
@@ -1006,10 +550,6 @@
     grid-template-columns: minmax(0, 1.05fr) minmax(17rem, 0.78fr);
     gap: 3rem;
   }
-
-  .hero__portrait {
-    left: -1.8rem;
-  }
 }
 
 @media (max-width: 960px) {
@@ -1017,46 +557,34 @@
     grid-template-columns: 1fr;
     gap: clamp(3rem, 7vw, 4.5rem);
   }
-
   .hero__copy {
     max-width: 44rem;
   }
-
   .hero__title {
     max-width: 12ch;
   }
-
   .hero__media {
     justify-self: start;
     width: min(100%, 34rem);
     margin-left: clamp(0rem, 8vw, 5rem);
   }
-
-  .hero__portrait {
-    left: -2rem;
-  }
-
   .chapter__grid {
     grid-template-columns: 1fr;
     gap: 1.6rem;
   }
-
   .chapter__label {
     position: static;
     display: flex;
     flex-wrap: wrap;
     gap: 0.2rem 0.6rem;
   }
-
   .chapter__label span {
     margin-bottom: 0;
   }
-
   .tension-list {
     grid-template-columns: 1fr;
     padding-top: 0;
   }
-
   .tension-list li {
     display: grid;
     grid-template-columns: 3rem minmax(0, 1fr);
@@ -1065,26 +593,21 @@
     border-top: 1px solid var(--line);
     border-left: 0;
   }
-
   .tension-list li:first-child {
     padding-left: 0;
     border-top: 0;
   }
-
   .tension-list__letter {
     grid-row: 1 / 3;
     margin: 0;
   }
-
   .tension-list h3 {
     margin-bottom: 0.45rem;
   }
-
   .belief__grid {
     grid-template-columns: 1fr;
     gap: 2.2rem;
   }
-
   .response__head,
   .process__intro,
   .possibilities__head {
@@ -1092,40 +615,10 @@
     gap: 1.6rem;
     align-items: start;
   }
-
-  .process__layout {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .process__steps {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    border-top: 1px solid var(--ink);
-  }
-
-  .process__step {
-    border-right: 1px solid var(--line);
-    padding-inline: 0.8rem;
-  }
-
-  .process__step:nth-child(2n) {
-    border-right: 0;
-  }
-
-  .process__panel {
-    min-height: 0;
-  }
-
-  .process__panel-inner {
-    min-height: 21rem;
-  }
-
   .routes {
     grid-template-columns: 1fr;
     border-left: 0;
   }
-
   .route,
   .route + .route {
     min-height: 0;
@@ -1133,25 +626,16 @@
     border-top: 1px solid var(--line);
     border-left: 0;
   }
-
   .route:first-child {
     border-top: 0;
   }
-
   .route__title {
     margin-top: 1.5rem;
   }
-
   .route__link {
     margin-top: 1.4rem;
     padding-top: 0;
   }
-
-  .programme-index {
-    grid-template-columns: 1fr;
-    gap: 0.9rem;
-  }
-
   .action__foot {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -1162,156 +646,54 @@
   .hero {
     padding-top: 1.1rem;
   }
-
-  .hero__topline {
-    margin-bottom: 2.2rem;
-  }
-
-  .hero__meta--right {
-    display: none;
-  }
-
   .hero__title {
     font-size: clamp(2.9rem, 13.6vw, 4.5rem);
     line-height: 0.92;
   }
-
   .hero__lede {
     margin-top: 1.5rem;
     font-size: 1.02rem;
   }
-
   .hero__media {
     width: 94%;
     margin-left: 0;
   }
-
-  .hero__portrait {
-    left: -0.6rem;
-    bottom: 0.6rem;
-    width: 42%;
-    border-width: 0.3rem;
-  }
-
-  .hero__annotation {
-    top: -2.2rem;
-    right: 0.4rem;
-    font-size: 0.5rem;
-  }
-
-  .hero__seal {
-    display: none;
-  }
-
-  .marquee__item {
-    padding-block: 0.85rem;
-    font-size: 0.64rem;
-  }
-
   .chapter {
     padding-block: 4.1rem;
   }
-
   .chapter__title {
     font-size: clamp(2.35rem, 11vw, 3.6rem);
   }
-
   .chapter__lede {
     font-size: 1rem;
   }
-
-  .chapter__label-row {
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-bottom: 2rem;
-  }
-
   .tension-list li {
     grid-template-columns: 2.4rem minmax(0, 1fr);
   }
-
   .belief__quote {
     margin-bottom: 2.6rem;
   }
-
   .belief__quote p {
     font-size: clamp(2.25rem, 10.5vw, 3.5rem);
   }
-
   .belief__mark {
     font-size: clamp(2.6rem, 13vw, 4.5rem);
   }
-
-  .process__steps {
-    grid-template-columns: 1fr;
-  }
-
-  .process__step {
-    border-right: 0;
-  }
-
-  .process__step-group {
-    display: none;
-  }
-
-  .process__step-name {
-    font-size: 1.05rem;
-  }
-
-  .process__panel {
-    padding: 1.35rem;
-    box-shadow: 0.45rem 0.45rem 0 rgba(199, 35, 223, 0.16);
-  }
-
-  .process__panel-inner {
-    min-height: 24rem;
-  }
-
-  .process__panel-num {
-    top: 3.2rem;
-    font-size: 4.5rem;
-  }
-
-  .process__panel-title {
-    font-size: 2.1rem;
-  }
-
-  .process__panel-foot {
-    gap: 0.7rem;
-  }
-
   .route__title {
     font-size: 1.65rem;
   }
-
   .action__title {
     font-size: clamp(3rem, 14vw, 4.6rem);
   }
-
   .action__line span:nth-child(1),
   .action__line span:nth-child(2) {
     display: none;
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .marquee__track {
-    animation: none;
-  }
-
-  .hero__seal {
-    animation: none;
-  }
-
-  .process__panel-inner {
-    animation: none;
-  }
-}
-
 /* =========================================================
    Full-screen chapter layout + sticky chapter bar
    ========================================================= */
-
 .home-section {
   position: relative;
   display: flex;
@@ -1339,7 +721,6 @@
   }
 }
 
-
 /* Header is shorter on small screens */
 @media (max-width: 1120px) {
   .home-section {
@@ -1353,27 +734,23 @@
   .home-section {
     padding-block: clamp(3.5rem, 7vh, 5rem) clamp(2.5rem, 5vh, 4rem);
   }
-
   .home-section .h2,
   .home-section .chapter__title {
     font-size: clamp(1.9rem, 3.1vw, 2.9rem);
   }
-
   .home-section .tension-list {
     margin-top: clamp(1.6rem, 3vw, 2.4rem);
   }
-
   .home-section .route {
     min-height: 18rem;
   }
 }
 
-
 /* ---------- Stat band ---------- */
 .stat-band {
   padding-block: clamp(2.5rem, 5vw, 4rem);
   border-block: 1px solid var(--line);
-  background: var(--white);
+  background: var(--silk-light);
 }
 
 .stat-band__grid {
@@ -1476,21 +853,17 @@
     grid-template-columns: repeat(2, 1fr);
     row-gap: 1.8rem;
   }
-
   .stat-band__item {
     padding-left: 0;
     border-left: 0;
   }
-
   .stat-band__item:nth-child(even) {
     padding-left: 1.2rem;
     border-left: 1px solid var(--line);
   }
-
   .latest-grid {
     grid-template-columns: 1fr;
   }
-
   .latest-card,
   .latest-card + .latest-card {
     padding: 1.4rem 0;
@@ -1661,12 +1034,16 @@
   line-height: 1.5;
 }
 
-
-
 @media (max-width: 900px) {
   .division-grid {
     grid-template-columns: 1fr;
   }
 }
 
-
+/* Very narrow phones: the hero line must stay inside the gutters */
+@media (max-width: 420px) {
+  .hero__title {
+    font-size: clamp(2.2rem, 12.6vw, 3rem);
+    line-height: 0.94;
+  }
+}

@@ -2,10 +2,9 @@
    Legal pages — Privacy & Terms
    A quiet document layout consistent with the site system.
    ========================================================= */
-
 .legal {
   padding-block: clamp(3rem, 6vw, 5.5rem) clamp(4rem, 8vw, 7rem);
-  background: var(--cream);
+  background: var(--silk-light);
   border-bottom: 1px solid var(--line);
 }
 
@@ -130,7 +129,6 @@
     grid-template-columns: 1fr;
     gap: 2.2rem;
   }
-
   .legal__head {
     position: static;
   }

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { HiOutlineArrowUp, HiOutlineEnvelope } from "react-icons/hi2";
 import Logo from "@/components/brand/Logo";
 
 const exploreLinks = [
@@ -39,6 +40,7 @@ export default function SiteFooter() {
               and beyond.
             </p>
             <a className="footer__email" href="mailto:hello@afriyouthlabs.org">
+              <HiOutlineEnvelope aria-hidden="true" />
               hello@afriyouthlabs.org
             </a>
           </div>
@@ -91,7 +93,7 @@ export default function SiteFooter() {
             <span aria-hidden="true">|</span> <Link href="/terms">Terms of Use</Link>
           </p>
           <a className="footer__top-link" href="#main">
-            Back to top <span aria-hidden="true">↑</span>
+            Back to top <HiOutlineArrowUp aria-hidden="true" />
           </a>
         </div>
       </div>

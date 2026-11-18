@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { HiOutlineArrowUpRight } from "react-icons/hi2";
 import { createMetadata } from "@/lib/metadata";
 import CtaBand from "@/components/CtaBand";
 import AcceleratorJourney from "@/components/accelerator/AcceleratorJourney";
@@ -51,17 +52,16 @@ export default function ProgramsPage() {
           <div className="page-hero__grid">
             <div className="page-hero__copy">
               <h1 className="h1 reveal" id="programs-title">
-                Your next move starts <em>here.</em>
+                Programmes built on <em>real work.</em>
               </h1>
             </div>
             <div className="page-hero__aside reveal">
               <p className="lede">
-                Practical programmes for young researchers, policy actors, founders and
-                professionals who want to turn curiosity into skills, and skills into
-                change.
+                For young researchers, policy actors, founders and professionals.
+                Practical work, real briefs, structured feedback.
               </p>
               <div className="programmes-hero__note">
-                <p>Practice-led programmes, built around real briefs and real feedback.</p>
+                <p>Real briefs. Real feedback.</p>
               </div>
               <figure className="programmes-hero__media">
                 <img
@@ -116,7 +116,9 @@ export default function ProgramsPage() {
                   aria-label={`Register interest in the ${programme.name}`}
                 >
                   Register interest
-                  <span aria-hidden="true">↗</span>
+                  <span aria-hidden="true">
+                    <HiOutlineArrowUpRight />
+                  </span>
                 </Link>
               </article>
             ))}
@@ -273,7 +275,9 @@ export default function ProgramsPage() {
               <strong>Professional Skills Academy</strong> for young professionals.
             </p>
             <Link className="btn btn--primary btn--sm" href="/contact?topic=programme&programme=bootcamp">
-              Join the academy <span className="btn__icon" aria-hidden="true">↗</span>
+              Join the academy <span className="btn__icon" aria-hidden="true">
+                <HiOutlineArrowUpRight />
+              </span>
             </Link>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { HiOutlineArrowUpRight } from "react-icons/hi2";
 import { createMetadata } from "@/lib/metadata";
 import AcceleratorJourney from "@/components/accelerator/AcceleratorJourney";
 import {
@@ -76,7 +77,9 @@ export default function HomePage() {
               <div className="btn-row hero__actions">
                 <Link className="btn btn--gradient" href="/programs">
                   Find your next opportunity
-                  <span className="btn__icon" aria-hidden="true">↗</span>
+                  <span className="btn__icon" aria-hidden="true">
+                    <HiOutlineArrowUpRight />
+                  </span>
                 </Link>
                 <Link className="btn btn--outline" href="/work">
                   Explore the labs
@@ -152,7 +155,9 @@ export default function HomePage() {
             <div className="btn-row" style={{ marginTop: "1.8rem" }}>
               <Link className="btn btn--outline" href="/about">
                 Meet AfriYouth
-                <span className="btn__icon" aria-hidden="true">↗</span>
+                <span className="btn__icon" aria-hidden="true">
+                    <HiOutlineArrowUpRight />
+                  </span>
               </Link>
             </div>
           </div>
@@ -192,7 +197,9 @@ export default function HomePage() {
                 <p className="media-card__desc">{lab.tagline}</p>
                 <span className="media-card__cta">
                   See the lab
-                  <span aria-hidden="true">↗</span>
+                  <span aria-hidden="true">
+                    <HiOutlineArrowUpRight />
+                  </span>
                 </span>
               </Link>
             ))}
@@ -370,7 +377,9 @@ export default function HomePage() {
                   </p>
                   <span className="story-card__cta">
                     Read the story
-                    <span aria-hidden="true">↗</span>
+                    <span aria-hidden="true">
+                    <HiOutlineArrowUpRight />
+                  </span>
                   </span>
                 </Link>
               ))}
@@ -415,7 +424,9 @@ export default function HomePage() {
                   <span className="latest-card__meta">{publication.meta}</span>
                   <span className="latest-card__cta">
                     Read the series
-                    <span aria-hidden="true">↗</span>
+                    <span aria-hidden="true">
+                    <HiOutlineArrowUpRight />
+                  </span>
                   </span>
                 </span>
               </Link>
@@ -444,7 +455,9 @@ export default function HomePage() {
             <div className="btn-row">
               <Link className="btn btn--light" href="/contact">
                 Start a conversation
-                <span className="btn__icon" aria-hidden="true">↗</span>
+                <span className="btn__icon" aria-hidden="true">
+                    <HiOutlineArrowUpRight />
+                  </span>
               </Link>
               <Link className="btn btn--outline-light" href="/programs">
                 Find a program

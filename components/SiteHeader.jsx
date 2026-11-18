@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { HiOutlineArrowUpRight } from "react-icons/hi2";
 import Logo from "@/components/brand/Logo";
 import { divisions, labs } from "@/lib/content";
 
@@ -38,7 +39,7 @@ export default function SiteHeader() {
             href="/programs#evidence-to-impact"
             aria-label="Explore the Evidence-to-Impact Accelerator"
           >
-            Explore <span aria-hidden="true">↗</span>
+            Explore <HiOutlineArrowUpRight aria-hidden="true" />
           </Link>
         </div>
       </div>
@@ -76,7 +77,7 @@ export default function SiteHeader() {
                   </ul>
                 </div>
                 <Link className="nav-drop__all" href="/work">
-                  See all our work <span aria-hidden="true">↗</span>
+                  See all our work <HiOutlineArrowUpRight aria-hidden="true" />
                 </Link>
               </div>
             </details>
@@ -95,7 +96,7 @@ export default function SiteHeader() {
               href="/contact"
               aria-current={isCurrent("/contact") ? "page" : undefined}
             >
-              Get in touch <span aria-hidden="true">↗</span>
+              Get in touch <HiOutlineArrowUpRight aria-hidden="true" />
             </Link>
           </nav>
 
@@ -105,7 +106,10 @@ export default function SiteHeader() {
               href="/contact"
               aria-current={isCurrent("/contact") ? "page" : undefined}
             >
-              Let&rsquo;s collaborate <span className="btn__icon" aria-hidden="true">↗</span>
+              Let&rsquo;s collaborate{" "}
+              <span className="btn__icon" aria-hidden="true">
+                <HiOutlineArrowUpRight />
+              </span>
             </Link>
             <button
               className="nav-toggle"

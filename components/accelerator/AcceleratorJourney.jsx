@@ -2,14 +2,14 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
+import { HiOutlineArrowUpRight } from "react-icons/hi2";
 import { acceleratorJourney, acceleratorStages } from "@/lib/content";
 
 /**
  * The ten-stage pathway, told as six scroll-connected moments.
  *
- * A dotted trail runs through every step and fills as the reader moves down
- * the page. Each moment is stamped with the white AfriYouth mark, set
- * alternately like footprints, so the journey reads as a walk forward.
+ * A single solid rail runs through every step and fills as the reader moves
+ * down the page. Each moment is marked with the AfriYouth mark and its number.
  */
 
 export default function AcceleratorJourney({
@@ -111,7 +111,9 @@ export default function AcceleratorJourney({
 
           <Link className="journey__cta" href="/programs#evidence-to-impact">
             See the full pathway
-            <span aria-hidden="true">↗</span>
+            <span aria-hidden="true">
+              <HiOutlineArrowUpRight />
+            </span>
           </Link>
         </div>
       </section>
@@ -128,18 +130,17 @@ export default function AcceleratorJourney({
         <header className="journey__head">
           <div className="journey__head-grid">
             <h2 className="journey__title" id={headingId}>
-              One problem. <span>Ten stages.</span> A journey you can see.
+              One problem. <span>Ten stages.</span>
             </h2>
             <div className="journey__intro">
               <p>
-                Follow one community problem from the first question to evidence,
-                a tested solution, a policy case, and change in the real world.
+                One community problem, followed from the first question to change
+                in the real world.
               </p>
-              <p className="journey__grouping">Ten stages, grouped into six moments.</p>
+              <p className="journey__grouping">Grouped into six moments.</p>
               <p className="journey__status">
                 <span>Framework status</span>
-                AfriYouth presents this as its proposed ten-stage methodology.
-                Delivery, cohorts and outcomes have not been independently
+                A proposed methodology. Delivery and outcomes are not independently
                 verified.
               </p>
             </div>

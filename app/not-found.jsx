@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { HiOutlineArrowUpRight } from "react-icons/hi2";
 
 const routes = [
   { href: "/", label: "Home" },
@@ -32,7 +33,9 @@ export default function NotFound() {
                 </div>
                 <nav className="page-hero__actions" aria-label="Ways back into the site">
                   <Link className="btn btn--gradient" href="/">
-                    Back to the homepage <span className="btn__icon" aria-hidden="true">↗</span>
+                    Back to the homepage <span className="btn__icon" aria-hidden="true">
+                    <HiOutlineArrowUpRight />
+                  </span>
                   </Link>
                   <Link className="btn btn--outline" href="/contact">
                     Start a conversation
@@ -78,7 +81,9 @@ export default function NotFound() {
             </div>
             <div className="cta-band__actions">
               <Link className="btn btn--primary" href="/contact">
-                Start a conversation <span className="btn__icon" aria-hidden="true">↗</span>
+                Start a conversation <span className="btn__icon" aria-hidden="true">
+                    <HiOutlineArrowUpRight />
+                  </span>
               </Link>
             </div>
           </div>

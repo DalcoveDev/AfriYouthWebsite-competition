@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { HiOutlineArrowUpRight } from "react-icons/hi2";
 
 export default function CtaBand({
   title = "Have a problem worth solving?",
@@ -17,7 +18,10 @@ export default function CtaBand({
         </div>
         <div className="cta-band__actions reveal">
           <Link className="btn btn--primary" href={primary.href}>
-            {primary.label} <span className="btn__icon" aria-hidden="true">↗</span>
+            {primary.label}{" "}
+            <span className="btn__icon" aria-hidden="true">
+              <HiOutlineArrowUpRight />
+            </span>
           </Link>
           {secondary && (
             <Link className="btn btn--outline" href={secondary.href}>

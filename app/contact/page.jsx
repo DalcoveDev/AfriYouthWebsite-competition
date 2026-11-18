@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { HiOutlineArrowUpRight } from "react-icons/hi2";
 import { createMetadata } from "@/lib/metadata";
 import { brand } from "@/lib/content";
 import "@/styles/hub.css";
@@ -178,7 +179,9 @@ export default function ContactPage() {
               <div className="form-submit">
                 <button className="btn btn--primary" type="submit">
                   Send message
-                  <span className="btn__icon" aria-hidden="true">↗</span>
+                  <span className="btn__icon" aria-hidden="true">
+                    <HiOutlineArrowUpRight />
+                  </span>
                 </button>
                 <p className="form-privacy">
                   This opens your email app with the message ready to send. Prefer
